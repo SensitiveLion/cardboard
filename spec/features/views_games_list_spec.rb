@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-
-
 feature 'views games' do
   let(:game) { FactoryGirl.create(:game) }
 
