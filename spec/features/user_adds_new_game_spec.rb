@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 feature 'user adds new game' do
-
   scenario 'user adds new game' do
     sign_up
-
     visit "/games/new"
     fill_in 'name', with: 'wowgame'
     fill_in 'description', with: 'this game is great'
@@ -19,7 +17,6 @@ feature 'user adds new game' do
   end
 
   scenario 'visitor can not add a new game' do
-
     visit "/games/new"
     fill_in 'name', with: 'wowgame'
     fill_in 'description', with: 'this game is great'
@@ -36,7 +33,6 @@ end
 
 def sign_up
   visit new_user_registration_path
-
   fill_in 'email', with: 'john@example.com'
   fill_in 'password', with: 'password'
   fill_in 'password confirmation', with: 'password'
