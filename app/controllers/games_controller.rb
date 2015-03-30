@@ -15,11 +15,11 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
-      flash[:notice] = 'You have added a new game!'
+      flash[:notice] = 'you have added a new game!'
       redirect_to @game
     else
       @game.errors.full_messages.each do |error|
-        flash[:notice] = error
+      flash[:notice] = error
       end
       render :new
     end
@@ -36,7 +36,7 @@ class GamesController < ApplicationController
       redirect_to @game
     else
       @game.errors.full_messages.each do |error|
-        flash[:notice] = "game not added"
+        flash[:notice] = error
       end
       render :edit
     end

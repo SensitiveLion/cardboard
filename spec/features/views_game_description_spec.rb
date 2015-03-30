@@ -2,7 +2,6 @@ require 'rails_helper'
 
   feature 'user views the details of a game' do
     let(:game) { FactoryGirl.create(:game) }
-    let(:game1) { FactoryGirl.create(:game1) }
 
     scenario 'user views game details' do
       sign_up
