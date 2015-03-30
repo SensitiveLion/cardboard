@@ -1,6 +1,6 @@
 <h1>cardboard<h1>
 <h3>for all your corrugated needs</h3>
-
+<%= link_to "Submit a New Game", new_game_path %>
 <ol>
   <% @games.each do |game| %>
     <li><%= link_to game.name, game_path(game) %></li>

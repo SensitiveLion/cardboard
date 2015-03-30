@@ -1,0 +1,24 @@
+<h1>enter the game information</h1>
+<%= form_for @game do |f| %>
+  <%= f.label :name, "name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :min_players, "minimum players" %>
+  <%= f.number_field :min_players %>
+
+  <%= f.label :max_players, "maximum players" %>
+  <%= f.number_field :max_players %>
+
+  <%= f.label :playing_time, "playing time (minutes)" %>
+  <%= f.number_field :playing_time %>
+
+  <%= f.label :complexity, "complexity" %>
+  <%= f.select :complexity, options_for_select(
+    [['low',1],['medium',2],['high',3],['extreme',4]]
+  ) %>
+
+  <%= f.label :description, "description" %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "submit game" %>
+<% end %>
