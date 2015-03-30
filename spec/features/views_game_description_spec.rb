@@ -45,16 +45,16 @@ require 'rails_helper'
     end
   end
 
+  def sign_up
+    visit new_user_registration_path
 
-def sign_up
-  visit new_user_registration_path
+    fill_in 'email', with: 'john@example.com'
+    fill_in 'password', with: 'password'
+    fill_in 'confirmation', with: 'password'
+    fill_in 'username', with: 'im a user'
 
-  fill_in 'Email', with: 'john@example.com'
-  fill_in 'Password', with: 'password'
-  fill_in 'Password confirmation', with: 'password'
+    click_button 'Sign up'
 
-  click_button 'Sign up'
-
-  expect(page).to have_content('Welcome! You have signed up successfully.')
-  expect(page).to have_content('Sign Out')
-end
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Sign Out')
+  end

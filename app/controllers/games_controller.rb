@@ -16,7 +16,7 @@ class GamesController < ApplicationController
   def create
   @game = game.new(game_params)
     if @game.save
-      flash[:notice] = 'You have added a new game!'
+      flash[:notice] = 'you have added a new game!'
       redirect_to @game
     else
       flash[:alert] = "game not added!"

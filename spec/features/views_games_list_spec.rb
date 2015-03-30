@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 
-feature 'user views restaurants' do
+feature 'user views games' do
   let(:game) { FactoryGirl.create(:game) }
   let(:game1) { FactoryGirl.create(:game1) }
 
@@ -29,9 +29,10 @@ end
 def sign_up
   visit new_user_registration_path
 
-  fill_in 'Email', with: 'john@example.com'
-  fill_in 'Password', with: 'password'
-  fill_in 'Password confirmation', with: 'password'
+  fill_in 'email', with: 'john@example.com'
+  fill_in 'password', with: 'password'
+  fill_in 'confirmation', with: 'password'
+  fill_in 'username', with: 'im a user'
 
   click_button 'Sign up'
 

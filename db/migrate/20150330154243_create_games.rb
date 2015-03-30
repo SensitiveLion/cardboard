@@ -1,7 +1,7 @@
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|
-      t.string :title, null: false
+      t.string :name, null: false
       t.text :description, null: false
       t.integer :min_players, null: false
       t.integer :max_players, null: false
@@ -13,6 +13,6 @@ class CreateGames < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :games, :title, unique: true
+    add_index :games, :name, unique: true
   end
 end
