@@ -24,9 +24,6 @@ class GamesController < ApplicationController
       flash[:notice] = 'You have added a new game!'
       redirect_to @game
     else
-      @game.errors.full_messages.each do |error|
-        flash[:notice] = error
-      end
       render :new
     end
   end
@@ -42,9 +39,6 @@ class GamesController < ApplicationController
       flash[:notice] = 'you have successfully edited the game!'
       redirect_to @game
     else
-      @game.errors.full_messages.each do |error|
-        flash[:notice] = error
-      end
       render :new
     end
   end

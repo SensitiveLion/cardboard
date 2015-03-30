@@ -1,3 +1,11 @@
+<%- if @game.errors.present? -%>
+  <%- @game.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
 <h1>enter the game information</h1>
 <%= form_for @game do |f| %>
   <%= f.label :name, "name" %>
