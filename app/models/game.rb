@@ -1,10 +1,10 @@
 class Game < ActiveRecord::Base
 
-  validates_presence_of :name, uniqueness: true
-  validates_presence_of :description
-  validates_presence_of :min_players
-  validates_presence_of :max_players
-  validates_presence_of :playing_time
-  validates_presence_of :complexity
+  validates :name, presence: true, uniqueness: true
+  validates :description, presence: true
+  validates :min_players, presence: true
+  validates :max_players, presence: true
+  validates :playing_time, presence: true
+  validates :complexity, presence: true
 
 end

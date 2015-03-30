@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150330180835) do
   add_index "games", ["name"], name: "index_games_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
+    t.string   "username",                            null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "avatar_url"
@@ -54,5 +55,6 @@ ActiveRecord::Schema.define(version: 20150330180835) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
