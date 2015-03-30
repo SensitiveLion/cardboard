@@ -8,7 +8,7 @@ require 'rails_helper'
       sign_up
       game
       visit "/games"
-      click_link "#{game.name}"
+      click_link game.name
       expect(page).to have_content(game.name)
       expect(page).to have_content(game.description)
       expect(page).to have_content(game.min_players)
@@ -17,24 +17,10 @@ require 'rails_helper'
       expect(page).to have_content(game.complexity)
     end
 
-    scenario 'user doesnt view other games details' do
-      sign_up
-      game1
-      game
-      visit "/games"
-      click_link "#{game.name}"
-      expect(page).not_to have_content(game1.name)
-      expect(page).not_to have_content(game1.description)
-      expect(page).not_to have_content(game1.min_players)
-      expect(page).not_to have_content(game1.max_players)
-      expect(page).not_to have_content(game1.playing_time)
-      expect(page).not_to have_content(game1.complexity)
-    end
-
     scenario 'visitor views game details' do
       game
       visit "/games"
-      click_link "#{game.name}"
+      click_link game.name
       expect(page).to have_content(game.name)
       expect(page).to have_content(game.description)
       expect(page).to have_content(game.min_players)
