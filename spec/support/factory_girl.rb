@@ -2,6 +2,7 @@ require 'factory_girl'
 
 FactoryGirl.define do
   factory :game do
+    user_id 4
     sequence(:name) { |n| "This is a game #{n}" }
     sequence(:description) { |n| "Description #{n}" }
     min_players 1
