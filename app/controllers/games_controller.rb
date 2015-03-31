@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, except: [ :show, :index ]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @games = Game.all
@@ -40,7 +40,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game = Game.find_by(user: current_user, id: params[:id])
-    if @game != nil
+    if !@game.nil?
       @games = Game.destroy(params[:id])
       flash[:notice] = 'Game deleted.'
       redirect_to action: "index"

@@ -10,7 +10,7 @@ feature 'user adds new reviews' do
     fill_in 'minimum players', with: 2
     fill_in 'maximum players', with: 8
     fill_in 'playing time (min)', with: 50
-    select "medium", :from => "complexity"
+    select "medium", from: "complexity"
     click_button "add game"
 
     expect(page).to have_content('you have added a new game')
