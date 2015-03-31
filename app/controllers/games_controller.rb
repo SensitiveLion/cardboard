@@ -9,7 +9,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @reviews = @game.reviews.order(:created_at)
   end
 
   def new
