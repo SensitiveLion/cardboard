@@ -5,7 +5,6 @@ feature 'user can edit games' do
   let(:game) { FactoryGirl.create(:game) }
   let(:user) { FactoryGirl.create(:user) }
 
-
   scenario 'users can edit any game' do
     sign_in_as(user)
     visit game_path(game)
