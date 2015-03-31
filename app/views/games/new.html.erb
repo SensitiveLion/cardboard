@@ -28,5 +28,7 @@
   <%= f.label :description, "description" %>
   <%= f.text_area :description %>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <%= f.submit "add game" %>
 <% end %>
