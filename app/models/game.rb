@@ -13,7 +13,7 @@ class Game < ActiveRecord::Base
   validates :min_players, numericality: {
     less_than_or_equal_to: :max_players, message:
     "must be less than or equal to max players!"
-    }
+  }
   validates :max_players, presence: true
   validates :playing_time, presence: true
   validates :complexity, presence: true

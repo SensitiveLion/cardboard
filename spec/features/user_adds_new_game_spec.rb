@@ -18,7 +18,9 @@ feature 'user adds new game' do
 
   scenario 'visitors cannot add a new game' do
     visit "/games/new"
-    expect(page).to have_content('You need to sign in or sign up before continuing.')
+    expect(page).to have_content(
+      'You need to sign in or sign up before continuing.'
+    )
   end
 
   scenario "game details can't be blank" do
