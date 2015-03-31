@@ -10,8 +10,8 @@
   <%- @reviews.each do |review| -%>
     <li>
       <%= (User.find(review.user_id)).username %> says <%= review.body %>
-      <%= review.updated_at %>
-
+      <%= review.updated_at %><%= review.created_at %>
+      <%= button_to "edit review", edit_game_review_path(@game, review), method: "get" %>
     </li>
   <% end %>
 </ul>
