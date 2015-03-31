@@ -5,7 +5,7 @@ require 'rails_helper'
 
     scenario 'visitor views game details' do
       game
-      visit "/games"
+      visit games_path
       click_link game.name
       expect(page).to have_content(game.name)
       expect(page).to have_content(game.description)

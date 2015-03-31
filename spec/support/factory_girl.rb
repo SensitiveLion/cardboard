@@ -1,8 +1,15 @@
 require 'factory_girl'
 
 FactoryGirl.define do
+  factory :user do
+    sequence(:username) {|n| "user#{n}"}
+    sequence(:email) {|n| "user#{n}@example.com" }
+    password 'password'
+    password_confirmation 'password'
+  end
+FactoryGirl.define do
   factory :game do
-    user_id 4
+    user
     sequence(:name) { |n| "This is a game #{n}" }
     sequence(:description) { |n| "Description #{n}" }
     min_players 1
@@ -12,12 +19,4 @@ FactoryGirl.define do
     end
   end
 
-FactoryGirl.define do
-  factory :user do
-    id 4
-    sequence(:username) {|n| "user#{n}"}
-    sequence(:email) {|n| "user#{n}@example.com" }
-    password 'password'
-    password_confirmation 'password'
-  end
 end
