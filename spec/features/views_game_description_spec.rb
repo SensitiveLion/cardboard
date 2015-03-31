@@ -14,4 +14,3 @@ feature 'site visitor views the details of a game' do
       expect(page).to have_content(game.complexity)
     end
   end
-end

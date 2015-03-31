@@ -9,5 +9,3 @@ feature 'views games' do
     expect(page).to have_content(game.name)
   end
 end
-
-
