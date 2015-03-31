@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'user adds new game' do
   scenario 'user adds new game' do
     sign_up
-    visit new_game_path
+    visit new_games_path
     fill_in 'name', with: 'wowgame'
     fill_in 'description', with: 'this game is great'
     fill_in 'minimum players', with: 2
@@ -17,7 +17,7 @@ feature 'user adds new game' do
   end
 
   scenario 'visitors cannot add a new game' do
-    visit new_game_path
+    visit new_games_path
     expect(page).to have_content(
       'You need to sign in or sign up before continuing.'
     )
