@@ -7,6 +7,7 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+end
 FactoryGirl.define do
   factory :game do
     user
@@ -16,7 +17,5 @@ FactoryGirl.define do
     max_players 4
     playing_time "20 min"
     complexity "Low"
-    end
   end
-
 end
