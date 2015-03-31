@@ -7,7 +7,7 @@
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
 <ul>
-  <%- @reviews.each do |review| -%>
+  <% @game.reviews.each do |review| %>
     <li>
       <%= (User.find(review.user_id)).username %> says <%= review.body %>
       <%= review.updated_at %><%= review.created_at %>

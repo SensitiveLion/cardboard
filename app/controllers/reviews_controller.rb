@@ -12,8 +12,9 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:notice] = "review submitted."
-      redirect_to "/games/#{@game.id}"
+      redirect_to game_path(@game)
     else
+      flash[:notice] = "failed to submit"
       render :new
     end
   end
@@ -28,15 +29,17 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     if @review.update(review_params)
       flash[:notice] = "you have successfully edited the review!"
-      redirect_to "/games/#{@game.id}"
+      redirect_to game_path(@game)
     else
+      flash[:notice] = "failed to update review"
       render :edit
     end
   end
 
   def destroy
+    @game = Game.find(params[:game_id])
     Review.destroy(params[:id])
-    redirect_to "/games/#{params[:game_id]}"
+    redirect_to game_path(@game)
   end
 
   private
