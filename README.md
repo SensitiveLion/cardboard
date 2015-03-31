@@ -1,1 +1,1 @@
-# cardboard
+[![Build Status](https://travis-ci.org/SensitiveLion/cardboard.svg?branch=master)](https://travis-ci.org/SensitiveLion/cardboard) [![Code Climate](https://codeclimate.com/github/SensitiveLion/cardboard.png)](https://codeclimate.com/github/SensitiveLion/cardboard) [![Coverage Status](https://coveralls.io/repos/SensitiveLion/cardboard/badge.png)](https://coveralls.io/r/SensitiveLion/cardboard)
