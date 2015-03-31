@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 feature 'user can edit games' do
   let(:game) { FactoryGirl.create(:game) }
 
@@ -14,7 +13,7 @@ feature 'user can edit games' do
     fill_in 'minimum players', with: 2
     fill_in 'maximum players', with: 8
     fill_in 'playing time (min)', with: 50
-    select 'medium', :from => "complexity"
+    select 'medium', from: "complexity"
     click_button "edit game"
     expect(page).to have_content('wowgame')
     expect(page).to have_content("this game is great")

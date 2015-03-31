@@ -10,7 +10,7 @@ feature 'only admin or users can delete a game' do
     fill_in 'minimum players', with: 2
     fill_in 'maximum players', with: 8
     fill_in 'playing time (min)', with: 50
-    select "medium", :from => "complexity"
+    select "medium", from: "complexity"
     click_button "add game"
     click_link "edit game"
     click_button "delete this game"
