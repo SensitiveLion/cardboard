@@ -16,7 +16,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
-      flash[:notice] = 'you have added a new game!'
+      flash[:notice] = "you have added a new game!"
       redirect_to @game
     else
       render :new
@@ -30,7 +30,7 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
     if @game.update(game_params)
-      flash[:notice] = 'you have successfully edited the game!'
+      flash[:notice] = "you have successfully edited the game!"
       redirect_to @game
     else
       render :edit

@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
-
   belongs_to :game
+
   validates :user_id, presence: true
   validates :body, presence: true
   validates :game_rating, numericality: {

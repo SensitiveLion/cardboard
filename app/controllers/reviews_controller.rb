@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   def new
     @game = Game.find(params[:game_id])
     @review = Review.new
@@ -28,7 +27,7 @@ class ReviewsController < ApplicationController
     @game = Game.find(params[:game_id])
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      flash[:notice] = 'you have successfully edited the review!'
+      flash[:notice] = "you have successfully edited the review!"
       redirect_to "/games/#{@game.id}"
     else
       render :edit
@@ -41,6 +40,7 @@ class ReviewsController < ApplicationController
   end
 
   private
+
   def review_params
     params.require(:review).permit(:body, :game_rating)
   end
