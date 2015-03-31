@@ -10,7 +10,7 @@ class Game < ActiveRecord::Base
   }
 
   validates :name, presence: true, uniqueness: true
-  validates :user_id, presence: true
+  validates :user, presence: true
   validates :description, presence: true
   validates :min_players, presence: true
   validates :min_players, numericality: {
