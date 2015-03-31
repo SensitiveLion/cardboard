@@ -1,12 +1,13 @@
 require 'rails_helper'
+require 'helpers'
 
 feature 'user can edit games' do
   let(:game) { FactoryGirl.create(:game) }
+  let(:user) { FactoryGirl.create(:user) }
 
   scenario 'users can edit any game' do
-    sign_up
-    game
-    visit "/games/#{game.id}"
+    sign_in_as(user)
+    visit game_path(game)
     click_link "edit game"
     fill_in 'name', with: 'wowgame'
     fill_in 'description', with: 'this game is great'
@@ -25,24 +26,10 @@ feature 'user can edit games' do
   let(:game) { FactoryGirl.create(:game) }
 
   scenario 'visitors can not edit any game' do
-    game
-    visit "/games/#{game.id}"
+    visit game_path(game)
     click_link "edit game"
     expect(page).to have_content(
       'You need to sign in or sign up before continuing.'
     )
   end
-end
-
-def sign_up
-  visit new_user_registration_path
-  fill_in 'email', with: 'john@example.com'
-  fill_in 'password', with: 'password'
-  fill_in 'confirmation', with: 'password'
-  fill_in 'username', with: 'im a user'
-
-  click_button 'Sign up'
-
-  expect(page).to have_content('Welcome! You have signed up successfully.')
-  expect(page).to have_content('Sign Out')
 end

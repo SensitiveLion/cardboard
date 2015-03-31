@@ -1,7 +1,7 @@
 
 if Rails.env.development?
-  User.find_or_create_by(
-    id: 1, username: "hi",
+  user = User.find_or_create_by!(
+    username: "hi",
     first_name: "kayla",
     age: "25",
     location: "boston",
@@ -10,8 +10,8 @@ if Rails.env.development?
     encrypted_password: "password"
   )
 
-  Game.find_or_create_by(
-    user_id: 1,
+  Game.find_or_create_by!(
+    user: user,
     name: "its a game",
     description: "for srs. totlly a game",
     min_players: 1,
