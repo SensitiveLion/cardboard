@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+  before_action :authenticate_user!, only: [
+    :new, :create, :edit, :update, :destroy
+    ]
 
   def index
     @games = Game.all
@@ -37,14 +40,22 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    Game.destroy(params[:id])
-    redirect_to "/games"
+    if Game.find(params[:id])
+      @game = Game.find(params[:id])
+      if current_user.id == @game.user_id
+        @games = Game.destroy(params[:id])
+        flash[:notice] = 'Game deleted.'
+        redirect_to action: "index"
+      else flash[:notice] = "you can not delete other user's games"
+        render :edit
+      end
+    end
   end
 
   protected
 
   def game_params
     params.require(:game).permit(:name, :description, :min_players, :max_players,
-     :playing_time, :complexity )
+     :playing_time, :complexity, :user_id )
   end
 end

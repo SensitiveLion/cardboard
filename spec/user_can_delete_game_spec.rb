@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-feature 'user adds new game' do
-  scenario 'user adds new game' do
+feature 'only admin or users can delete a game' do
+  let(:game) { FactoryGirl.create(:game) }
+  scenario 'user can delete game' do
     sign_up
-    visit "/games/new"
+    visit new_game_path
     fill_in 'name', with: 'wowgame'
     fill_in 'description', with: 'this game is great'
     fill_in 'minimum players', with: 2
@@ -11,21 +12,9 @@ feature 'user adds new game' do
     fill_in 'playing time (min)', with: 50
     select "medium", :from => "complexity"
     click_button "add game"
-
-    expect(page).to have_content('you have added a new game')
-    expect(page).to have_content("wowgame")
-  end
-
-  scenario 'visitors cannot add a new game' do
-    visit "/games/new"
-    expect(page).to have_content('You need to sign in or sign up before continuing.')
-  end
-
-  scenario "game details can't be blank" do
-    sign_up
-    visit "/games/new"
-    click_button "add game"
-    expect(page).to have_content("Playing time can't be blank")
+    click_link "edit game"
+    click_button "delete this game"
+    expect(page).to have_content("Game deleted.")
   end
 end
 
