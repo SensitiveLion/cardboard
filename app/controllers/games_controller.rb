@@ -1,7 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: [
-    :new, :create, :edit, :update, :destroy
-  ]
+  before_action :authenticate_user!, except: [ :show, :index ]
 
   def index
     @games = Game.all
@@ -17,6 +15,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.user = current_user
     if @game.save
       flash[:notice] = 'you have added a new game!'
       redirect_to @game
@@ -40,16 +39,15 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    if Game.find(params[:id])
-      @game = Game.find(params[:id])
-      if current_user.id == @game.user_id
-        @games = Game.destroy(params[:id])
-        flash[:notice] = 'Game deleted.'
-        redirect_to action: "index"
-      else
-        flash[:notice] = "you can not delete other user's games"
-        render :edit
-      end
+    @game = Game.find_by(user: current_user, id: params[:id])
+    if @game != nil
+      @games = Game.destroy(params[:id])
+      flash[:notice] = 'Game deleted.'
+      redirect_to action: "index"
+    else
+      flash[:notice] = "you can not delete other user's games"
+      @game = Game.find_by(id: params[:id])
+      render :edit
     end
   end
 
@@ -58,7 +56,7 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(
       :name, :description, :min_players, :max_players,
-      :playing_time, :complexity, :user_id
+      :playing_time, :complexity
     )
   end
 end

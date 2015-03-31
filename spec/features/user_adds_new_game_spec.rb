@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'user adds new game' do
   scenario 'user adds new game' do
     sign_up
-    visit "/games/new"
+    visit new_game_path
     fill_in 'name', with: 'wowgame'
     fill_in 'description', with: 'this game is great'
     fill_in 'minimum players', with: 2

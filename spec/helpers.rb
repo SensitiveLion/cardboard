@@ -16,3 +16,7 @@ def sign_in_as(user)
   fill_in 'password', with: user.password
   click_button "Log in"
 end
+
+def create_game(user)
+  FactoryGirl.create(:game, user: user)
+end
