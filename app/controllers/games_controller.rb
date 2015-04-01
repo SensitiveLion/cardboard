@@ -34,6 +34,7 @@ class GamesController < ApplicationController
       flash[:notice] = "you have successfully edited the game!"
       redirect_to @game
     else
+      flash[:notice] = "failed to update game"
       render :edit
     end
   end
