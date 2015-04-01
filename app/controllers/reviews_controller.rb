@@ -5,10 +5,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @game = Game.find(params[:game_id])
     @review = Review.new(review_params)
-    @review.user_id = current_user.id
-    @review.game_id = params[:game_id]
+    @review.game = @game
+    @review.user = current_user
 
     if @review.save
       flash[:notice] = "review submitted."
@@ -24,8 +23,8 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @game = Game.find(params[:game_id])
     @review = Review.find(params[:id])
+    @game = @review.game
     if @review.update(review_params)
       flash[:notice] = "you have successfully edited the review!"
       redirect_to game_path(@game)
@@ -36,9 +35,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @game = Game.find(params[:game_id])
-    Review.destroy(params[:id])
-    redirect_to game_path(@game)
+    review = current_user.reviews.find(params[:id])
+    review.destroy
+    redirect_to review.game
   end
 
   private
