@@ -20,7 +20,6 @@ feature 'user can delete their profile' do
     click_link(user.username)
     fill_in 'current password', with: user.password
     click_button "cancel my account"
-    save_and_open_page
     expect(page).to have_content("Sign In")
   end
 end
