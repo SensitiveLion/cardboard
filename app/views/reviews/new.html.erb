@@ -1,0 +1,20 @@
+<%- if @review.errors.present? -%>
+  <%- @review.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>enter the review information</h1>
+<%= form_for [@game, @review] do |f| %>
+
+  <%= f.label :body, "your review" %>
+  <%= f.text_area :body %>
+
+  <%= f.label :game_rating, "rating" %>
+  <%= f.select :game_rating, options_for_select((1..10).to_a, @review.game_rating) %>
+
+  <%= f.submit "add review" %>
+<% end %>
+<%= button_to "cancel", game_path(@game), method: "get" %>

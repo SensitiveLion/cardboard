@@ -5,7 +5,7 @@ feature 'views games' do
 
   scenario 'visitor sees game list' do
     game
-    visit '/games'
+    visit games_path
     expect(page).to have_content(game.name)
   end
 end
