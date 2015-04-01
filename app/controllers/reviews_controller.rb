@@ -2,13 +2,13 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @game = Game.find(params[:game_id])
+    @game = game_by_id
     @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
-    @game = Game.find(params[:game_id])
+    @game = game_by_id
     @review.game = @game
     @review.user = current_user
 
@@ -51,5 +51,9 @@ class ReviewsController < ApplicationController
 
   def user_review
     current_user.reviews.find(params[:id])
+  end
+
+  def game_by_id
+    Game.find(params[:game_id])
   end
 end

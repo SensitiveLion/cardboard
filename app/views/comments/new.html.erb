@@ -1,0 +1,17 @@
+<%- if @comment.errors.present? -%>
+  <%- @comment.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>enter the comment information</h1>
+<%= form_for [@review, @comment] do |f| %>
+
+  <%= f.label :body, "your comment" %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "add comment" %>
+<% end %>
+<%= button_to "cancel", review_path(@review), method: "get" %>

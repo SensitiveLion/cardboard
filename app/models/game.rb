@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
-  has_many :reviews
+  has_many :reviews, dependent: :delete_all
+  has_many :comments, through: :reviews
   belongs_to :user
 
   COMPLEXITIES = {
