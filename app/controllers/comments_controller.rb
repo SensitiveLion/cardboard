@@ -53,15 +53,19 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:body)
   end
+
   def review_by_id
     Review.find(params[:review_id])
   end
+
   def user_comment
     current_user.comments.find(params[:id])
   end
+
   def game_by_id
     Game.find(params[:game_id])
   end
+
   def game_by_comment
     Game.find(Review.find(@comment.review_id).game_id)
   end

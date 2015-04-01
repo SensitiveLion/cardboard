@@ -19,3 +19,19 @@ FactoryGirl.define do
     complexity "Low"
   end
 end
+
+FactoryGirl.define do
+  factory :review do
+    game
+    body "this is a review"
+    user
+  end
+end
+
+FactoryGirl.define do
+  factory :comment do
+    review
+    body "its a comment@!"
+    user
+  end
+end

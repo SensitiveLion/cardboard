@@ -17,7 +17,7 @@ feature 'user can add comments to reviews' do
   scenario 'visitor cannot add comments' do
     visit new_game_review_path(game)
     expect(page).to have_content(
-    "You need to sign in or sign up before continuing."
+      "You need to sign in or sign up before continuing."
     )
   end
 end
