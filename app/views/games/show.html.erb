@@ -1,6 +1,17 @@
 <h1><%= @game.name %></h1>
 <p>Players: <%= @game.min_players %> to <%= @game.max_players %></p>
 <p>Playing time: <%= @game.playing_time %></p>
-<p>Complexity: <%= @game.complexity %></p>
+<p>Complexity: <%= @game.complexity_name %></p>
 <p><%= @game.description %></p>
 <%= link_to "edit game", edit_game_path(@game) %>
+<h2>what the gamers say</h2>
+<p><%= link_to "review this game", new_game_review_path(@game) %></p>
+<ul>
+  <% @game.reviews.each do |review| %>
+    <li>
+      <%= (User.find(review.user_id)).username %> says <%= review.body %>
+      <%= review.updated_at %><%= review.created_at %>
+      <%= button_to "edit review", edit_review_path(review), method: "get" %>
+    </li>
+  <% end %>
+</ul>
