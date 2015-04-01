@@ -10,7 +10,9 @@ feature 'user can edit reviews' do
     review(game)
     click_button "edit review"
     fill_in "your review", with: "something completely different"
+    click_button "edit review"
     expect(page).to have_content("something completely different")
+    expect(page).to have_content("you have successfully edited the review!")
   end
 
   scenario 'users can delete their reviews' do
