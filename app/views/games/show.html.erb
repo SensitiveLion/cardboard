@@ -1,18 +1,33 @@
 <h1><%= @game.name %></h1>
-<div><%= image_tag(@game.photo_url, size:"300") %></div>
-<p>Players: <%= @game.min_players %> to <%= @game.max_players %></p>
-<p>Playing time: <%= @game.playing_time %></p>
-<p>Complexity: <%= @game.complexity_name %></p>
-<p><%= @game.description %></p>
+<div class="row">
+  <ul class="large-block-grid-3">
+
+    <li>
+      <ul>
+        <li><h4>Players: <%= @game.min_players %> to <%= @game.max_players %></h4></li>
+        <li><h4>Playing time: <%= @game.playing_time %> min</h4></li>
+        <li><h4>Complexity: <%= @game.complexity_name %></h4></p>
+        <li>
+        <h4>Description</h4>
+        <%= @game.description %>
+        </li>
+      </ul>
+    </li>
+    <li><%= image_tag(@game.photo_url, size:"300") %></li>
+  </ul>
+<div></div>
+
+
 <%= link_to "edit game", edit_game_path(@game) %>
 <h2>what the gamers say</h2>
+
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
-<ul>
-  <% @game.reviews.each do |review| %>
-    <li>
-      <%= (User.find(review.user_id)).username %> says <%= review.body %>
-      <%= review.updated_at %><%= review.created_at %>
-      <%= button_to "edit review", edit_review_path(review), method: "get" %>
-    </li>
-  <% end %>
-</ul>
+
+<% @game.reviews.each do |review| %>
+  <h4> <%= (User.find(review.user_id)).username %> says</h4>
+  <h5><%= review.body %><h5></li>
+  <p class="small">edited at: <%= review.updated_at %></p>
+  <p class="small">created at: <%= review.created_at %></p>
+  <%= button_to "edit review", edit_review_path(review), method: "get" %>
+<% end %>
+
