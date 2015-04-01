@@ -21,4 +21,7 @@ class Game < ActiveRecord::Base
   validates :playing_time, presence: true
   validates :complexity, presence: true
 
+  def complexity_name
+    COMPLEXITIES[complexity]
+  end
 end

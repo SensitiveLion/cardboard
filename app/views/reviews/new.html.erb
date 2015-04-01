@@ -7,7 +7,7 @@
 <% end %>
 
 <h1>enter the review information</h1>
-<%= form_for [@game, @review] do |f| %>
+<%= form_for  [@game, @review] do |f| %>
 
   <%= f.label :body, "your review" %>
   <%= f.text_area :body %>
