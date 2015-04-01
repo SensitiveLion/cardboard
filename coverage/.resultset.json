@@ -219,10 +219,6 @@
         1,
         4,
         null,
-        null,
-        1,
-        12,
-        null,
         null
       ],
       "/Users/Kayla/Documents/cardboard/app/models/comment.rb": [
@@ -293,23 +289,11 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
+        6,
         null,
         null
       ]
     },
-    "timestamp": 1427919404
+    "timestamp": 1427921054
   }
 }

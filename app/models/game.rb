@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  has_many :reviews, dependent: :delete_all
+  has_many :reviews, dependent: :destroy
   has_many :comments, through: :reviews
   belongs_to :user
 

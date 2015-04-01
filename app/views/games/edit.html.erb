@@ -1,5 +1,5 @@
-<%- if @game.errors.present? -%>
-  <%- @game.errors.full_messages.each do |error| -%>
+<% if @game.errors.present? %>
+  <% @game.errors.full_messages.each do |error| %>
     <ul>
       <li><%= error %></li>
     </ul>

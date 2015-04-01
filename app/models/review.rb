@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :game
   belongs_to :user
-  has_many :comments, dependent: :delete_all
+  has_many :comments, dependent: :destroy
 
   validates :user, presence: true
   validates :body, presence: true

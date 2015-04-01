@@ -33,3 +33,19 @@ def add_comment
   fill_in "your comment", with: "something something something"
   click_button "add comment"
 end
+
+def add_review
+  click_link "review this game"
+  fill_in "your review", with: "something something something"
+  click_button "add review"
+end
+
+def game_user
+  visit new_user_registration_path
+  fill_in 'email', with: 'john@example.com'
+  fill_in 'password', with: 'password'
+  fill_in 'confirmation', with: 'password'
+  fill_in 'username', with: 'im as user'
+
+  click_button 'Sign up'
+end

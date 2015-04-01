@@ -16,15 +16,3 @@ feature 'user can edit comments' do
     expect(page).to have_content("something something else")
   end
 end
-
-def add_review
-  click_link "review this game"
-  fill_in "your review", with: "something something something"
-  click_button "add review"
-end
-
-def add_comment
-  click_link "add comment"
-  fill_in "your comment", with: "something something something"
-  click_button "add comment"
-end

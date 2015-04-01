@@ -21,9 +21,3 @@ feature 'user can add comments to reviews' do
     )
   end
 end
-
-def add_review
-  click_link "review this game"
-  fill_in "your review", with: "something something something"
-  click_button "add review"
-end

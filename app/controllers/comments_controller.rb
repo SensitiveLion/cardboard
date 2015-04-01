@@ -2,14 +2,14 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @review = Review.find(params[:review_id])
+    @review = review_by_id
     @comment = Comment.new
-    @game = Game.find(Review.find(params[:review_id]).game_id)
+    @game = Game.find(@review.game_id)
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @review = Review.find(params[:review_id])
+    @review = review_by_id
     @comment.review = @review
     @comment.user = current_user
     if @comment.save
@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @game = Game.find(Review.find(@comment.review_id).game_id)
+    @game = Game.find(@comment.review.game_id)
     @comment.destroy
     flash[:notice] = "comment deleted"
     redirect_to game_path(@game)
@@ -56,17 +56,5 @@ class CommentsController < ApplicationController
 
   def review_by_id
     Review.find(params[:review_id])
-  end
-
-  def user_comment
-    current_user.comments.find(params[:id])
-  end
-
-  def game_by_id
-    Game.find(params[:game_id])
-  end
-
-  def game_by_comment
-    Game.find(Review.find(@comment.review_id).game_id)
   end
 end

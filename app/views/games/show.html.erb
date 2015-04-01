@@ -11,7 +11,7 @@
 <ul>
   <% @game.reviews.each do |review| %>
   <li>
-    <p><%= (User.find(review.user_id)).username %> says <%= review.body %></p>
+    <p><%= review.user.username %> says <%= review.body %></p>
     <p>created at: <%= review.updated_at %></p>
     <p><%= link_to "edit review", edit_review_path(review), method: "get" %> ||
     <%= link_to "add comment", new_review_comment_path(review) %></p>
