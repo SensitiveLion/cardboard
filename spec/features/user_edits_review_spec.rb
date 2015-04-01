@@ -8,7 +8,7 @@ feature 'user can edit reviews' do
   scenario 'users can edit their reviews' do
     sign_in_as(user)
     make_review_for_game(game)
-    click_button "edit review"
+    click_link "edit review"
     fill_in "your review", with: "something completely different"
     click_button "edit review"
     expect(page).to have_content("something completely different")
@@ -18,7 +18,7 @@ feature 'user can edit reviews' do
   scenario 'users can delete their reviews' do
     sign_in_as(user)
     make_review_for_game(game)
-    click_button "edit review"
+    click_link "edit review"
     click_button "delete this review"
     expect(page).not_to have_content("something something something")
   end
