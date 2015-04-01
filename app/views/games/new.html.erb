@@ -28,5 +28,8 @@
   <%= f.label :description, "description" %>
   <%= f.text_area :description %>
 
+  <%= image_tag(@game.photo_url) if @game.photo? %>
+  <%= f.file_field :photo %>
+
   <%= f.submit "add game" %>
 <% end %>

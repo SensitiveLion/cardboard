@@ -2,6 +2,8 @@ class Game < ActiveRecord::Base
   has_many :reviews
   belongs_to :user
 
+  mount_uploader :photo, GamePhotoUploader
+
   COMPLEXITIES = {
     1 => "low",
     2 => "medium",

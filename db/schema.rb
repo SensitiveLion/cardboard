@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331200713) do
+ActiveRecord::Schema.define(version: 20150401180003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150331200713) do
     t.integer  "playing_time"
     t.integer  "complexity"
     t.integer  "user_id",      null: false
+    t.string   "photo"
   end
 
   add_index "games", ["name"], name: "index_games_on_name", unique: true, using: :btree
@@ -46,7 +47,6 @@ ActiveRecord::Schema.define(version: 20150331200713) do
     t.string   "username",                            null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "avatar_url"
     t.string   "age"
     t.string   "location"
     t.string   "email",                  default: "", null: false
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150331200713) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

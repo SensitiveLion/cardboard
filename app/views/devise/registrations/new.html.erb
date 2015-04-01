@@ -48,8 +48,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :avatar_url, "avatar url" %><br />
-    <%= f.text_field :avatar_url  %>
+    <%= image_tag(@user.profile_photo_url) if @user.profile_photo? %>
+    <%= f.file_field :profile_photo %>
   </div>
 
   <div class="actions">

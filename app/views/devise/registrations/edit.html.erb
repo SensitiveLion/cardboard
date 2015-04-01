@@ -4,6 +4,11 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :username, "username" %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -20,6 +25,31 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name, "first name" %><br />
+    <%= f.text_field :first_name, value: @user.first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "last name" %><br />
+    <%= f.text_field :last_name, value: @user.last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age, "age" %><br />
+    <%= f.text_field :age, value: @user.age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location, "location" %><br />
+    <%= f.text_field :location, value: @user.location %>
+  </div>
+
+  <div class="field">
+    <%= image_tag(@user.profile_photo_url) if @user.profile_photo? %>
+    <%= f.file_field :profile_photo %>
   </div>
 
   <div class="field">
