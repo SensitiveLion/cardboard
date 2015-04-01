@@ -28,6 +28,9 @@
   <%= f.label :description, "description" %>
   <%= f.text_area :description %>
 
+  <%= image_tag(@game.photo_url) if @game.photo? %>
+  <%= f.file_field :photo %>
+
   <%= f.submit "edit game" %>
 <% end %>
 <%= button_to "delete this game", {action: "destroy", id: @game.id }, method: :delete, data: { confirm: "are you sure you want to delete this game?" } %>

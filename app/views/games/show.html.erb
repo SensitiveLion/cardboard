@@ -1,4 +1,6 @@
 <div class= "title"><h2><%= @game.name %></h2></div>
+<h1><%= @game.name %></h1>
+<div><%= image_tag(@game.photo_url, size:"300") %></div>
 <p>Players: <%= @game.min_players %> to <%= @game.max_players %></p>
 <p>Playing time: <%= @game.playing_time %></p>
 <p>Complexity: <%= @game.complexity_name %></p>

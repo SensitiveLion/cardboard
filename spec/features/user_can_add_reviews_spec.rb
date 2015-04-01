@@ -7,10 +7,7 @@ feature 'user can add new reviews' do
 
   scenario 'user can add reviews to any game' do
     sign_in_as(user)
-    visit game_path(game)
-    click_link "review this game"
-    fill_in "your review", with: "something something something"
-    click_button "add review"
+    make_review_for_game(game)
     expect(page).to have_content("review submitted.")
   end
 

@@ -21,7 +21,8 @@ def create_game(user)
   FactoryGirl.create(:game, user: user)
 end
 
-def add_review
+def make_review_for_game(game)
+  visit game_path(game)
   click_link "review this game"
   fill_in "your review", with: "something something something"
   click_button "add review"
