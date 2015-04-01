@@ -39,16 +39,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find_by(user: current_user, id: params[:id])
-    if !@game.nil?
-      @games = Game.destroy(params[:id])
-      flash[:notice] = 'Game deleted.'
-      redirect_to action: "index"
-    else
-      flash[:notice] = "you can not delete other user's games"
-      @game = Game.find_by(id: params[:id])
-      render :edit
-    end
+    @game = Game.find_by!(user: current_user, id: params[:id])
+    @game.destroy
+    Review.destroy_all(game_id: params[:id])
+    flash[:notice] = 'Game deleted.'
+    redirect_to action: "index"
   end
 
   protected

@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @game = Game.find(params[:game_id])
     @review = Review.new
@@ -6,6 +8,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @game = Game.find(params[:game_id])
     @review.game = @game
     @review.user = current_user
 
@@ -19,11 +22,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
+    @review = user_review
   end
 
   def update
-    @review = Review.find(params[:id])
+    @review = user_review
     @game = @review.game
     if @review.update(review_params)
       flash[:notice] = "you have successfully edited the review!"
@@ -35,7 +38,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review = current_user.reviews.find(params[:id])
+    @review = user_review
     review.destroy
     redirect_to review.game
   end
@@ -44,5 +47,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:body, :game_rating)
+  end
+
+  def user_review
+    current_user.reviews.find(params[:id])
   end
 end

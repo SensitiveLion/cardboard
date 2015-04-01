@@ -16,7 +16,7 @@ if Rails.env.development?
     description: "for srs. totlly a game",
     min_players: 1,
     max_players: 9001,
-    playing_time: "42 mins",
-    complexity: "low"
+    playing_time: 42,
+    complexity: 1
   )
 end
