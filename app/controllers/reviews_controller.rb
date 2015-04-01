@@ -39,8 +39,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = user_review
-    review.destroy
-    redirect_to review.game
+    @game = @review.game
+    @review.destroy
+    redirect_to game_path(@game)
   end
 
   private
