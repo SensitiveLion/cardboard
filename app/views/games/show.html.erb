@@ -1,5 +1,4 @@
 <div class= "title"><h2><%= @game.name %></h2></div>
-<h1><%= @game.name %></h1>
 <div><%= image_tag(@game.photo_url, size:"300") %></div>
 <p>Players: <%= @game.min_players %> to <%= @game.max_players %></p>
 <p>Playing time: <%= @game.playing_time %></p>
@@ -10,7 +9,9 @@
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
 <ul>
   <% @game.reviews.each do |review| %>
-  <li>
+    <div class="row">
+    <div class="span8">
+    <p><%= render partial: 'votes/voter', locals: { review: review } %><p>
     <p><%= review.user.username %> says <%= review.body %></p>
     <p>created at: <%= review.updated_at %></p>
     <p><%= link_to "edit review", edit_review_path(review), method: "get" %> ||
@@ -20,10 +21,11 @@
     <p>comments:</p>
     <% review.comments.each do |comment| %>
       <p><%= comment.body %></p>
-        <p><%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
-        <%= button_to "delete", comment, method: :delete %></p>
+          <% if current_user == comment.user %>
+          <p><%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
+          <%= link_to "delete", comment, method: :delete %></p>
+        <% end %>
       <% end %>
     <br>
   <% end %>
-  </li>
 </ul>

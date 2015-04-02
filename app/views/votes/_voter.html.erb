@@ -1,0 +1,5 @@
+<div>
+  <%= link_to raw("<i class='fi-arrow-up'></i>"), review_votes_path(review) %>
+  <div><strong><%= review.score %></strong></div>
+  <%= link_to raw("<i class='fi-arrow-down'></i>"), review_votes_path(review) %>
+</div>
