@@ -22,18 +22,16 @@
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
 
 <% @game.reviews.each do |review| %>
-  <div class="review">
+  <div class="panel">
     <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
       <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
-        <%= link_to "edit review", edit_review_path(review),
-       method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+        <%= link_to "edit review", edit_review_path(review), method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
       </p>
-    <div class="tab">
-      <p class="larger">comments:</p>
+    <div class="panel">
+      <h5>comments:</h5>
       <% review.comments.each do |comment| %>
-        <p><%= comment.user.username %> says:</p>
-        <p><%= comment.body %></p>
+        <p><%= comment.user.username %> says: <%= comment.body %></p>
         <p>
         <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
         <%= link_to "delete", comment, method: :delete %>
