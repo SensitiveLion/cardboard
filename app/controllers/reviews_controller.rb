@@ -51,6 +51,10 @@ class ReviewsController < ApplicationController
   end
 
   def user_review
-    current_user.reviews.find(params[:id])
+    if current_user.has_authority?
+      Review.find(params[:id])
+    else
+      current_user.reviews.find(params[:id])
+    end
   end
 end
