@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Kayla/Documents/cardboard/app/models/user.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/user.rb": [
         1,
         1,
         1,
@@ -13,7 +13,7 @@
         null,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/uploaders/profile_photo_uploader.rb": [
+      "/Users/Julius/challenges/cardboard/app/uploaders/profile_photo_uploader.rb": [
         null,
         null,
         1,
@@ -24,7 +24,7 @@
         null,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/controllers/application_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -48,7 +48,7 @@
         1,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/controllers/games_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/games_controller.rb": [
         1,
         1,
         null,
@@ -107,7 +107,7 @@
         null,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/models/game.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/game.rb": [
         1,
         1,
         1,
@@ -139,7 +139,7 @@
         null,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/uploaders/game_photo_uploader.rb": [
+      "/Users/Julius/challenges/cardboard/app/uploaders/game_photo_uploader.rb": [
         1,
         1,
         null,
@@ -148,7 +148,7 @@
         null,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/models/review.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/review.rb": [
         1,
         1,
         1,
@@ -165,7 +165,7 @@
         1,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/controllers/reviews_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/reviews_controller.rb": [
         1,
         1,
         null,
@@ -223,7 +223,7 @@
         null,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/models/comment.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/comment.rb": [
         1,
         1,
         1,
@@ -233,7 +233,7 @@
         1,
         null
       ],
-      "/Users/Kayla/Documents/cardboard/app/controllers/comments_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/comments_controller.rb": [
         1,
         1,
         null,
@@ -300,6 +300,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1427991028
+=======
+    "timestamp": 1427985868
+>>>>>>> beef86dfc14d75b8e6adecb0e1fcb73e1c53d5bc
   }
 }
