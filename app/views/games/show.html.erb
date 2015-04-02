@@ -23,8 +23,10 @@
 
 <% @game.reviews.each do |review| %>
 <div class="review">
-  <h4><%= render partial: 'votes/voter', locals: { review: review } %>
-  <%= review.user.username %> says</h4><p><%= review.body %></h4>
+  <span class= "inline">
+  <%= render partial: 'votes/voter', locals: { review: review } %>
+  <%= review.user.username %> says <p><%= review.body %></p>
+</span>
     <p class="smaller">created at: <%= review.updated_at %></p>
     <p>
       <%= link_to "edit review", edit_review_path(review),

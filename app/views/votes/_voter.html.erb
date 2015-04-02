@@ -1,5 +1,5 @@
-<div>
-  <%= link_to raw("<i class='fi-arrow-up'></i>"), review_upvotes_path(review) %>
+<div class="vote-arrows pull-left">
+  <div><%= link_to raw("<i class='fi-arrow-up'></i>"), review_upvotes_path(review), html_options = {method: "post"} %></div>
   <div><strong><%= review.vote_count %></strong></div>
-  <%= link_to raw("<i class='fi-arrow-down'></i>"), review_downvotes_path(review) %>
+  <div><%= link_to raw("<i class='fi-arrow-down'></i>"), review_downvotes_path(review), html_options = {method: "post"} %></div>
 </div>

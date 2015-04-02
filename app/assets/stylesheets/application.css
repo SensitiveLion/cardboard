@@ -35,3 +35,12 @@
     border-color: #858585;
     padding-left: 50px;
  }
+
+ .vote-arrows {
+  width: 40px;
+  text-align: center;
+}
+
+.inline {
+  display: inline;
+}
