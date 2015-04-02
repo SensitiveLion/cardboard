@@ -10,7 +10,7 @@ feature 'only posting user can delete a comment' do
     visit game_path(game)
     add_review
     add_comment
-    click_button "delete"
+    click_link "delete"
     expect(page).to have_content("comment deleted")
   end
 end

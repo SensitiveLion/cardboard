@@ -1,29 +1,45 @@
-<div class= "title"><h2><%= @game.name %></h2></div>
-<h1><%= @game.name %></h1>
-<div><%= image_tag(@game.photo_url, size:"300") %></div>
-<p>Players: <%= @game.min_players %> to <%= @game.max_players %></p>
-<p>Playing time: <%= @game.playing_time %></p>
-<p>Complexity: <%= @game.complexity_name %></p>
-<p><%= @game.description %></p>
-<%= link_to "edit game", edit_game_path(@game) %>
+<div class= "title">
+  <h1><%= @game.name %></h1>
+</div>
+<div class="row">
+<div class=""></div>
+<ul class="large-block-grid-2">
+  <li>
+    <ul>
+      <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
+      <li class="larger">playing time: <%= @game.playing_time %></li>
+      <li class="larger">complexity: <%= @game.complexity_name %></li>
+      <li>
+        <h4>description:</h4>
+        <%= @game.description %>
+      </li>
+    </ul>
+  </li>
+  <li><%= image_tag(@game.photo_url) %></li>
+  <%= link_to "edit game", edit_game_path(@game) %>
+</ul>
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
-<ul>
-  <% @game.reviews.each do |review| %>
-  <li>
-    <p><%= review.user.username %> says <%= review.body %></p>
-    <p>created at: <%= review.updated_at %></p>
-    <p><%= link_to "edit review", edit_review_path(review), method: "get" %> ||
-    <%= link_to "add comment", new_review_comment_path(review) %></p>
-    <br>
 
-    <p>comments:</p>
+<% @game.reviews.each do |review| %>
+<div class="review">
+  <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
+    <p class="smaller">created at: <%= review.updated_at %></p>
+    <p>
+      <%= link_to "edit review", edit_review_path(review),
+     method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+    </p>
+    <div/>
+  <div class="tab">
+    <p class="larger">comments:</p>
     <% review.comments.each do |comment| %>
+      <p><%= comment.user.username %> says:</p>
       <p><%= comment.body %></p>
-        <p><%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
-        <%= button_to "delete", comment, method: :delete %></p>
+      <p>
+      <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
+      <%= link_to "delete", comment, method: :delete %>
+      </p>
       <% end %>
-    <br>
-  <% end %>
-  </li>
-</ul>
+    </div>
+  </div>
+<% end %>
