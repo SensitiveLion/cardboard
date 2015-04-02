@@ -7,11 +7,8 @@
   <li>
     <ul>
       <li class="larger">Players: <%= @game.min_players %> to <%= @game.max_players %></li>
-      <br>
       <li class="larger">Playing time: <%= @game.playing_time %></li>
-      <br>
       <li class="larger">Complexity: <%= @game.complexity_name %></li>
-      <br>
       <li>
         <h4>Description:</h4>
         <%= @game.description %>
@@ -32,7 +29,7 @@
       <%= link_to "edit review", edit_review_path(review),
      method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
     </p>
-    <br>
+    <div/>
   <div class="tab">
     <p class="larger">comments:</p>
     <% review.comments.each do |comment| %>
