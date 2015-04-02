@@ -1,5 +1,7 @@
 language: ruby
 rvm:
-  - 2.1.5  # replace this with the ruby version you are using in development
+  - 2.1.5
 before_script:
   - psql -c 'create database cardboard_test;' -U postgres
+env:
+  - AWS_ACCESS_KEY_ID="AKIYOURKEYGOESHEREOA2VA" AWS_SECRET_ACCESS_KEY="0NtSREPLACEWITHYOURSECRETKEYjmYAHRGlVoyR"

@@ -13,10 +13,12 @@
         null
       ],
       "/Users/Julius/challenges/cardboard/app/uploaders/profile_photo_uploader.rb": [
-        null,
-        null,
         1,
         1,
+        0,
+        null,
+        1,
+        null,
         null,
         1,
         0,
@@ -141,6 +143,10 @@
       "/Users/Julius/challenges/cardboard/app/uploaders/game_photo_uploader.rb": [
         1,
         1,
+        0,
+        null,
+        1,
+        null,
         null,
         1,
         0,
@@ -294,6 +300,6 @@
         null
       ]
     },
-    "timestamp": 1427985868
+    "timestamp": 1427999924
   }
 }

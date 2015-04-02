@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :games do
     resources :reviews, only: [:index, :new, :create]
   end
-  resources :reviews, only: [:edit, :update, :destroy]
-  resources :reviews do
+  resources :reviews, only: [:edit, :update, :destroy] do
     resources :comments, only: [:index, :new, :create]
   end
   resources :comments, only: [:edit, :update, :destroy]
