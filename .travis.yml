@@ -1,9 +1,9 @@
 language: ruby
-env:
-  provider: s3,
-  aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
-  aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
 rvm:
   - 2.1.5
 before_script:
   - psql -c 'create database cardboard_test;' -U postgres
+env:
+  provider: s3
+  access_key_id: "AKIYOURKEYGOESHEREOA2VA"
+  secret_access_key: "0NtSREPLACEWITHYOURSECRETKEYjmYAHRGlVoyR"
