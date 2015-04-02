@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/macuser/challenges/cardboard/app/models/user.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/user.rb": [
         1,
         1,
         1,
@@ -9,10 +9,14 @@
         1,
         null,
         1,
+        null,
+        null,
+        1,
+        11,
         null,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/uploaders/profile_photo_uploader.rb": [
+      "/Users/Julius/challenges/cardboard/app/uploaders/profile_photo_uploader.rb": [
         null,
         null,
         1,
@@ -23,20 +27,20 @@
         null,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/controllers/application_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/application_controller.rb": [
         1,
         1,
         null,
         1,
         null,
         1,
-        68,
+        56,
         5,
         null,
         null,
         null,
         null,
-        68,
+        56,
         1,
         null,
         null,
@@ -47,16 +51,16 @@
         1,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/controllers/games_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/games_controller.rb": [
         1,
         1,
         null,
         1,
-        38,
+        30,
         null,
         null,
         1,
-        45,
+        35,
         null,
         null,
         1,
@@ -110,7 +114,7 @@
         null,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/models/game.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/game.rb": [
         1,
         1,
         1,
@@ -138,11 +142,11 @@
         1,
         null,
         1,
-        45,
+        35,
         null,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/uploaders/game_photo_uploader.rb": [
+      "/Users/Julius/challenges/cardboard/app/uploaders/game_photo_uploader.rb": [
         1,
         1,
         null,
@@ -151,7 +155,7 @@
         null,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/models/review.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/review.rb": [
         1,
         1,
         1,
@@ -167,24 +171,34 @@
         1,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/controllers/reviews_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/models/comment.rb": [
+        1,
         1,
         1,
         null,
         1,
-        10,
-        10,
+        1,
+        1,
+        null
+      ],
+      "/Users/Julius/challenges/cardboard/app/controllers/reviews_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        6,
+        6,
         null,
         null,
         1,
-        10,
-        10,
-        10,
-        10,
+        6,
+        6,
+        6,
+        6,
         null,
-        10,
-        10,
-        10,
+        6,
+        6,
+        6,
         null,
         0,
         0,
@@ -217,7 +231,7 @@
         1,
         null,
         1,
-        12,
+        8,
         null,
         null,
         1,
@@ -229,34 +243,24 @@
         null,
         null
       ],
-      "/Users/macuser/challenges/cardboard/app/models/comment.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/macuser/challenges/cardboard/app/controllers/comments_controller.rb": [
+      "/Users/Julius/challenges/cardboard/app/controllers/comments_controller.rb": [
         1,
         1,
         null,
         1,
-        5,
-        5,
-        5,
+        3,
+        3,
+        3,
         null,
         null,
         1,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
         null,
         0,
         0,
@@ -293,15 +297,15 @@
         1,
         null,
         1,
-        7,
+        5,
         null,
         null,
         1,
-        10,
+        6,
         null,
         null
       ]
     },
-    "timestamp": 1427998844
+    "timestamp": 1428003528
   }
 }

@@ -4,7 +4,8 @@ require 'helpers'
 feature 'admin can delete or edit any game, review, or comment' do
   let(:game) { FactoryGirl.create(:game) }
   let(:admin) { FactoryGirl.create(:user, authority: "admin") }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:review) { FactoryGirl.create(:review) }
+  let(:comment) { FactoryGirl.create(:comment) }
 
   scenario 'admin can delete a game' do
     sign_in_as(admin)
@@ -15,11 +16,8 @@ feature 'admin can delete or edit any game, review, or comment' do
   end
 
   scenario 'admin can edit a review' do
-    sign_in_as(user)
-    make_review_for_game(game)
-    click_link "Sign Out"
     sign_in_as(admin)
-    visit game_path(game)
+    visit game_path(review.game)
     click_link "edit review"
     fill_in "your review", with: "something completely different"
     click_button "edit review"
@@ -28,23 +26,16 @@ feature 'admin can delete or edit any game, review, or comment' do
   end
 
   scenario 'admin can delete a review' do
-    sign_in_as(user)
-    make_review_for_game(game)
-    click_link "Sign Out"
     sign_in_as(admin)
-    visit game_path(game)
+    visit game_path(review.game)
     click_link "edit review"
     click_button "delete this review"
     expect(page).not_to have_content("something something something")
   end
 
   scenario 'admin can edit a comment' do
-    sign_in_as(user)
-    make_review_for_game(game)
-    add_comment
-    click_link "Sign Out"
     sign_in_as(admin)
-    visit game_path(game)
+    visit game_path(comment.review.game)
     click_link "edit"
     fill_in "your comment", with: "something something else"
     click_button "edit comment"
@@ -52,12 +43,8 @@ feature 'admin can delete or edit any game, review, or comment' do
   end
 
   scenario 'admin can delete a comment' do
-    sign_in_as(user)
-    make_review_for_game(game)
-    add_comment
-    click_link "Sign Out"
     sign_in_as(admin)
-    visit game_path(game)
+    visit game_path(comment.review.game)
     click_link "delete"
     expect(page).not_to have_content("something comment something")
     expect(page).to have_content("comment deleted")
