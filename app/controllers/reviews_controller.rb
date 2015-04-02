@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
   end
 
   def user_review
-    if current_user.authority == "admin" || current_user.authority == "mod"
+    if current_user.has_authority?
       Review.find(params[:id])
     else
       current_user.reviews.find(params[:id])

@@ -40,7 +40,7 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    if current_user.authority == "admin" || current_user.authority == "mod"
+    if current_user.has_authority?
       @game = Game.find(params[:id])
     else
       @game = Game.find_by!(user: current_user, id: params[:id])
