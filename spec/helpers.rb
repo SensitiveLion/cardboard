@@ -30,7 +30,7 @@ end
 
 def add_comment
   click_link "add comment"
-  fill_in "your comment", with: "something something something"
+  fill_in "your comment", with: "something comment something"
   click_button "add comment"
 end
 

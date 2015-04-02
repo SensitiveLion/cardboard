@@ -40,7 +40,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find_by!(user: current_user, id: params[:id])
+    if current_user.authority == "admin" || current_user.authority == "mod"
+      @game = Game.find(params[:id])
+    else
+      @game = Game.find_by!(user: current_user, id: params[:id])
+    end
     @game.destroy
     flash[:notice] = 'Game deleted.'
     redirect_to action: "index"
