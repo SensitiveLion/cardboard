@@ -34,6 +34,6 @@
   <%= f.submit "edit game" %>
 <% end %>
 <%= link_to "cancel ", game_path(@game), method: "get" %>
-<%- if current_user == @game.user -%>
+<%- if current_user == @game.user || current_user.has_authority? -%>
 || <%= link_to "delete this game", {action: "destroy", id: @game.id }, method: :delete, data: { confirm: "are you sure you want to delete this game?" } %>
 <% end %>
