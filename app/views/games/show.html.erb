@@ -22,23 +22,22 @@
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
 
 <% @game.reviews.each do |review| %>
-<div class="review">
-  <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
-    <p class="smaller">created at: <%= review.updated_at %></p>
-    <p>
-      <%= link_to "edit review", edit_review_path(review),
-     method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
-    </p>
-    <div/>
-  <div class="tab">
-    <p class="larger">comments:</p>
-    <% review.comments.each do |comment| %>
-      <p><%= comment.user.username %> says:</p>
-      <p><%= comment.body %></p>
+  <div class="review">
+    <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
+      <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
-      <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
-      <%= link_to "delete", comment, method: :delete %>
+        <%= link_to "edit review", edit_review_path(review),
+       method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
       </p>
+    <div class="tab">
+      <p class="larger">comments:</p>
+      <% review.comments.each do |comment| %>
+        <p><%= comment.user.username %> says:</p>
+        <p><%= comment.body %></p>
+        <p>
+        <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
+        <%= link_to "delete", comment, method: :delete %>
+        </p>
       <% end %>
     </div>
   </div>
