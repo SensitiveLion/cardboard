@@ -20,4 +20,16 @@ feature 'user can add comments to reviews' do
       "You need to sign in or sign up before continuing."
     )
   end
+
+  scenario 'user can add comments to a review' do
+    sign_in_as(user)
+    visit game_path(game)
+    add_review
+    click_link "add comment"
+    fill_in "your comment", with: "something to be cancelled"
+    click_button "cancel"
+    expect(page).to have_content(game.name)
+    expect(page).not_to have_content("something to be cancelled")
+  end
+
 end
