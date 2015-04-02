@@ -26,15 +26,21 @@
     <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
       <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
-        <%= link_to "edit review", edit_review_path(review), method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+        <%- if current_user == review.user -%>
+          <%= link_to "edit review", edit_review_path(review), method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+        <%- else -%>
+          <%= link_to "add comment", new_review_comment_path(review) %>
+        <%- end -%>
       </p>
     <div class="panel">
       <h5>comments:</h5>
       <% review.comments.each do |comment| %>
         <p><%= comment.user.username %> says: <%= comment.body %></p>
         <p>
-        <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
-        <%= link_to "delete", comment, method: :delete %>
+        <%- if current_user == comment.user -%>
+          <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
+          <%= link_to "delete", comment, method: :delete %>
+        <%- end -%>
         </p>
       <% end %>
     </div>
