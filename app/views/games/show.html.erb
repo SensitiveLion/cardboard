@@ -6,16 +6,16 @@
 <ul class="large-block-grid-2">
   <li>
     <ul>
-      <li class="larger">Players: <%= @game.min_players %> to <%= @game.max_players %></li>
-      <li class="larger">Playing time: <%= @game.playing_time %></li>
-      <li class="larger">Complexity: <%= @game.complexity_name %></li>
+      <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
+      <li class="larger">playing time: <%= @game.playing_time %></li>
+      <li class="larger">complexity: <%= @game.complexity_name %></li>
       <li>
-        <h4>Description:</h4>
+        <h4>description:</h4>
         <%= @game.description %>
       </li>
     </ul>
   </li>
-  <li><%= image_tag(@game.photo_url, size:"400") %></li>
+  <li><%= image_tag(@game.photo_url) %></li>
   <%= link_to "edit game", edit_game_path(@game) %>
 </ul>
 <h2>what the gamers say</h2>
