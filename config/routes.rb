@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
+  get 'users/show'
+
   root 'games#index'
   resources :games do
     resources :reviews, only: [:index, :new, :create]

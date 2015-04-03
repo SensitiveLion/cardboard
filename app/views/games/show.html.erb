@@ -1,5 +1,9 @@
 <div class= "title">
-  <h1><%= @game.name %></h1>
+  <h1><%= @game.name %>
+    <% unless @game.average == 0.0 %>
+      gamers vote: <%= @game.average %>
+    <% end%>
+  </h1>
 </div>
 <div class="row">
 <div class=""></div>
