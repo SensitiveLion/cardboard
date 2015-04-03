@@ -7,14 +7,14 @@ class UpvotesController < ApplicationController
       review_id: review.id, user_id: current_user.id
     )
     down = Downvote.find_by(user_id: current_user.id, review_id: review.id)
-      if down == nil || down.downvote == false
-        up.upvote = true
-        review.increment!(:vote_count)
-      else
-        down.downvote = false
-        up.upvote = true
-        review.increment!(:vote_count)
-      end
-      redirect_to game_path(review.game)
+    if down == nil || down.downvote == false
+      up.upvote = true
+      review.increment!(:vote_count)
+    else
+      down.downvote = false
+      up.upvote = true
+      review.increment!(:vote_count)
+    end
+    redirect_to game_path(review.game)
   end
 end
