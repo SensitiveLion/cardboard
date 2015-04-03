@@ -34,7 +34,7 @@ class Game < ActiveRecord::Base
   end
 
   def update_average
-    s = self.reviews.sum(:game_rating)
+    s = reviews.sum(:game_rating)
     c = reviews.count
     update_attribute(:average, c == 0 ? 0.0 : s / c.to_f)
   end
