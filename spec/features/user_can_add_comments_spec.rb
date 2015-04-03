@@ -27,7 +27,7 @@ feature 'user can add comments to reviews' do
     visit game_path(review.game)
     click_link "add comment"
     fill_in "your comment", with: "something to be cancelled"
-    click_button "cancel"
+    click_link "cancel"
     expect(page).to have_content(review.game.name)
     expect(page).not_to have_content("something to be cancelled")
   end
