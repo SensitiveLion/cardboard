@@ -24,7 +24,7 @@ end
 FactoryGirl.define do
   factory :review do
     body "this is a review"
-
+    game_rating 1
     game
     user
   end

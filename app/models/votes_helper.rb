@@ -1,10 +1,4 @@
-class Upvote < ActiveRecord::Base
-  belongs_to :review
-  belongs_to :user
-
-  validates :user, presence: true
-  validates :review, presence: true
-
+module VotesHelper
   def self.vote_helper(direction, review, user)
     down = Downvote.find_or_create_by(
       review_id: review.id, user_id: user.id
@@ -19,6 +13,7 @@ class Upvote < ActiveRecord::Base
       new_vote = down
       other_vote = up
     end
+    binding.pry
     if new_vote.vote
       new_vote.vote = false
       change = -1
@@ -30,13 +25,11 @@ class Upvote < ActiveRecord::Base
       new_vote.vote = true
       change = 1
     end
+
     if direction == :up
       review.vote_count += change
     elsif direction == :down
       review.vote_count -= change
     end
-    new_vote.save
-    other_vote.save
-    review.save
   end
 end
