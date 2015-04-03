@@ -17,12 +17,15 @@ class Game < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :user, presence: true
   validates :description, presence: true
-  validates :min_players, presence: true
-  validates :min_players, numericality: {
-    less_than_or_equal_to: :max_players, message:
-    "must be less than or equal to max players!"
+  validates :min_players, presence: true, numericality: {
+    less_than_or_equal_to: :max_players,
+    message: "must be less than or equal to max players!",
+    greater_than_or_equal_to: 1, message: "must be at least 1",
+    only_integer: true
   }
-  validates :max_players, presence: true
+  validates :max_players, presence: true, numericality: {
+    greater_than_or_equal_to: 1, only_integer: true
+  }
   validates :playing_time, presence: true
   validates :complexity, presence: true
 

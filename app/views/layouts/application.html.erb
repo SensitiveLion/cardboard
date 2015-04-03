@@ -18,15 +18,15 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
-          <%- if current_user -%>
+          <% if current_user %>
             <li><%= image_tag(current_user.profile_photo_url, size:"40") %></li>
             <li><%= link_to "profile", users_show_path %></li>
             <li><%= link_to "#{current_user.username}" , edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-          <%- else -%>
+          <% else %>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <%- end -%>
+          <% end %>
         </ul>
       </section>
     </nav>
