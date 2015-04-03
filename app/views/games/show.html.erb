@@ -30,7 +30,7 @@
           <%= link_to "edit review", edit_review_path(review), method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
         <%- else -%>
           <%= link_to "add comment", new_review_comment_path(review) %>
-        <%- end -%>
+        <% end %>
       </p>
     <div class="panel">
       <h5>comments:</h5>
@@ -40,7 +40,7 @@
         <%- if current_user == comment.user || current_user.has_authority? -%>
           <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
           <%= link_to "delete", comment, method: :delete %>
-        <%- end -%>
+        <% end %>
         </p>
       <% end %>
     </div>
