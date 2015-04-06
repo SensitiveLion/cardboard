@@ -10,5 +10,9 @@
       <% end %>
     </ol>
   </div>
+  <%= form_tag games_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "search-box" %>
+    <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+  <% end %>
 </div>
 

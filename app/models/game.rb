@@ -5,6 +5,18 @@ class Game < ActiveRecord::Base
   has_many :comments, through: :reviews
   belongs_to :user
 
+  include PgSearch
+
+  multisearchable against: :name
+
+  def self.search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+
   mount_uploader :photo, GamePhotoUploader
 
   COMPLEXITIES = {
@@ -39,5 +51,4 @@ class Game < ActiveRecord::Base
     update_attribute(:average, c == 0 ? 0.0 : s / c.to_f)
   end
 
-  include PgSearch
 end
