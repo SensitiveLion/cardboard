@@ -10,10 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
-
+ *= require_tree ./modules
  */
  .larger {
     font-size: 150%;
@@ -34,3 +35,12 @@
     border-color: #858585;
     padding-left: 50px;
  }
+
+ .vote-arrows {
+  width: 40px;
+  text-align: center;
+}
+
+.inline {
+  display: inline;
+}
