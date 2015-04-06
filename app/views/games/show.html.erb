@@ -20,7 +20,7 @@
     </ul>
   </li>
   <li><%= image_tag(@game.photo_url) %></li>
-  <%= link_to "edit game", edit_game_path(@game) %>
+  <%= link_to "edit game", edit_game_path(@game) %> || submitted by: <%= link_to @game.user.username, user_path(@game.user) %>
 </ul>
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>

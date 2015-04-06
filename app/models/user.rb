@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :reviews
   has_many :games
+  has_many :comments
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 

@@ -1,27 +1,9 @@
-class UsersController < Devise::SessionsController
-  def create
-   @user = User.new(user_params)
-    if @user.save
-      flash[:notice] = "User Created."
-      redirect_to questions_path
-    else
-      flash[:notice] = "#{@user.errors}"
-      render :new
-    end
-  end
-
+class UsersController < ApplicationController
   def show
-    super
+    @user = User.find(params[:id])
   end
 
-  def destroy
-    super
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:email, :password, :username, :avatar_url,
-    :first_name, :last_name, :location, :age)
+  def index
+    @users = User.all
   end
 end

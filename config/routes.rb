@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:edit, :update, :destroy]
   devise_for :users
+  resources :users, only: [:index, :show]
 end
