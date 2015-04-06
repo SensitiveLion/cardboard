@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      @review.game.update_average
       flash[:notice] = "review submitted."
       redirect_to game_path(@game)
     else
@@ -29,6 +30,7 @@ class ReviewsController < ApplicationController
     @review = user_review
     @game = @review.game
     if @review.update(review_params)
+      @review.game.update_average
       flash[:notice] = "you have successfully edited the review!"
       redirect_to game_path(@game)
     else
@@ -41,6 +43,7 @@ class ReviewsController < ApplicationController
     @review = user_review
     @game = @review.game
     @review.destroy
+    @review.game.update_average
     redirect_to game_path(@game)
   end
 
@@ -51,6 +54,10 @@ class ReviewsController < ApplicationController
   end
 
   def user_review
-    current_user.reviews.find(params[:id])
+    if current_user.has_authority?
+      Review.find(params[:id])
+    else
+      current_user.reviews.find(params[:id])
+    end
   end
 end

@@ -20,4 +20,15 @@ feature 'user can add comments to reviews' do
     FactoryGirl.create(:review)
     expect(page).not_to have_content("add comment")
   end
+
+  scenario 'user can cancel a comment' do
+    sign_in_as(user)
+    visit game_path(review.game)
+    click_link "add comment"
+    fill_in "your comment", with: "something to be cancelled"
+    click_link "cancel"
+    expect(page).to have_content(review.game.name)
+    expect(page).not_to have_content("something to be cancelled")
+  end
+
 end

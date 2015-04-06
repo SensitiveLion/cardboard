@@ -25,12 +25,21 @@ def make_review_for_game(game)
   visit game_path(game)
   click_link "review this game"
   fill_in "your review", with: "something something something"
+  select 5, from: "rating"
+  click_button "add review"
+end
+
+def make_review_for_game1(game)
+  visit game_path(game)
+  click_link "review this game"
+  fill_in "your review", with: "something something something"
+  select 10, from: "rating"
   click_button "add review"
 end
 
 def add_comment
   click_link "add comment"
-  fill_in "your comment", with: "something something something"
+  fill_in "your comment", with: "something comment something"
   click_button "add comment"
 end
 

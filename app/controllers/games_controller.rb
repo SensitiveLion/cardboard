@@ -7,6 +7,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @reviews = @game.reviews.order(:created_at).page params[:page]
   end
 
   def new
@@ -40,7 +41,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find_by!(user: current_user, id: params[:id])
+    if current_user.has_authority?
+      @game = Game.find(params[:id])
+    else
+      @game = Game.find_by!(user: current_user, id: params[:id])
+    end
     @game.destroy
     flash[:notice] = 'Game deleted.'
     redirect_to action: "index"

@@ -3,5 +3,5 @@
 /log/*
 !/log/.keep
 /tmp
-# Ignore uploaded files in test/development
 /public/uploads
+/.env

@@ -14,4 +14,4 @@
 
   <%= f.submit "add comment" %>
 <% end %>
-<%= button_to "cancel", review_path(@review), method: "get" %>
+<%= link_to "cancel", game_path(@review.game) %>

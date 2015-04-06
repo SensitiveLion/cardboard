@@ -13,7 +13,7 @@ feature 'only admin or users can delete a game' do
     select "medium", from: "complexity"
     click_button "add game"
     click_link "edit game"
-    click_button "delete this game"
+    click_link "delete this game"
     expect(page).to have_content("Game deleted.")
   end
 end

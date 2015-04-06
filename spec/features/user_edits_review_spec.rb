@@ -19,7 +19,7 @@ feature 'user can edit reviews' do
     sign_in_as(user)
     make_review_for_game(game)
     click_link "edit review"
-    click_button "delete this review"
+    click_link "delete this review"
     expect(page).not_to have_content("something something something")
   end
 end
