@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      ReviewNotifier.new_review(@review).deliver_later
       @review.game.update_average
       flash[:notice] = "review submitted."
       redirect_to game_path(@game)
