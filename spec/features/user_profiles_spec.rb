@@ -1,30 +1,51 @@
 require 'rails_helper'
 require 'helpers'
 
+feature 'user can view index of users' do
+  let(:user) { FactoryGirl.create(:user) }
+
+  scenario 'users can view index of users' do
+    sign_in_as(user)
+    visit users_path
+    within(".column") do
+      expect(page).to have_content(user.username)
+    end
+  end
+
+  scenario 'visitors can view index of users' do
+    sign_in_as(user)
+    visit users_path
+    within(".column") do
+      expect(page).to have_content(user.username)
+    end
+  end
+end
+
 feature 'user can view profile' do
-  let(:game) { FactoryGirl.create(:game) }
+  let(:review) { FactoryGirl.create(:review, user: user) }
   let(:user) { FactoryGirl.create(:user) }
 
   scenario 'users can view their profile' do
     sign_in_as(user)
-    make_review_for_game(game)
     visit users_path
     within(".column") do
       click_link user.username
     end
-    expect(page).to have_content(user.username)
-    expect(page).to have_content("review of #{game.name}")
+    expect(page).to have_content(user.first_name)
+    expect(page).to have_content(user.last_name)
+    expect(page).to have_content(user.age)
+    expect(page).to have_content(user.location)
   end
 
   scenario 'visitors can view profiles' do
     sign_in_as(user)
-    make_review_for_game(game)
-    click_link "Sign Out"
     visit users_path
     within(".column") do
       click_link user.username
     end
-    expect(page).to have_content(user.username)
-    expect(page).to have_content("review of #{game.name}")
+    expect(page).to have_content(user.first_name)
+    expect(page).to have_content(user.last_name)
+    expect(page).to have_content(user.age)
+    expect(page).to have_content(user.location)
   end
 end
