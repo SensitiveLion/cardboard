@@ -4,7 +4,7 @@ require 'helpers'
 feature 'user can add comments to reviews' do
   let(:game) { FactoryGirl.create(:game) }
   let(:user) { FactoryGirl.create(:user) }
-  let(:review) { FactoryGirl.create(:review)}
+  let(:review) { FactoryGirl.create(:review) }
 
   scenario 'user can add comments to a review' do
     sign_in_as(user)

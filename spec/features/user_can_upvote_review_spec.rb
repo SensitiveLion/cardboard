@@ -13,7 +13,7 @@ feature 'user can vote on reviews' do
       expect(page).to have_content("0")
     end
   end
-    scenario 'downvotes exist' do
+  scenario 'downvotes exist' do
     sign_in_as(user)
     review = FactoryGirl.create(:review)
     game = review.game
@@ -29,7 +29,6 @@ feature 'user can vote on reviews' do
     visit game_path(review.game)
     within '.vote-arrows' do
       find(".fi-arrow-up").click
-      save_and_open_page
       expect(page).to have_content("1")
       find(".fi-arrow-up").click
       expect(page).to have_content("0")
@@ -67,4 +66,3 @@ feature 'user can vote on reviews' do
     end
   end
 end
-
