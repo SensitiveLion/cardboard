@@ -7,6 +7,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @reviews = @game.reviews.order(:created_at).page params[:page]
   end
 
   def new

@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20150403174403) do
     t.datetime "updated_at"
   end
 
-  create_table "downvotes", force: :cascade do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "review_id",                  null: false
-    t.boolean  "downvote",   default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "games", force: :cascade do |t|
     t.string   "name",                       null: false
     t.text     "description",                null: false
@@ -53,19 +45,10 @@ ActiveRecord::Schema.define(version: 20150403174403) do
   add_index "games", ["name"], name: "index_games_on_name", unique: true, using: :btree
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id",                 null: false
-    t.text     "body",                    null: false
+    t.integer  "user_id",     null: false
+    t.text     "body",        null: false
     t.integer  "game_rating"
-    t.integer  "game_id",                 null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "vote_count",  default: 0
-  end
-
-  create_table "upvotes", force: :cascade do |t|
-    t.integer  "user_id",                    null: false
-    t.integer  "review_id"
-    t.boolean  "upvote",     default: false
+    t.integer  "game_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,15 +78,5 @@ ActiveRecord::Schema.define(version: 20150403174403) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
-  create_table "votes", force: :cascade do |t|
-    t.integer  "vote_type",  default: 0
-    t.integer  "review_id",              null: false
-    t.integer  "user_id",                null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "votes", ["user_id", "review_id"], name: "index_votes_on_user_id_and_review_id", unique: true, using: :btree
 
 end
