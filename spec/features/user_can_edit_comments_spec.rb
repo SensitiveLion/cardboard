@@ -4,6 +4,7 @@ require 'helpers'
 feature 'user can edit comments' do
   let(:game) { FactoryGirl.create(:game) }
   let(:user) { FactoryGirl.create(:user) }
+  let(:comment) { FactoryGirl.create(:comment) }
 
   scenario 'user can edit their comments' do
     sign_in_as(user)
