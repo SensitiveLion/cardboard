@@ -3,15 +3,23 @@ require 'helpers'
 
 feature 'user can vote on reviews' do
   let(:user) { FactoryGirl.create(:user) }
-  let(:game) {FactoryGirl.create(:game) }
-
-  scenario 'upvotes and downvotes exist' do
+  scenario 'upvotes exist' do
     sign_in_as(user)
-    make_review_for_game(game)
-    new_review = Review.find_by(body: "something something something")
-    page.find("#up-#{new_review.id}")
-    page.find("#down-#{new_review.id}")
-    within "#vote_#{new_review.id}" do
+    review = FactoryGirl.create(:review)
+    game = review.game
+    visit game_path(game)
+    page.find("#up-#{review.id}")
+    within "#vote-#{review.id}" do
+      expect(page).to have_content("0")
+    end
+  end
+    scenario 'downvotes exist' do
+    sign_in_as(user)
+    review = FactoryGirl.create(:review)
+    game = review.game
+    visit game_path(game)
+    page.find("#down-#{review.id}")
+    within "#vote-#{review.id}" do
       expect(page).to have_content("0")
     end
   end
