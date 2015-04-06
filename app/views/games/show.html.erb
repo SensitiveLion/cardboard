@@ -20,13 +20,13 @@
 </ul>
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
+<% @game.reviews.order(vote_count: :desc).each do |review| %>
 
-<% @game.reviews.each do |review| %>
-<div class="review">
-  <span class= "inline">
-  <%= render partial: 'votes/voter', locals: { review: review } %>
-  <%= review.user.username %> says <p><%= review.body %></p>
-</span>
+  <div class="review">
+    <span class= "inline">
+      <%= render partial: 'votes/voter', locals: { review: review } %>
+      <%= review.user.username %> says <p><%= review.body %></p>
+    </span>
     <p class="smaller">created at: <%= review.updated_at %></p>
     <p>
       <%= link_to "edit review", edit_review_path(review),

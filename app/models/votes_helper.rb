@@ -13,7 +13,7 @@ module VotesHelper
       new_vote = down
       other_vote = up
     end
-    binding.pry
+
     if new_vote.vote
       new_vote.vote = false
       change = -1
