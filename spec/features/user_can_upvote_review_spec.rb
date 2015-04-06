@@ -9,10 +9,9 @@ feature 'user can vote on reviews' do
     sign_in_as(user)
     make_review_for_game(game)
     new_review = Review.find_by(body: "something something something")
-    page.find("#up-#{new_review.id}")
-    page.find("#down-#{new_review.id}")
+    page.find("#up-#{new_review.id}").click
     within "#vote_#{new_review.id}" do
-      expect(page).to have_content("0")
+      expect(page).to have_content("1")
     end
   end
 
@@ -59,4 +58,3 @@ feature 'user can vote on reviews' do
     end
   end
 end
-

@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/matthewriggott/challenges/cardboard/app/models/user.rb": [
+      "/Users/Kayla/Documents/cardboard/app/models/user.rb": [
         1,
         1,
         1,
@@ -14,7 +14,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/uploaders/profile_photo_uploader.rb": [
+      "/Users/Kayla/Documents/cardboard/app/uploaders/profile_photo_uploader.rb": [
         null,
         null,
         1,
@@ -25,7 +25,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/controllers/application_controller.rb": [
+      "/Users/Kayla/Documents/cardboard/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -49,7 +49,7 @@
         1,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/controllers/games_controller.rb": [
+      "/Users/Kayla/Documents/cardboard/app/controllers/games_controller.rb": [
         1,
         1,
         null,
@@ -59,7 +59,6 @@
         null,
         1,
         28,
-        null,
         null,
         null,
         1,
@@ -109,7 +108,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/models/game.rb": [
+      "/Users/Kayla/Documents/cardboard/app/models/game.rb": [
         1,
         1,
         1,
@@ -141,7 +140,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/uploaders/game_photo_uploader.rb": [
+      "/Users/Kayla/Documents/cardboard/app/uploaders/game_photo_uploader.rb": [
         1,
         1,
         null,
@@ -150,7 +149,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/models/review.rb": [
+      "/Users/Kayla/Documents/cardboard/app/models/review.rb": [
         1,
         1,
         1,
@@ -158,7 +157,6 @@
         1,
         1,
         null,
-        null,
         1,
         1,
         1,
@@ -166,21 +164,20 @@
         null,
         null,
         null,
-        1,
-        null,
-        null
-      ],
-      "/Users/matthewriggott/challenges/cardboard/app/models/comment.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
         1,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/controllers/comments_controller.rb": [
+      "/Users/Kayla/Documents/cardboard/app/models/comment.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/Kayla/Documents/cardboard/app/controllers/comments_controller.rb": [
         1,
         1,
         null,
@@ -246,7 +243,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/controllers/reviews_controller.rb": [
+      "/Users/Kayla/Documents/cardboard/app/controllers/reviews_controller.rb": [
         1,
         1,
         null,
@@ -304,7 +301,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/models/downvote.rb": [
+      "/Users/Kayla/Documents/cardboard/app/models/downvote.rb": [
         1,
         1,
         1,
@@ -351,7 +348,7 @@
         null,
         null
       ],
-      "/Users/matthewriggott/challenges/cardboard/app/models/upvote.rb": [
+      "/Users/Kayla/Documents/cardboard/app/models/upvote.rb": [
         1,
         1,
         1,
@@ -396,6 +393,6 @@
         null
       ]
     },
-    "timestamp": 1428331328
+    "timestamp": 1428333082
   }
 }
