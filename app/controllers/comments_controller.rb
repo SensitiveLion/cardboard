@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
   end
 
   def user_comment
-    unless current_user.authority == "admin"
+    if current_user.authority != "admin"
       current_user.comments.find(params[:id])
     else
       Comment.find(params[:id])
