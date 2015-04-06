@@ -8,6 +8,7 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 end
+
 FactoryGirl.define do
   factory :game do
     sequence(:name) { |n| "This is a game #{n}" }

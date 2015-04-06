@@ -50,5 +50,4 @@ class Game < ActiveRecord::Base
     c = reviews.count
     update_attribute(:average, c == 0 ? 0.0 : s / c.to_f)
   end
-
 end
