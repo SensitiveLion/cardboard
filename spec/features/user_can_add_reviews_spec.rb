@@ -25,7 +25,7 @@ feature 'reviews paginate' do
 
   scenario 'reviews show on multiple pages' do
     sign_in_as(user)
-    8.times { make_review_for_game(game)  }
+    8.times { make_review_for_game(game) }
     visit game_path(game)
     click_link "review this game"
     fill_in "your review", with: "something something different"
