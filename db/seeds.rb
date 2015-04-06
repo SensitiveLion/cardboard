@@ -21,8 +21,8 @@ if Rails.env.development?
   )
 
   Review.find_or_create_by!(
-  user: user,
-  game: game,
-  body: "testing votes"
+    user: user,
+    game: game,
+    body: "testing votes"
   )
 end
