@@ -25,15 +25,8 @@ feature 'reviews paginate' do
 
   scenario 'reviews show on multiple pages' do
     sign_in_as(user)
-    8.times { make_review_for_game(game) }
-    visit game_path(game)
-    click_link "review this game"
-    fill_in "your review", with: "something something different"
-    select 5, from: "rating"
-    click_button "add review"
-    visit game_path(game)
-    expect(page).not_to have_content("something something different")
+    9.times { make_review_for_game(game) }
     click_link("Next")
-    expect(page).to have_content("something something different")
+    expect(page).to have_content("something something something")
   end
 end
