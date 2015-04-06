@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find(params[:id])
+    @comment = user_comment
     @review = @comment.review
     @game = @comment.review.game
   end
@@ -52,6 +52,14 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body)
+  end
+
+  def user_comment
+    if current_user.authority != "admin"
+      current_user.comments.find(params[:id])
+    else
+      Comment.find(params[:id])
+    end
   end
 
   def review_by_id

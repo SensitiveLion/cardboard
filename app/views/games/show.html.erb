@@ -27,6 +27,7 @@
 
 <% @reviews.each do |review| %>
   <div class="panel">
+  <%= render partial: 'votes/voter', locals: { review: review } %>
     <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
       <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
