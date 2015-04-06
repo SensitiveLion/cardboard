@@ -25,7 +25,7 @@
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
 
-<% @game.reviews.each do |review| %>
+<% @reviews.each do |review| %>
   <div class="panel">
     <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
       <p class="smaller">created at: <%= review.updated_at %></p>
@@ -50,3 +50,4 @@
     </div>
   </div>
 <% end %>
+<%= paginate @reviews %>
