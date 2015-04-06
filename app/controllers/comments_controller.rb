@@ -55,7 +55,11 @@ class CommentsController < ApplicationController
   end
 
   def user_comment
-    current_user.comments.find(params[:id])
+    unless current_user.authority == "admin"
+      current_user.comments.find(params[:id])
+    else
+      Comment.find(params[:id])
+    end
   end
 
   def review_by_id

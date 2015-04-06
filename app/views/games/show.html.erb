@@ -24,22 +24,12 @@
 </ul>
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
-<% @game.reviews.order(vote_count: :desc).each do |review| %>
-  <div class="review">
-    <span class= "inline">
-      <%= render partial: 'votes/voter', locals: { review: review } %>
-      <%= review.user.username %> says <p><%= review.body %></p>
-    </span>
-    <p class="smaller">created at: <%= review.updated_at %></p>
-    <p>
-      <%= link_to "edit review", edit_review_path(review),
-     method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
-    </p>
-  <div class="tab">
-    <p class="larger">comments:</p>
-    <% review.comments.each do |comment| %>
-      <p><%= comment.user.username %> says:</p>
-      <p><%= comment.body %></p>
+
+<% @reviews.each do |review| %>
+  <div class="panel">
+  <%= render partial: 'votes/voter', locals: { review: review } %>
+    <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
+      <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
         <% if current_user == review.user || current_user.has_authority? %>
           <%= link_to "edit review", edit_review_path(review) %> ||<%= link_to "add comment", new_review_comment_path(review) %>
