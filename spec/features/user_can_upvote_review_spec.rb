@@ -1,28 +1,28 @@
-# require 'rails_helper'
-# require 'helpers'
-#
-# feature 'user can vote on reviews' do
-#   let(:user) { FactoryGirl.create(:user) }
-#   scenario 'upvotes exist' do
-#     sign_in_as(user)
-#     review = FactoryGirl.create(:review)
-#     game = review.game
-#     visit game_path(game)
-#     page.find("#up-#{review.id}")
-#     within "#vote-#{review.id}" do
-#       expect(page).to have_content("0")
-#     end
-#   end
-#   scenario 'downvotes exist' do
-#     sign_in_as(user)
-#     review = FactoryGirl.create(:review)
-#     game = review.game
-#     visit game_path(game)
-#     page.find("#down-#{review.id}")
-#     within "#vote-#{review.id}" do
-#       expect(page).to have_content("0")
-#     end
-#   end
+require 'rails_helper'
+require 'helpers'
+
+feature 'user can vote on reviews' do
+  let(:user) { FactoryGirl.create(:user) }
+  scenario 'upvotes exist' do
+    sign_in_as(user)
+    review = FactoryGirl.create(:review)
+    game = review.game
+    visit game_path(game)
+    page.find("#up-#{review.id}")
+    within "#vote-#{review.id}" do
+      expect(page).to have_content("0")
+    end
+  end
+  scenario 'downvotes exist' do
+    sign_in_as(user)
+    review = FactoryGirl.create(:review)
+    game = review.game
+    visit game_path(game)
+    page.find("#down-#{review.id}")
+    within "#vote-#{review.id}" do
+      expect(page).to have_content("0")
+    end
+  end
 #
 #   pending 'user un-upvotes a review' do
 #     sign_in_as(user)
@@ -65,4 +65,4 @@
 #       expect(page).to have_content("-1")
 #     end
 #   end
-# end
+end
