@@ -15,7 +15,6 @@ FactoryGirl.define do
     max_players 4
     playing_time "20 min"
     complexity "Low"
-
     user
   end
 
@@ -28,9 +27,7 @@ FactoryGirl.define do
 
   factory :comment do
     body "its a comment@!"
-
     review
     user
   end
-
 end

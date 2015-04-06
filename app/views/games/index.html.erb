@@ -5,10 +5,18 @@
     <h3>for all your corrugated needs</h3>
     <%= link_to "Submit a New Game", new_game_path %>
     <ol>
-      <% @games.each do |game| %>
-        <li><%= link_to game.name, game_path(game) %></li>
+      <% if @games.empty? %>
+        No games matched your search
+      <% else %>
+        <% @games.each do |game| %>
+          <li><%= link_to game.name, game_path(game) %></li>
+        <% end %>
       <% end %>
     </ol>
   </div>
+  <%= form_tag games_path, method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "search-box" %>
+    <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+  <% end %>
 </div>
 
