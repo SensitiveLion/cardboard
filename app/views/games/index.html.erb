@@ -3,7 +3,8 @@
     <ul class="small-block-grid-3">
     <h1>cardboard<h1>
     <h3>for all your corrugated needs</h3>
-    <%= link_to "Submit a New Game", new_game_path %>
+    <%= link_to "Submit a New Game", new_game_path %> ||
+    <%= link_to "list of user profiles", users_path %>
     <ol>
       <% if @games.empty? %>
         No games matched your search
