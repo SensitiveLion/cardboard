@@ -109,7 +109,7 @@ a:hover {
 }
 
 .panel {
-  color: $panel-color;
+  background-color: $panel-color;
   border-radius: 5px;
 }
 
@@ -117,7 +117,7 @@ a:hover {
   color: $font-color;
 }
 
-.panel .panel_text {
+.panel .panel-text {
   color: $font-color;
 }
 
