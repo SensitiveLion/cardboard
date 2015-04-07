@@ -1,15 +1,23 @@
-
-
 <ul id="data-orbit">
   <div id="wrapper">
     <div class="row">
       <div class="large-12 hide-for-small">
         <div id="featured" data-orbit>
-          <img src="http://i.imgur.com/hieAmra.jpg">
-          <img src="http://imgur.com/f5FbItq.jpg">
-          <img src="http://i.imgur.com/USjVJlj.jpg">
-          <img src="http://i.imgur.com/qu9KiWw.jpg">
-          <img src="http://i.imgur.com/3Fy780J.jpg">
+          <li>
+            <img src="http://i.imgur.com/pmXMshh.jpg">
+            <div class="orbit-caption">
+              your resource for wiki cardboard game reviews
+            </div>
+          </li>
+          <li>
+            <img src="http://i.imgur.com/9dZY7Wi.jpg">
+            <div class="orbit-caption">
+            elite game reviews by elite gamers
+            </div>
+          </li>
+          <img src="http://i.imgur.com/qJcIiuh.jpg">
+          <img src="http://i.imgur.com/qsgU9F3.jpg">
+          <img src="http://i.imgur.com/aXcLSwL.jpg">
         </div>
       </div>
     </div>
@@ -20,42 +28,31 @@
   <div class="small-8 large-centered column" >
     <h1>cardboard<h1>
     <h3>for all your corrugated needs</h3>
+
   </div>
-
 </div>
-
 <div class="row">
   <div class="large-12 columns">
     <div class="row">
       <div class="large-4 small-6 columns">
-          <h4>up and coming games</h4><hr>
+          <h4>up-and-coming games</h4><hr>
           <% if @games.empty? %>
             No games matched your search
           <% else %>
             <% @games.each do |game| %>
               <div class="row">
-                <div class="large-1 column">
-                  <img src="http://placehold.it/50x50&text=[img]">
-                </div>
-              <div class="large-9 columns">
+              <div class="large-12 small-centered columns">
                 <h5><%= link_to game.name, game_path(game) %></h5>
               </div>
             </div><hr>
           <% end %>
         <% end %>
       </div>
-
-
       <div class="large-4 small-6 columns">
         <img src="http://i.imgur.com/ZsQgaZF.jpg">
       </div>
-
-
-
       <div class="large-4 small-12 columns">
-
         <h4>more options</h4><hr>
-
         <div class="panel hide-for-small">
           <h5>
               <%= form_tag games_path, method: :get do %>
@@ -67,15 +64,10 @@
         <div class="panel">
           <h5><%= link_to "add a new game", new_game_path %></h5>
         </div>
-
         <div class="panel hide-for-small">
-          <h5>check out other users </h5>
+          <h5><%= link_to "check out other gamers", users_path %></h5>
         </div>
-
       </div>
-
-
-
     </div>
   </div>
 </div>
