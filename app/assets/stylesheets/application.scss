@@ -20,14 +20,17 @@ $nexa-font: "Nexa Light", sans-serif;
 $font-color: #ffffff;
 $background-color: #222222;
 $panel-color: #444444;
+$visited-color: #CC0000
+$hover-color: #999999;
+$link-color: #FF3300;
 
  @font-face {
    font-family: "Nexa Light";
    src: font-url('nexa_light.otf');
 }
 .larger {
-  font-size: 150%;
   color: $font-color;
+  font-size: 150%;
 }
 
 .smaller {
@@ -66,7 +69,7 @@ $panel-color: #444444;
 
 body {
   background: $background-color;
-  font-family: 'Nexa Light', sans-serif;
+  font-family: $nexa-font;
   color: $font-color;
 }
 
@@ -76,25 +79,25 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Nexa Light', sans-serif;
+  font-family: $nexa-font;
   color: $font-color;
   text-align: center;
 }
 
 a {
-  font-family: "Nexa Light";
+  font-family: $nexa-font;
 }
 
 a:link {
-  color: #FF3300;
+  $link-color;
 }
 
 a:visited {
-  color: #CC0000;
+  $visited-color;
 }
 
 a:hover {
-  color: #999999;
+  $hover-color;
 }
 
 #l_sidebar {
@@ -106,7 +109,7 @@ a:hover {
 }
 
 .panel {
-  background: #444444;
+  $panel-color;
   border-radius: 5px;
 }
 
