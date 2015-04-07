@@ -20,14 +20,15 @@ $nexa-font: "Nexa Light", sans-serif;
 $font-color: #ffffff;
 $background-color: #222222;
 $panel-color: #444444;
-$visited-color: #CC0000;
+$visited-color: #cc0000;
 $hover-color: #999999;
-$unvisited-color: #FF3300;
+$unvisited-color: #ff3300;
 
  @font-face {
    font-family: "Nexa Light";
    src: font-url('nexa_light.otf');
 }
+
 .larger {
   color: $font-color;
   font-size: 150%;
