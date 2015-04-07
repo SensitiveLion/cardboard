@@ -22,7 +22,7 @@ $background-color: #222222;
 $panel-color: #444444;
 $visited-color: #CC0000;
 $hover-color: #999999;
-$link-color: #FF3300;
+$unvisited-color: #FF3300;
 
  @font-face {
    font-family: "Nexa Light";
@@ -89,15 +89,15 @@ a {
 }
 
 a:link {
-  $link-color;
+  color: $unvisited-color;
 }
 
 a:visited {
-  $visited-color;
+  color: $visited-color;
 }
 
 a:hover {
-  $hover-color;
+  color: $hover-color;
 }
 
 #l_sidebar {
@@ -109,7 +109,7 @@ a:hover {
 }
 
 .panel {
-  $panel-color;
+  color: $panel-color;
   border-radius: 5px;
 }
 
