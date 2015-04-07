@@ -1,22 +1,81 @@
-<div class="row">
-  <div class="small-8 column">
-    <ul class="small-block-grid-3">
+
+
+<ul id="data-orbit">
+  <div id="wrapper">
+    <div class="row">
+      <div class="large-12 hide-for-small">
+        <div id="featured" data-orbit>
+          <img src="http://i.imgur.com/hieAmra.jpg">
+          <img src="http://imgur.com/f5FbItq.jpg">
+          <img src="http://i.imgur.com/USjVJlj.jpg">
+          <img src="http://i.imgur.com/qu9KiWw.jpg">
+          <img src="http://i.imgur.com/3Fy780J.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+</ul>
+
+<div class="row" id="title">
+  <div class="small-8 large-centered column" >
     <h1>cardboard<h1>
     <h3>for all your corrugated needs</h3>
-    <%= link_to "Submit a New Game", new_game_path %>
-    <ol>
-      <% if @games.empty? %>
-        No games matched your search
-      <% else %>
-        <% @games.each do |game| %>
-          <li><%= link_to game.name, game_path(game) %></li>
-        <% end %>
-      <% end %>
-    </ol>
   </div>
-  <%= form_tag games_path, method: :get do %>
-    <%= text_field_tag :query, params[:query], class: "search-box" %>
-    <%= submit_tag "search", name: nil, class: "btn btn-search" %>
-  <% end %>
+
 </div>
 
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-4 small-6 columns">
+          <h4>up and coming games</h4><hr>
+          <% if @games.empty? %>
+            No games matched your search
+          <% else %>
+            <% @games.each do |game| %>
+              <div class="row">
+                <div class="large-1 column">
+                  <img src="http://placehold.it/50x50&text=[img]">
+                </div>
+              <div class="large-9 columns">
+                <h5><%= link_to game.name, game_path(game) %></h5>
+              </div>
+            </div><hr>
+          <% end %>
+        <% end %>
+      </div>
+
+
+      <div class="large-4 small-6 columns">
+        <img src="http://i.imgur.com/ZsQgaZF.jpg">
+      </div>
+
+
+
+      <div class="large-4 small-12 columns">
+
+        <h4>more options</h4><hr>
+
+        <div class="panel hide-for-small">
+          <h5>
+              <%= form_tag games_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], class: "search-box" %>
+              <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+          <% end %>
+        </h5>
+        </div>
+        <div class="panel">
+          <h5><%= link_to "add a new game", new_game_path %></h5>
+        </div>
+
+        <div class="panel hide-for-small">
+          <h5>check out other users </h5>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
