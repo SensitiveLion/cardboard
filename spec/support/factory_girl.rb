@@ -38,3 +38,9 @@ FactoryGirl.define do
     user
   end
 end
+
+FactoryGirl.define do
+  factory :tag do
+    name "its a tag"
+  end
+end
