@@ -16,30 +16,27 @@
  *= require foundation_and_overrides
  *= require_tree ./modules
  */
+$nexa-font: "Nexa Light", sans-serif;
+$font-color: #ffffff;
+$background-color: #222222;
+$panel-color: #444444;
+$visited-color: #cc0000;
+$hover-color: #999999;
+$unvisited-color: #ff3300;
 
  @font-face {
    font-family: "Nexa Light";
    src: font-url('nexa_light.otf');
- }
- .larger {
-    font-size: 150%;
- }
+}
 
- .smaller {
-    font-size: 50%;
- }
+.larger {
+  color: $font-color;
+  font-size: 150%;
+}
 
- .tab {
-    text-indent: 50px;
- }
-
- .review {
-    border-style: solid;
-    border-width: 5px;
-    border-radius: 10px;
-    border-color: #858585;
-    padding-left: 50px;
- }
+.smaller {
+  font-size: 75%;
+}
 
  .vote-arrows {
   width: 40px;
@@ -50,9 +47,8 @@
   display: inline;
 }
 
-
 #wrapper {
-  background-image: url("http://i.imgur.com/tOLxsBs.jpg");
+  background-image: url("http://imgur.com/7OV7GsB.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
@@ -63,7 +59,8 @@
 }
 
 #featured {
-
+  position: relative;
+  top: 65px;
 }
 
 #sidebar_img {
@@ -72,41 +69,59 @@
 }
 
 body {
-  background: #333333;
+  background: $background-color;
+  color: $font-color;
+  font-family: $nexa-font;
 }
 
 #title {
-  background: #333333;
+  background: $background-color;
   text-align: center;
 }
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Nexa Light', sans-serif;
-  color: white;
+  color: $font-color;
+  font-family: $nexa-font;
   text-align: center;
 }
 
 a {
-  font-family: "Nexa Light";
+  font-family: $nexa-font;
 }
 
 a:link {
-color: #CC0000;
+  color: $unvisited-color;
 }
+
 a:visited {
-color: #999999;
+  color: $visited-color;
 }
+
 a:hover {
-color: #FF3300;
+  color: $hover-color;
 }
 
 #l_sidebar {
   text-align: center;
 }
 
-ul #data_orbit {
-  animation:slide;
-  pause_on_hover:true;
-  animation_speed:500;
-  navigation_arrows:true;
-  bullets:false;
+.orbit-caption {
+  text-align: center;
+}
+
+.panel {
+  background-color: $panel-color;
+  border-radius: 5px;
+}
+
+.vote-arrows {
+  color: $font-color;
+}
+
+.panel .panel-text {
+  color: $font-color;
+}
+
+.panel #created {
+  color: $font-color;
 }
