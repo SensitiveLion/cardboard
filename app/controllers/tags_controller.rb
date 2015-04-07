@@ -30,11 +30,9 @@ class TagsController < ApplicationController
 
   def find_game_id
     if params[:game]
-      game_id = params[:game]
+      params[:game]
     else
-      game_id = params[:tag][:game_id]
+      params[:tag][:game_id]
     end
-    return game_id
   end
 end
-
