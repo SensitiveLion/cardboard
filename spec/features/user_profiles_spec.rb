@@ -14,6 +14,7 @@ feature 'user can view index of users' do
 
   scenario 'visitors can view index of users' do
     sign_in_as(user)
+    click_link 'Sign Out'
     visit users_path
     within(".column") do
       expect(page).to have_content(user.username)
@@ -25,7 +26,7 @@ feature 'user can view profile' do
   let(:review) { FactoryGirl.create(:review, user: user) }
   let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'users can view their profile' do
+  scenario 'user can navigate to their own profile from the users index page' do
     sign_in_as(user)
     visit users_path
     within(".column") do
@@ -37,8 +38,9 @@ feature 'user can view profile' do
     expect(page).to have_content(user.location)
   end
 
-  scenario 'visitors can view profiles' do
+  scenario 'visitor can navigate to profiles from the users index page' do
     sign_in_as(user)
+    click_link 'Sign Out'
     visit users_path
     within(".column") do
       click_link user.username
