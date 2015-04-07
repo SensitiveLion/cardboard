@@ -4,5 +4,5 @@ class GameTag < ActiveRecord::Base
 
   validates :tag_id, presence: true
   validates :game_id, presence: { message: "already has this tag" }
-  validates :tag_id, uniqueness: {scope: :game_id}
+  validates :tag_id, uniqueness: { scope: :game_id }
 end
