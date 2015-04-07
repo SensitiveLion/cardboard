@@ -13,7 +13,7 @@
     <nav class="top-bar">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/">Cardboard</a></h1>
+          <h1><a href="/">cardboard</a></h1>
         </li>
       </ul>
       <section class="top-bar-section">
@@ -36,14 +36,9 @@
       </div>
     <%- end -%>
 
-      <div class="row">
-        <div class="one columns">
+        <%= yield %>
 
-        </div>
-        <div class="11 columns"
-          <%= yield %>
-        </div>
-      </div>
+
       <%= javascript_include_tag 'application' %>
       <%= yield :extra_footer %>
 </body>

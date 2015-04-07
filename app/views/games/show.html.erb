@@ -32,7 +32,7 @@
       <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
         <% if current_user == review.user || current_user.has_authority? %>
-          <%= link_to "edit review", edit_review_path(review) %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+          <%= link_to "edit review", edit_review_path(review) %> || <%= link_to "add comment", new_review_comment_path(review) %>
         <% else %>
           <%= link_to "add comment", new_review_comment_path(review) %>
         <% end %>
