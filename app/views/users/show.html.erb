@@ -8,6 +8,7 @@
       <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
       <li class="larger">age: <%= @user.age %></li>
       <li class="larger">location: <%= @user.location %></li>
+      <li><%= link_to "edit your profile", edit_user_registration_path %></li>
     </ul>
   </li>
   <li><%= image_tag(@user.profile_photo_url) %></li>

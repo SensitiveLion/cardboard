@@ -16,31 +16,23 @@
  *= require foundation_and_overrides
  *= require_tree ./modules
  */
+$nexa-font: "Nexa Light", sans-serif;
+$font-color: #ffffff;
+$background-color: #222222;
+$panel-color: #444444;
 
  @font-face {
    font-family: "Nexa Light";
    src: font-url('nexa_light.otf');
- }
- .larger {
-    font-size: 150%;
-    color: white;
- }
+}
+.larger {
+  font-size: 150%;
+  color: $font-color;
+}
 
- .smaller {
-    font-size: 50%;
- }
-
- .tab {
-    text-indent: 50px;
- }
-
- .review {
-    border-style: solid;
-    border-width: 5px;
-    border-radius: 10px;
-    border-color: #858585;
-    padding-left: 50px;
- }
+.smaller {
+  font-size: 75%;
+}
 
  .vote-arrows {
   width: 40px;
@@ -50,7 +42,6 @@
 .inline {
   display: inline;
 }
-
 
 #wrapper {
   background-image: url("http://imgur.com/7OV7GsB.jpg");
@@ -74,18 +65,19 @@
 }
 
 body {
-  background: #222222;
+  background: $background-color;
   font-family: 'Nexa Light', sans-serif;
-  color: white;
+  color: $font-color;
 }
 
 #title {
-  background: #222222;
+  background: $background-color;
   text-align: center;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Nexa Light', sans-serif;
-  color: white;
+  color: $font-color;
   text-align: center;
 }
 
@@ -94,13 +86,15 @@ a {
 }
 
 a:link {
-color: #FF3300;
+  color: #FF3300;
 }
+
 a:visited {
-color: #CC0000;
+  color: #CC0000;
 }
+
 a:hover {
-color: #999999;
+  color: #999999;
 }
 
 #l_sidebar {
@@ -111,19 +105,19 @@ color: #999999;
   text-align: center;
 }
 
-ul #data_orbit {
-  animation:slide;
-  pause_on_hover:true;
-  animation_speed:500;
-  navigation_arrows:true;
-  bullets:false;
-}
-
 .panel {
   background: #444444;
   border-radius: 5px;
 }
 
 .vote-arrows {
-  color: white;
+  color: $font-color;
+}
+
+.panel .panel_text {
+  color: $font-color;
+}
+
+.panel #created {
+  color: $font-color;
 }
