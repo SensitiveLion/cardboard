@@ -31,20 +31,20 @@ submitted by: <%= link_to @game.user.username, user_path(@game.user) %>
 <% @reviews.each do |review| %>
   <div class="panel">
   <%= render partial: 'votes/voter', locals: { review: review } %>
-    <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
-      <p class="smaller">created at: <%= review.updated_at %></p>
-      <p>
+    <h4 class="panel-text"><%= review.user.username %> says</h4><p class="panel-text"><%= review.body %></p>
+      <p class="smaller" id="created">created at: <%= review.updated_at %></p>
+      <p class="panel-text">
         <% if current_user == review.user || current_user.has_authority? %>
-          <%= link_to "edit review", edit_review_path(review) %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+          <%= link_to "edit review", edit_review_path(review) %> || <%= link_to "add comment", new_review_comment_path(review) %>
         <% else %>
           <%= link_to "add comment", new_review_comment_path(review) %>
         <% end %>
       </p>
     <div class="panel">
-      <h5>comments:</h5>
+      <h5 class="panel-text">comments:</h5>
       <% review.comments.each do |comment| %>
-        <p><%= comment.user.username %> says: <%= comment.body %></p>
-        <p>
+        <p class="panel-text"><%= comment.user.username %> says: <%= comment.body %></p>
+        <p class="panel-text">
         <% if current_user == comment.user || current_user.has_authority? %>
           <%= link_to "edit", edit_comment_path(comment) %> ||
           <%= link_to "delete", comment, method: :delete %>
