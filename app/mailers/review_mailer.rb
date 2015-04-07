@@ -1,0 +1,2 @@
+class ReviewMailer < ApplicationMailer
+end

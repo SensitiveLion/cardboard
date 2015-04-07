@@ -1,11 +1,17 @@
 <div class= "title">
-  <h1><%= @game.name %></h1>
+  <h1><%= @game.name %>
+  </h1>
 </div>
 <div class="row">
 <div class=""></div>
 <ul class="large-block-grid-2">
   <li>
     <ul>
+      <li class="larger">
+        <% unless @game.average == 0.0 %>
+          gamers rating: <%= @game.average.round(1) %>
+        <% end%>
+      </li>
       <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
       <li class="larger">playing time: <%= @game.playing_time %></li>
       <li class="larger">complexity: <%= @game.complexity_name %></li>
@@ -23,27 +29,36 @@
     </ul>
   </li>
   <li><%= image_tag(@game.photo_url) %></li>
-  <%= link_to "edit game", edit_game_path(@game) %>
 </ul>
+<%= link_to "edit game", edit_game_path(@game) %> ||
+submitted by: <%= link_to @game.user.username, user_path(@game.user) %>
 <h2>what the gamers say</h2>
 <p><%= link_to "review this game", new_game_review_path(@game) %></p>
 
-<% @game.reviews.each do |review| %>
+<% @reviews.each do |review| %>
   <div class="panel">
+  <%= render partial: 'votes/voter', locals: { review: review } %>
     <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
       <p class="smaller">created at: <%= review.updated_at %></p>
       <p>
-        <%= link_to "edit review", edit_review_path(review), method: "get" %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+        <% if current_user == review.user || current_user.has_authority? %>
+          <%= link_to "edit review", edit_review_path(review) %> ||<%= link_to "add comment", new_review_comment_path(review) %>
+        <% else %>
+          <%= link_to "add comment", new_review_comment_path(review) %>
+        <% end %>
       </p>
     <div class="panel">
       <h5>comments:</h5>
       <% review.comments.each do |comment| %>
         <p><%= comment.user.username %> says: <%= comment.body %></p>
         <p>
-        <%= link_to "edit", edit_comment_path(comment), method: "get" %> ||
-        <%= link_to "delete", comment, method: :delete %>
+        <% if current_user == comment.user || current_user.has_authority? %>
+          <%= link_to "edit", edit_comment_path(comment) %> ||
+          <%= link_to "delete", comment, method: :delete %>
+        <% end %>
         </p>
       <% end %>
     </div>
   </div>
 <% end %>
+<%= paginate @reviews %>

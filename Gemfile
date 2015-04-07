@@ -46,6 +46,8 @@ group :development, :test do
   gem "coveralls", require: false
 end
 
+gem 'kaminari'
+gem 'pg_search'
 gem "rspec-rails", group: [:development, :test]
 gem "capybara", group: [:development, :test]
 gem "launchy", group: [:development, :test]

@@ -16,10 +16,9 @@ feature 'user can add comments to reviews' do
   end
 
   scenario 'visitor cannot add comments' do
-    visit new_game_review_path(game)
-    expect(page).to have_content(
-      "You need to sign in or sign up before continuing."
-    )
+    visit game_path(game)
+    FactoryGirl.create(:review)
+    expect(page).not_to have_content("add comment")
   end
 
   scenario 'user can cancel a comment' do
@@ -27,7 +26,7 @@ feature 'user can add comments to reviews' do
     visit game_path(review.game)
     click_link "add comment"
     fill_in "your comment", with: "something to be cancelled"
-    click_button "cancel"
+    click_link "cancel"
     expect(page).to have_content(review.game.name)
     expect(page).not_to have_content("something to be cancelled")
   end

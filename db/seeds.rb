@@ -5,12 +5,12 @@ if Rails.env.development?
     first_name: "kayla",
     age: "25",
     location: "boston",
-    avatar_url: "www.thing.google.com/images",
+    profile_photo: "www.thing.google.com/images",
     email: "hi@example.com",
-    encrypted_password: "password"
+    encrypted_password: "password3"
   )
 
-  Game.find_or_create_by!(
+  game = Game.find_or_create_by!(
     user: user,
     name: "its a game",
     description: "for srs. totlly a game",
@@ -18,5 +18,11 @@ if Rails.env.development?
     max_players: 9001,
     playing_time: 42,
     complexity: 1
+  )
+
+  Review.find_or_create_by!(
+    user: user,
+    game: game,
+    body: "testing votes"
   )
 end

@@ -11,7 +11,7 @@ feature 'admin can delete or edit any game, review, or comment' do
     sign_in_as(admin)
     visit game_path(game)
     click_link "edit game"
-    click_button "delete this game"
+    click_link "delete this game"
     expect(page).to have_content("Game deleted.")
   end
 
@@ -29,7 +29,7 @@ feature 'admin can delete or edit any game, review, or comment' do
     sign_in_as(admin)
     visit game_path(review.game)
     click_link "edit review"
-    click_button "delete this review"
+    click_link "delete this review"
     expect(page).not_to have_content("something something something")
   end
 

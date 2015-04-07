@@ -6,6 +6,10 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
+  config.before :each do
+    ActionMailer::Base.deliveries.clear
+  end
+  
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
