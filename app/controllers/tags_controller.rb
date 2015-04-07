@@ -14,11 +14,11 @@ class TagsController < ApplicationController
     tag = Tag.new(name: name)
     if tag.save
       flash[:notice] = "new tag created"
-      game_tag = GameTag.create(game_id: @game.id, tag_id: tag.id)
+      GameTag.create(game_id: @game.id, tag_id: tag.id)
       redirect_to game_path(@game)
     else
       flash[:notice] = "tag already exists"
-      redirect_to action:"new", game: game_id
+      redirect_to action: "new", game: game_id
     end
   end
 
@@ -34,6 +34,7 @@ class TagsController < ApplicationController
     else
       game_id = params[:tag][:game_id]
     end
+    return game_id
   end
 end
 
