@@ -17,13 +17,13 @@
  *= require_tree ./modules
  */
 
-
  @font-face {
    font-family: "Nexa Light";
    src: font-url('nexa_light.otf');
  }
  .larger {
     font-size: 150%;
+    color: white;
  }
 
  .smaller {
@@ -53,7 +53,7 @@
 
 
 #wrapper {
-  background-image: url("http://i.imgur.com/tOLxsBs.jpg");
+  background-image: url("http://imgur.com/7OV7GsB.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
@@ -64,7 +64,8 @@
 }
 
 #featured {
-
+  position: relative;
+  top: 65px;
 }
 
 #sidebar_img {
@@ -73,11 +74,13 @@
 }
 
 body {
-  background: #333333;
+  background: #222222;
+  font-family: 'Nexa Light', sans-serif;
+  color: white;
 }
 
 #title {
-  background: #333333;
+  background: #222222;
   text-align: center;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -91,16 +94,20 @@ a {
 }
 
 a:link {
-color: #CC0000;
+color: #FF3300;
 }
 a:visited {
-color: #999999;
+color: #CC0000;
 }
 a:hover {
-color: #FF3300;
+color: #999999;
 }
 
 #l_sidebar {
+  text-align: center;
+}
+
+.orbit-caption {
   text-align: center;
 }
 
@@ -110,4 +117,13 @@ ul #data_orbit {
   animation_speed:500;
   navigation_arrows:true;
   bullets:false;
+}
+
+.panel {
+  background: #444444;
+  border-radius: 5px;
+}
+
+.vote-arrows {
+  color: white;
 }
