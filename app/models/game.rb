@@ -3,6 +3,8 @@ class Game < ActiveRecord::Base
     :after_add => :update_average,
     :after_remove => :update_average
   has_many :comments, through: :reviews
+  has_many :game_tags
+  has_many :tags, through: :game_tags
   belongs_to :user
 
   include PgSearch
