@@ -56,10 +56,12 @@ submitted by: <%= link_to @game.user.username, user_path(@game.user) %>
       <% review.comments.each do |comment| %>
         <p class="panel-text"><%= comment.user.username %> says: <%= comment.body %></p>
         <p class="panel-text">
-        <% if current_user == comment.user || current_user.has_authority? %>
-          <%= link_to "edit", edit_comment_path(comment) %> ||
-          <%= link_to "delete", comment, method: :delete %>
-        <% end %>
+          <% if current_user != nil %>
+            <% if current_user == comment.user || current_user.has_authority? %>
+              <%= link_to "edit", edit_comment_path(comment) %> ||
+              <%= link_to "delete", comment, method: :delete %>
+            <% end %>
+          <% end %>
         </p>
       <% end %>
     </div>
