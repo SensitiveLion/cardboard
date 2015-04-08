@@ -13,6 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require_tree .
+//= require_self
+//= require_tree
+//= require jquery.slick
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+});
+
+$(document).ready(function(){
+  $('.carousel').slick({
+    infinite: true,
+    autoplay: true,
+    dots: true,
+    autoplaySpeed: 2000
+  });
+});
