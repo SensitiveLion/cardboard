@@ -7,6 +7,6 @@ class Tag < ActiveRecord::Base
   private
 
   def downcase_tag_name
-    :name.downcase!
+    name.downcase!
   end
 end
