@@ -10,13 +10,15 @@
       <li class="larger">
         <% unless @game.average == 0.0 %>
           gamers rating: <%= @game.average.round(1) %>
+        <% else %>
+          this game is unrated, write a review to rate it
         <% end%>
       </li>
       <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
       <li class="larger">playing time: <%= @game.playing_time %></li>
       <li class="larger">complexity: <%= @game.complexity_name %></li>
-      <li>
-        <h4>description:</h4>
+      <li class="larger">
+        description: <br>
         <%= @game.description %>
       </li>
       <li>tags:
