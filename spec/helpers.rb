@@ -70,4 +70,3 @@ def game_user
 
   click_button 'Sign up'
 end
-
