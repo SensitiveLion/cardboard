@@ -26,25 +26,20 @@ class Game < ActiveRecord::Base
     4 => "extreme"
   }
 
-  validates :name, presence: true,
-            uniqueness: true
+  validates :name, presence: true, uniqueness: true
   validates :user, presence: true
-  validates :description, presence: true,
-            length: { minimum: 250 }
-  validates :min_players, presence: true,
-            numericality: {
-            less_than_or_equal_to: :max_players,
-            message: "must be less than or equal to max players!",
-            greater_than_or_equal_to: 1, message: "must be at least 1",
-            only_integer: true
+  validates :description, presence: true, length: { minimum: 250 }
+  validates :min_players, presence: true, numericality: {
+    less_than_or_equal_to: :max_players,
+    message: "must be less than or equal to max players!",
+    greater_than_or_equal_to: 1, message: "must be at least 1",
+    only_integer: true
   }
-  validates :max_players, presence: true,
-            numericality: {
-            greater_than_or_equal_to: 1, only_integer: true
+  validates :max_players, presence: true, numericality: {
+    greater_than_or_equal_to: 1, only_integer: true
   }
-  validates :playing_time, presence: true,
-            numericality: {
-            greater_than_or_equal_to: 1, only_integer: true
+  validates :playing_time, presence: true, numericality: {
+    greater_than_or_equal_to: 1, only_integer: true
   }
   validates :complexity, presence: true
 
