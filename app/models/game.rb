@@ -27,7 +27,7 @@ class Game < ActiveRecord::Base
   }
 
   validates :name, presence: true,
-    uniqueness: true
+            uniqueness: true
   validates :user, presence: true
   validates :description, presence: true,
             length: { minimum: 250 }
