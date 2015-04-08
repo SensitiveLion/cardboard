@@ -104,5 +104,3 @@ def make_game
       Description"
   click_button "add game"
 end
-
-
