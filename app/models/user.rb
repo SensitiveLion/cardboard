@@ -15,25 +15,15 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_REGEX = /\Achange@me/
   TEMP_EMAIL_PREFIX = 'change@me'
 
-  # Include default devise modules. Others available are:
-  # :lockable, :timeoutable
-
   #validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
     # Get the identity and user if they exist
     identity = Identity.find_for_oauth(auth)
-
-    # If a signed_in_resource is provided it always overrides the existing user
-    # to prevent the identity being locked with accidentally created accounts.
-    # Note that this may leave zombie accounts (with no associated identity) which
-    # can be cleaned up at a later date.
     user = signed_in_resource ? signed_in_resource : identity.user
-
     # Create the user if needed
     if user.nil?
-
       #check for email exists and verified -- facebook email ------------- google email
       email_is_verified = auth.info.email && (auth.info.verified || auth.extra.raw_info.email_verified)
       email = auth.info.email if email_is_verified
