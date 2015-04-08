@@ -10,14 +10,22 @@ feature 'user can edit games' do
     visit game_path(game)
     click_link "edit game"
     fill_in 'name', with: 'wowgame'
-    fill_in 'description', with: 'this game is great'
+    fill_in 'description', with: "Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu."
     fill_in 'minimum players', with: 2
     fill_in 'maximum players', with: 8
     fill_in 'playing time (min)', with: 50
     select 'medium', from: "complexity"
     click_button "edit game"
     expect(page).to have_content('wowgame')
-    expect(page).to have_content("this game is great")
+    expect(page).to have_content("Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu.")
     expect(page).to have_content(2)
     expect(page).to have_content(8)
     expect(page).to have_content(50)
