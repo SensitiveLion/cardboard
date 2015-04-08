@@ -1,5 +1,13 @@
 class Tag < ActiveRecord::Base
-  has_many :game_tags, dependent: :destroy
+  before_validation :downcase_tag_name
 
+  has_many :game_tags, dependent: :destroy
   validates :name, presence: true, uniqueness: true
+
+  private
+
+  def downcase_tag_name
+    self.name.downcase!
+  end
+
 end

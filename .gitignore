@@ -4,7 +4,4 @@
 !/log/.keep
 /tmp
 /public/uploads
-# Ignore environment variables
-.env
-coverage
 /.env

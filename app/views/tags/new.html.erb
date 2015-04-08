@@ -7,13 +7,20 @@
 <% end %>
 
 <h1>enter a new tag</h1>
-<%= form_for @tag do |f| %>
+<p>
+  current tags:
+  <% @game.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
 
+<%= form_for @tag do |f| %>
   <%= f.label :name, "tag" %><br>
   <%= f.text_field :name %>
   <%= f.hidden_field(:game_id, value: @game.id) %>
   <%= f.submit "add tag" %>
-
 <% end %>
+
 <br><br>
 <%= link_to "click to go back", new_game_game_tag_path(@game) %>
+

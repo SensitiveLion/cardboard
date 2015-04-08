@@ -3,11 +3,13 @@ require 'helpers'
 
 feature 'user adds tags to game' do
   let(:game) { FactoryGirl.create(:game) }
-  let(:tag) { FactoryGirl.create(:tag) }
   let(:user) { FactoryGirl.create(:user) }
 
-  scenario 'user submits and adds new tag to game' do
+  before :each do
     sign_in_as(user)
+  end
+
+  scenario 'user submits and adds new tag to game' do
     visit game_path(game)
     click_link "add a tag"
     click_link "click here to enter a new tag"
@@ -18,7 +20,6 @@ feature 'user adds tags to game' do
   end
 
   scenario 'user creates non-unique tag' do
-    sign_in_as(user)
     visit game_path(game)
     click_link "add a tag"
     click_link "click here to enter a new tag"
@@ -35,8 +36,7 @@ feature 'user adds tags to game' do
   end
 
   scenario 'user applies an existing tag to a game' do
-    sign_in_as(user)
-    tag
+    tag = FactoryGirl.create(:tag)
     visit game_path(game)
     click_link "add a tag"
     find('#game_tag_tag_id').find(:xpath, 'option[1]').select_option
@@ -46,8 +46,7 @@ feature 'user adds tags to game' do
   end
 
   scenario 'user applies a duplicate tag to game' do
-    sign_in_as(user)
-    tag
+    tag = FactoryGirl.create(:tag)
     visit game_path(game)
     click_link "add a tag"
     find('#game_tag_tag_id').find(:xpath, 'option[1]').select_option

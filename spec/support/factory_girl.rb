@@ -34,10 +34,8 @@ FactoryGirl.define do
     review
     user
   end
-end
 
-FactoryGirl.define do
   factory :tag do
-    name "its a tag"
+    sequence(:name) { |n| "Tag #{n}"}
   end
 end

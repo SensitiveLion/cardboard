@@ -7,6 +7,11 @@
 <% end %>
 
 <h1>select or add a new tag</h1>
+<p>current tags:
+<% @game.tags.each do |tag| %>
+  <%= tag.name %>
+<% end %></p>
+
 <%= form_for [@game, @game_tag] do |f| %>
 
   <%= f.label :tags, "Tag" %><br>

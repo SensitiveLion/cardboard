@@ -2,23 +2,35 @@ class TagsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @tag = Tag.new
-    game_id = find_game_id
-    @game = Game.find(game_id)
+    if !find_game_id.nil?
+      @tag = Tag.new
+      @game = Game.find(find_game_id) if !find_game_id.nil?
+    else
+      # user tries to add a tag without going through a game
+      # we don't want tags not in use, go back to games index
+      redirect_to games_path
+    end
   end
 
   def create
-    game_id = find_game_id
-    @game = Game.find(game_id)
-    name = tag_params[:name].downcase
-    tag = Tag.new(name: name)
+    @game = Game.find(find_game_id)
+    tag = Tag.new(tag_params)
     if tag.save
       flash[:notice] = "new tag created"
-      GameTag.create(game_id: @game.id, tag_id: tag.id)
-      redirect_to game_path(@game)
+      gametag = GameTag.new(game_id: @game.id, tag_id: tag.id)
+      if @game.nil?
+        redirect_to games_path
+      elsif gametag.save
+        redirect_to game_path(@game)
+      else
+        # this should never happen.  a newly created tag
+        # is by definition unused within the scope of all games
+        flash[:notice] = "new tag created - but unable to save it to game"
+        redirect_to game_path(@game)
+      end
     else
       flash[:notice] = "tag already exists"
-      redirect_to action: "new", game: game_id
+      redirect_to action: "new", game: @game.id
     end
   end
 
@@ -31,7 +43,7 @@ class TagsController < ApplicationController
   def find_game_id
     if params[:game]
       params[:game]
-    else
+    elsif params[:tag]
       params[:tag][:game_id]
     end
   end
