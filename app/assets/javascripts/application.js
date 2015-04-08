@@ -23,9 +23,9 @@ $(function(){
 
 $(document).ready(function(){
   $('.carousel').slick({
-    infinite: true,
-    autoplay: true,
     dots: true,
-    autoplaySpeed: 2000
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
   });
 });
