@@ -14,7 +14,7 @@ feature 'user can view index of users' do
 
   scenario 'visitors can view index of users' do
     sign_in_as(user)
-    click_link 'Sign Out'
+    click_link 'sign out'
     visit users_path
     within(".column") do
       expect(page).to have_content(user.username)
@@ -40,7 +40,7 @@ feature 'user can view profile' do
 
   scenario 'visitor can navigate to profiles from the users index page' do
     sign_in_as(user)
-    click_link 'Sign Out'
+    click_link 'sign out'
     visit users_path
     within(".column") do
       click_link user.username

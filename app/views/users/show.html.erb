@@ -1,5 +1,7 @@
 <div class= "title">
   <h1><%= @user.username %></h1>
+  <h1><%= @user.status %></h1>
+  <h1>xp: <%= @user.karma_score %></h1>
 </div>
 
 <ul class="large-block-grid-2">
@@ -8,7 +10,9 @@
       <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
       <li class="larger">age: <%= @user.age %></li>
       <li class="larger">location: <%= @user.location %></li>
-      <li><%= link_to "edit your profile", edit_user_registration_path %></li>
+      <% if @user == current_user %>
+        <li><%= link_to "edit your profile", edit_user_registration_path %></li>
+      <% end %>
     </ul>
   </li>
   <li><%= image_tag(@user.profile_photo_url) %></li>
