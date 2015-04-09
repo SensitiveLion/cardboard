@@ -58,3 +58,27 @@ def game_user
 
   click_button 'Sign up'
 end
+
+def mock_fb
+  # The mock_auth configuration allows you to set per-provider (or default)
+  # authentication hashes to return during integration testing.
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth["facebook"] = {
+    uid: "1234",
+    provider: "facebook",
+    extra: {
+      raw_info: {
+        id: 99999,
+        locale: "US"
+      },
+    },
+    info: {
+      email: "foobar@example.com",
+      first_name: "foo",
+      last_name: "bar",
+      username: "foobar",
+      gender: "Male",
+      verified: "true"
+    }
+  }
+end

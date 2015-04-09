@@ -5,6 +5,6 @@ class Identity < ActiveRecord::Base
 
   def self.find_for_oauth(auth)
     binding.pry
-    find_or_create_by(uid: auth["uid"], provider: auth["provider"])
+    find_or_create_by(uid: auth[:uid], provider: auth[:provider])
   end
 end
