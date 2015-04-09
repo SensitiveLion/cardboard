@@ -7,20 +7,26 @@
 <% end %>
 
 <h1>enter a new tag</h1>
-<p>
-  current tags:
-  <% @game.tags.each do |tag| %>
-    <%= tag.name %>
-  <% end %>
-</p>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <p>
+      current tags:
+      <li class="larger">tags:
+        <ul class="inline-list">
+        <% @game.tags.each do |tag| %>
+          <li class="tag"><%= tag.name %></li>
+        <% end %>
+        </ul>
+      </li>
+    </p>
 
-<%= form_for @tag do |f| %>
-  <%= f.label :name, "tag" %><br>
-  <%= f.text_field :name %>
-  <%= f.hidden_field(:game_id, value: @game.id) %>
-  <%= f.submit "add tag" %>
-<% end %>
+    <%= form_for @tag do |f| %>
+      <%= f.label :name, "tag" %><br>
+      <%= f.text_field :name %>
+      <%= f.hidden_field(:game_id, value: @game.id) %>
+      <%= f.submit "add tag" %>
+    <% end %>
 
-<br><br>
-<%= link_to "click to go back", new_game_game_tag_path(@game) %>
+    <br><br>
+    <%= link_to "click to go back", new_game_game_tag_path(@game) %>
 

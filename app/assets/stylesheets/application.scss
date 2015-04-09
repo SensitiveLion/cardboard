@@ -54,8 +54,10 @@ $unvisited-color: #ff3300;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  width: 100% !important;
+  width: 110% !important;
   z-index: 0;
+  position: relative;
+  left: -1em;
 }
 
 #featured {
@@ -125,3 +127,18 @@ a:hover {
 .panel #created {
   color: $font-color;
 }
+
+.field label {
+  color: $font-color;
+  font-size: 1em;
+}
+
+.tag {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d8d8d8;
+  border-radius: 5px;
+  padding: .15rem .40rem;
+  text-align: inline;
+}
+
