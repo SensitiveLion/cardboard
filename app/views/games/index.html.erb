@@ -9,20 +9,32 @@
   <div class="row">
     <div class="large-4 small-6 columns">
       <div class="panel">
-        <h4 class="panel-text">newest games</h4><hr>
-        <% @games_new.each do |game| %>
-          <div class="row">
-            <div class="large-12 small-centered columns">
-              <h5><%= link_to game.name, game_path(game) %></h5>
-            </div>
-          </div><hr>
+        <h4 class="panel-text">search games</h4><hr>
+        <h5>
+          <%= form_tag games_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "search-box" %>
+            <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+          <% end %>
+        </h5><hr>
+        <% if params[:query] != nil %>
+          <% if @games.empty? %>
+            No games matched your search
+          <% else %>
+            <% @games.each do |game| %>
+              <div class="row">
+                <div class="large-12 small-centered columns">
+                  <h5><%= link_to game.name, game_path(game) %></h5>
+                </div>
+              </div><hr>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>
     <div class="large-4 small-6 columns">
       <div class="panel">
         <h4 class="panel-text">all the games</h4><hr>
-        <% @games.each do |game| %>
+        <% @games_name.each do |game| %>
           <div class="row">
             <div class="large-12 small-centered columns">
               <h5><%= link_to game.name, game_path(game) %></h5>
