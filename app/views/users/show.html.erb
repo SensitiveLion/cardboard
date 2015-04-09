@@ -8,11 +8,13 @@
       <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
       <li class="larger">age: <%= @user.age %></li>
       <li class="larger">location: <%= @user.location %></li>
-      <%- if current_user.authority == "admin" -%>
-        <%- if @user.authority == "user" -%>
-          <li><%= link_to "make this user a mod", user_path(@user), method: :put %></li>
-        <%- elsif @user.authority == "mod" -%>
-          <li><%= link_to "revoke modship", user_path(@user), method: :put %></li>
+      <%- if current_user -%>
+        <%- if current_user.authority == "admin" -%>
+          <%- if @user.authority == "user" -%>
+            <li><%= link_to "make this user a mod", user_path(@user), method: :put %></li>
+          <%- elsif @user.authority == "mod" -%>
+            <li><%= link_to "revoke modship", user_path(@user), method: :put %></li>
+          <%- end -%>
         <%- end -%>
       <%- end -%>
       <li><%= link_to "edit your profile", edit_user_registration_path %></li>
