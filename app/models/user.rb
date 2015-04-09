@@ -32,9 +32,11 @@ class User < ActiveRecord::Base
       if auth.provider == "facebook"
         location = (auth.extra.raw_info.locale[-2..-1])
         username = auth.info.first_name.concat(auth.info.last_name).concat(auth.extra.raw_info.id[-3..-1])
-      else
+        profile_photo = auth.info.image
+      elsif auth.provider == "google_oauth2"
         username = auth.info.first_name.concat(auth.info.last_name).concat(auth.extra.raw_info.sub[-3..-1])
         location = ""
+        profile_photo = auth.info.image
       end
       # Create the user if it's a new registration
       if user.nil?
@@ -43,6 +45,7 @@ class User < ActiveRecord::Base
           last_name: auth.info.last_name,
           location: location,
           #name: auth.extra.raw_info.name,
+
           username: username,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
