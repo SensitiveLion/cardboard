@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_admin!, only: [:update]
+
   def show
     @user = User.find(params[:id])
   end
@@ -8,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    before_action :authenticate_admin!
     @user = User.find(params[:id])
     if @user.authority == "user"
       @user.authority = "mod"
@@ -22,7 +23,8 @@ class UsersController < ApplicationController
   protected
 
   def authenticate_admin!
-  if !user_signed_in? || current_user.authority != "admin"
-    raise ActionController::RoutingError.new("Not Found")
+    if !user_signed_in? || current_user.authority != "admin"
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end
