@@ -44,8 +44,10 @@ class ReviewsController < ApplicationController
     @review = user_review
     @game = @review.game
     @review.destroy
-    @review.game.update_average
-    redirect_to game_path(@game)
+    if @game != nil
+      @game.update_average
+      redirect_to game_path(@game)
+    end
   end
 
   private
