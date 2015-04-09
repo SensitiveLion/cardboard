@@ -17,7 +17,7 @@
       <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
       <li class="larger">playing time: <%= @game.playing_time %></li>
       <li class="larger">complexity: <%= @game.complexity_name %></li>
-      <li class="larger">buy this game: <%= @game.amazon_html %></li>
+      <li class="larger">buy this game: <%= @game.amazon_html.html_safe %></li>
 
       <li class="larger">
         description: <br>
