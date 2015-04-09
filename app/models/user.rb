@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   def karma_score
     reviews = Review.where(user_id: id)
     games = Game.where(user_id: id)
-    user_xp = self.xp
+    user_xp = xp
     reviews.each do |review|
       user_xp += 1
       user_xp += review.vote_count
@@ -37,27 +37,27 @@ class User < ActiveRecord::Base
   end
 
   def status
-    if self.authority == "admin"
+    if authority == "admin"
       return "admin"
-    elsif self.authority == "mod"
+    elsif authority == "mod"
       return "mod"
     end
-    if self.xp < 25
+    if xp < 25
       level = 0
       LEVEL[level]
-    elsif self.xp < 50
+    elsif xp < 50
       level = 1
       LEVEL[level]
-    elsif self.xp < 75
+    elsif xp < 75
       level = 2
       LEVEL[level]
-    elsif self.xp < 100
+    elsif xp < 100
       level = 3
       LEVEL[level]
-    elsif self.xp < 150
+    elsif xp < 150
       level = 4
       LEVEL[level]
-    elsif self.xp < 200
+    elsif xp < 200
       level = 5
       LEVEL[level]
     end
