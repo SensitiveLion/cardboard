@@ -19,17 +19,11 @@
 
       <div class="field">
         <%= f.label :min_players, "minimum players" %>
-      </div>
-
-      <div class="field">
         <%= f.number_field :min_players %>
       </div>
 
       <div class="field">
         <%= f.label :max_players, "maximum players" %>
-      </div>
-
-      <div class="field">
         <%= f.number_field :max_players %>
       </div>
 
@@ -53,7 +47,9 @@
       <%= image_tag(@game.photo_url) if @game.photo? %>
       <%= f.file_field :photo %>
 
-      <%= f.submit "add game" %>
+      <div class="actions">
+        <%= f.submit "add game" %>
+      </div>
     <% end %>
   </div>
 </div>

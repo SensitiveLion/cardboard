@@ -21,10 +21,17 @@
     </p>
 
     <%= form_for @tag do |f| %>
-      <%= f.label :name, "tag" %><br>
-      <%= f.text_field :name %>
+      <div class="field">
+        <%= f.label :name, "tag" %><br>
+        <%= f.text_field :name %>
+      </div>
+
       <%= f.hidden_field(:game_id, value: @game.id) %>
-      <%= f.submit "add tag" %>
+
+      <div class="actions">
+        <%= f.submit "add tag" %>
+      </div>
+
     <% end %>
 
     <br><br>

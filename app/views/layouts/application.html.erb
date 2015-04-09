@@ -14,13 +14,13 @@
     <nav class="top-bar">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/">cardboard</a></h1>
+          <h1 class= "nameplate"><a href="/">cardboard  <img src="http://i.imgur.com/NvlWChv.gif" class="logo"></a></h1>
         </li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
           <% if current_user %>
-            <li><%= image_tag(current_user.profile_photo_url, size:"40") %></li>
+            <li><%= image_tag(current_user.profile_photo_url, class: "photo") %></li>
             <li><%= link_to "#{current_user.username}" , user_path(current_user) %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <% else %>

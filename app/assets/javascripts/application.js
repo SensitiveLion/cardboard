@@ -22,7 +22,7 @@ $(function(){
 });
 
 $(document).ready(function(){
-  $('.autoplay').slick({
+  $('.carousel').slick({
     slidesToScroll: 1,
     dots: true,
     autoplay: true,

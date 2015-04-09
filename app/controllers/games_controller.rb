@@ -8,9 +8,9 @@ class GamesController < ApplicationController
       @pg_search_result.each do |result|
         @games << Game.find(result.searchable_id)
       end
-    else
-      @games = Game.all
     end
+    @games_rating = Game.order(average: :desc).limit(10)
+    @games_name = Game.order(:name)
   end
 
   def show

@@ -46,7 +46,10 @@
       <%= image_tag(@game.photo_url) if @game.photo? %>
       <%= f.file_field :photo %>
 
-      <%= f.submit "edit game" %>
+      <div class="actions">
+        <%= f.submit "edit game" %>
+      </div>
+
     <% end %>
     <%= link_to "cancel ", game_path(@game) %>
     <% if current_user == @game.user || current_user.has_authority? %>
