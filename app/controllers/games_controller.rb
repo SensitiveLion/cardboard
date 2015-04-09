@@ -64,7 +64,7 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(
       :name, :description, :min_players, :max_players,
-      :playing_time, :complexity, :photo
+      :playing_time, :complexity, :photo, :amazon_html
     )
   end
 end
