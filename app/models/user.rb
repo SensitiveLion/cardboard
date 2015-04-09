@@ -8,13 +8,13 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+
   def has_authority?
     authority == "admin" || authority == "mod"
   end
 
   TEMP_EMAIL_REGEX = /\Achange@me/
   TEMP_EMAIL_PREFIX = 'change@me'
-
   #validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
