@@ -131,10 +131,15 @@ a:hover {
   color: $font-color;
 }
 
-.photo{
+#photo{
   padding-top: 5px;
   width: 40px;
   height:40px;
+  overflow: hidden;
+}
+
+#logo{
+  height:30px;
   overflow: hidden;
 }
 
@@ -150,4 +155,26 @@ a:hover {
   border-radius: 5px;
   padding: .15rem .40rem;
   text-align: inline;
+}
+
+#nameplate {
+  font-size: 1.6em;
+}
+
+.btn {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+     color: $unvisited-color;
+}
+
+.actions {
+     background:none!important;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+     color: $unvisited-color;
 }
