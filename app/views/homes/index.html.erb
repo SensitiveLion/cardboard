@@ -44,6 +44,15 @@
       </div>
       <div class="large-4 small-12 columns">
         <h4>more options</h4><hr>
+        <div class="panel hide-for-small">
+          <h4 class="panel-text">search games</h4>
+          <h5>
+            <%= form_tag games_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], class: "search-box" %>
+              <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+            <% end %>
+          </h5>
+        </div>
         <div class="panel">
           <h5><%= link_to "add a new game", new_game_path %></h5>
         </div>
