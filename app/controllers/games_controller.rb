@@ -2,15 +2,9 @@ class GamesController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    if params[:query]
-      @pg_search_result = PgSearch.multisearch(params[:query])
-      @games = []
-      @pg_search_result.each do |result|
-        @games << Game.find(result.searchable_id)
-      end
-    else
-      @games = Game.all
-    end
+    @games_new = Game.order(created_at: :desc).limit(10)
+    @games_rating = Game.order(average: :desc).limit(10)
+    @games = Game.order(:name)
   end
 
   def show

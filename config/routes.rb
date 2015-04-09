@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'games#index'
+  root 'homes#index'
   resources :games do
     resources :reviews, only: [:index, :new, :create]
     resources :game_tags, only: [:new, :create]
@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:index, :show]
+  resources :homes, only: [:index]
 end

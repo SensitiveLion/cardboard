@@ -1,4 +1,63 @@
-<p>
-  Modify me in `app/views/homes/index.html.erb` or change the root directive in
-  `config/routes.rb`
-</p>
+  <div id="wrapper">
+    <div class="row">
+      <div class="large-12 hide-for-small">
+        <div class="carousel">
+          <div><img src="http://i.imgur.com/pmXMshh.jpg"></div>
+          <div><img src="http://i.imgur.com/9dZY7Wi.jpg"></div>
+          <div><img src="http://i.imgur.com/qJcIiuh.jpg"></div>
+          <div><img src="http://i.imgur.com/qsgU9F3.jpg"></div>
+          <div><img src="http://i.imgur.com/aXcLSwL.jpg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ul>
+
+<div class="row" id="title">
+  <div class="small-8 large-centered column" >
+    <h1>cardboard<h1>
+    <h3>for all your corrugated needs</h3>
+
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-4 small-6 columns">
+        <h4>up-and-coming games</h4><hr>
+        <% if @games.empty? %>
+          No games matched your search
+        <% else %>
+          <% @games.each do |game| %>
+            <div class="row">
+              <div class="large-12 small-centered columns">
+                <h5><%= link_to game.name, game_path(game) %></h5>
+              </div>
+            </div><hr>
+          <% end %>
+        <% end %>
+        <h4><%= link_to("moar games", games_path) %></h4>
+      </div>
+      <div class="large-4 small-6 columns">
+        <img src="http://i.imgur.com/NAkhvwO.png">
+      </div>
+      <div class="large-4 small-12 columns">
+        <h4>more options</h4><hr>
+        <div class="panel hide-for-small">
+          <h5>
+              <%= form_tag games_path, method: :get do %>
+              <%= text_field_tag :query, params[:query], class: "search-box" %>
+              <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+          <% end %>
+        </h5>
+        </div>
+        <div class="panel">
+          <h5><%= link_to "add a new game", new_game_path %></h5>
+        </div>
+        <div class="panel hide-for-small">
+          <h5><%= link_to "check out other gamers", users_path %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
