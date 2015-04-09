@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:edit, :update, :destroy]
 
   devise_for :users
-  resources :users, only: [:index, :show]
+
+  resources :users, only: [:index, :show, :update]
+
   resources :homes, only: [:index]
+
 end
