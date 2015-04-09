@@ -1,0 +1,2 @@
+$("#vote-<%=params[:review_id]%>").empty();
+$("#vote-<%=params[:review_id]%>").append(<%=Review.find(params[:review_id]).vote_count%>);
