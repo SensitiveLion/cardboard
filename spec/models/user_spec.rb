@@ -19,8 +19,9 @@ describe User do
     let(:user) { FactoryGirl.create(:user) }
     context 'user has email and username' do
       it 'has required fields' do
-        expect(user.email).to eq "user#{1}@example.com"
-        expect(user.username).to eq "user#{1}"
+        n = user.username.last
+        expect(user.email).to eq "user#{n}@example.com"
+        expect(user.username).to eq "user#{n}"
       end
     end
   end
