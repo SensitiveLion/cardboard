@@ -30,8 +30,9 @@ gem "carrierwave"
 # Use Capistrano for deployment
 # gem "capistrano-rails", group: :development
 gem "rails_12factor", group: :production
-
 gem "fog"
+gem "jquery-slick-rails"
+gem 'foundation-icons-sass-rails'
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
@@ -46,6 +47,7 @@ group :development, :test do
   gem "coveralls", require: false
 end
 
+gem 'figaro'
 gem 'kaminari'
 gem 'pg_search'
 gem "rspec-rails", group: [:development, :test]
