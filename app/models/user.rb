@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
           last_name: auth.info.last_name,
           location: location,
           #name: auth.extra.raw_info.name,
-          profile_photo: profile_photo
+          profile_photo: profile_photo,
           username: username,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
