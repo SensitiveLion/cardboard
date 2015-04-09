@@ -52,7 +52,9 @@
       <%= image_tag(@game.photo_url) if @game.photo? %>
       <%= f.file_field :photo %>
 
-      <%= f.submit "add game" %>
+      <div class="actions">
+        <%= f.submit "add game" %>
+      </div>
     <% end %>
   </div>
 </div>
