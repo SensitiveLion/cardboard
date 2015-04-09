@@ -25,9 +25,40 @@ describe User do
   end
   describe 'user level shows level' do
     let(:user) { FactoryGirl.create(:user) }
-    context 'user has level' do
+    context 'user has level 0' do
       it 'shows level' do
+        user.xp = 0
         expect(user.status).to eq "candyland newb"
+      end
+    end
+    context 'user has level 1' do
+      it 'shows level' do
+        user.xp = 26
+        expect(user.status).to eq "settler's apprentice"
+      end
+    end
+    context 'user has level 2' do
+      it 'shows level' do
+        user.xp = 51
+        expect(user.status).to eq "journeyman of puzzles"
+      end
+    end
+    context 'user has level 3' do
+      it 'shows level' do
+        user.xp = 76
+        expect(user.status).to eq "card shark"
+      end
+    end
+    context 'user has level 4' do
+      it 'shows level' do
+        user.xp = 101
+        expect(user.status).to eq "dominionator"
+      end
+    end
+    context 'user has level 5' do
+      it 'shows level' do
+        user.xp = 151
+        expect(user.status).to eq "game master"
       end
     end
   end
