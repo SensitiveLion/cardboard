@@ -4,17 +4,17 @@ def sign_up
   fill_in 'password', with: 'password'
   fill_in 'confirmation', with: 'password'
   fill_in 'username', with: 'im a user'
-  click_button 'Sign up'
+  click_button 'sign up'
 
   expect(page).to have_content('Welcome! You have signed up successfully.')
-  expect(page).to have_content('Sign Out')
+  expect(page).to have_content('sign out')
 end
 
 def sign_in_as(user)
   visit new_user_session_path
   fill_in 'email', with: user.email
   fill_in 'password', with: user.password
-  click_button "Log in"
+  click_button "log in"
 end
 
 def create_game(user)
@@ -68,5 +68,5 @@ def game_user
   fill_in 'confirmation', with: 'password'
   fill_in 'username', with: 'im as user'
 
-  click_button 'Sign up'
+  click_button 'sign up'
 end

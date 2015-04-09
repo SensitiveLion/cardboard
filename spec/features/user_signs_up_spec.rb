@@ -15,16 +15,16 @@ feature 'user registers', %Q{
     fill_in 'password', with: 'password'
     fill_in 'confirmation', with: 'password'
 
-    click_button 'Sign up'
+    click_button 'sign up'
     expect(page).to have_content('Welcome! You have signed up successfully.')
-    expect(page).to have_content('Sign Out')
+    expect(page).to have_content('sign out')
   end
 
   scenario 'provide invalid registration information' do
     visit new_user_registration_path
 
-    click_button 'Sign up'
+    click_button 'sign up'
     expect(page).to have_content("can't be blank")
-    expect(page).to_not have_content('Sign Out')
+    expect(page).to_not have_content('sign out')
   end
 end
