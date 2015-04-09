@@ -1,12 +1,12 @@
 require 'spec_helper'
+require 'rails_helper'
+feature "user logs in facebook" do
 
-describe UserSessionsController, "OmniAuth" do
-  before do
-    request.env["devise.mapping"] = Devise.mappings[:user]
-    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+  scenario "sets a session variable to the OmniAuth auth hash" do
+    set_omniauth()
+    visit new_user_registration_path
+    save_and_open_page
+    click_link 'Sign in with Facebook'
   end
 
-  it "sets a session variable to the OmniAuth auth hash" do
-    request.env["omniauth.auth"]['uid'].should == '123456789'
-  end
 end
