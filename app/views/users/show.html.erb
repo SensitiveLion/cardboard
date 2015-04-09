@@ -43,7 +43,7 @@
       <li>
         <h3>Reviews</h3>
         <ul>
-          <%  @user.reviews.empty? %>
+          <% if @user.reviews.empty? %>
             <p class="nope"><%= "nope nope nope" %><p>
           <% else %>
             <% @user.reviews.each do |review| %>
@@ -55,7 +55,7 @@
       <li>
         <h3>Comments</h3>
         <ul>
-          <% @user.comments.empty? %>
+          <% if @user.comments.empty? %>
             <p class="nope"><%= "nope nope nope" %><p>
           <% else %>
             <% @user.comments.each do |comment| %>
