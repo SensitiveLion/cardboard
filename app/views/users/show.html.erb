@@ -2,49 +2,54 @@
   <h1><%= @user.username %></h1>
 </div>
 
-<ul class="large-block-grid-2">
-  <li>
-    <ul>
-      <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
-      <li class="larger">age: <%= @user.age %></li>
-      <li class="larger">location: <%= @user.location %></li>
-      <%- if current_user -%>
-        <%- if current_user.authority == "admin" -%>
-          <%- if @user.authority == "user" -%>
-            <li><%= link_to "make this user a mod", user_path(@user), method: :put %></li>
-          <%- elsif @user.authority == "mod" -%>
-            <li><%= link_to "revoke modship", user_path(@user), method: :put %></li>
+<div class="row">
+  <div class="small-12 large-centered column">
+    <ul class="large-block-grid-2">
+      <li>
+        <ul>
+          <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
+          <li class="larger">age: <%= @user.age %></li>
+          <li class="larger">location: <%= @user.location %></li>
+          <%- if current_user -%>
+            <%- if current_user.authority == "admin" -%>
+              <%- if @user.authority == "user" -%>
+                <li><%= link_to "make this user a mod", user_path(@user), method: :put %></li>
+              <%- elsif @user.authority == "mod" -%>
+                <li><%= link_to "revoke modship", user_path(@user), method: :put %></li>
+              <%- end -%>
+            <%- end -%>
           <%- end -%>
-        <%- end -%>
-      <%- end -%>
-      <li><%= link_to "edit your profile", edit_user_registration_path %></li>
+          <li><%= link_to "edit your profile", edit_user_registration_path %></li>
+
+        </ul>
+      </li>
+      <li><%= image_tag(@user.profile_photo_url) %></li>
     </ul>
-  </li>
-  <li><%= image_tag(@user.profile_photo_url) %></li>
-</ul>
-<ul class="large-block-grid-3">
-  <li>
-    <h3>Games</h3>
-    <ul>
-      <% @user.games.each do |game| %>
-        <li><%= link_to game.name, game_path(game) %></li>
-      <% end %>
+    <ul class="large-block-grid-3">
+      <li>
+        <h3>Games</h3>
+        <ul>
+          <% @user.games.each do |game| %>
+            <li><%= link_to game.name, game_path(game) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li>
+        <h3>Reviews</h3>
+        <ul>
+          <% @user.reviews.each do |review| %>
+            <li><%= link_to "review of #{review.game.name}", game_path(review.game) %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li>
+        <h3>Comments</h3>
+        <ul>
+          <% @user.comments.each do |comment| %>
+            <li><%= link_to "comment on review of #{comment.review.game.name}", game_path(comment.review.game) %></li>
+          <% end %>
+        </ul>
+      </li>
     </ul>
-  </li>
-  <li>
-    <h3>Reviews</h3>
-    <ul>
-      <% @user.reviews.each do |review| %>
-        <li><%= link_to "review of #{review.game.name}", game_path(review.game) %></li>
-      <% end %>
-    </ul>
-  </li>
-  <li>
-    <h3>Comments</h3>
-    <ul>
-      <% @user.comments.each do |comment| %>
-        <li><%= link_to "comment on review of #{comment.review.game.name}", game_path(comment.review.game) %></li>
-      <% end %>
-    </ul>
-  </li>
-</ul>
+  </div>
+</div>

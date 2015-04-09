@@ -7,32 +7,54 @@
 <% end %>
 
 <h1>enter the game information</h1>
-<%= form_for @game do |f| %>
-  <%= f.label :name, "name" %>
-  <%= f.text_field :name %>
 
-  <%= f.label :min_players, "minimum players" %>
-  <%= f.number_field :min_players %>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <%= form_for @game do |f| %>
 
-  <%= f.label :max_players, "maximum players" %>
-  <%= f.number_field :max_players %>
+      <div class="field">
+        <%= f.label :name, "name" %>
+        <%= f.text_field :name %>
+      </div>
 
-  <%= f.label :playing_time, "playing time (min)" %>
-  <%= f.number_field :playing_time %>
+      <div class="field">
+        <%= f.label :min_players, "minimum players" %>
+      </div>
 
-  <%= f.label :complexity, "complexity" %>
-  <%= f.select :complexity, options_for_select(
-    [['low',1],['medium',2],['high',3],['extreme',4]]
-  ) %>
+      <div class="field">
+        <%= f.number_field :min_players %>
+      </div>
 
-  <%= f.label :amazon_html, "amazon html" %>
-  <%= f.text_area :amazon_html %>
+      <div class="field">
+        <%= f.label :max_players, "maximum players" %>
+      </div>
 
-  <%= f.label :description, "description" %>
-  <%= f.text_area :description %>
+      <div class="field">
+        <%= f.number_field :max_players %>
+      </div>
 
-  <%= image_tag(@game.photo_url) if @game.photo? %>
-  <%= f.file_field :photo %>
+      <div class="field">
+        <%= f.label :playing_time, "playing time (min)" %>
+        <%= f.number_field :playing_time %>
+      </div>
 
-  <%= f.submit "add game" %>
-<% end %>
+      <div class="field">
+        <%= f.label :complexity, "complexity" %>
+        <%= f.select :complexity, options_for_select(
+          [['low',1],['medium',2],['high',3],['extreme',4]]
+        ) %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description, "description" %>
+        <%= f.text_area :description %>
+      </div>
+
+      <%= image_tag(@game.photo_url) if @game.photo? %>
+      <%= f.file_field :photo %>
+
+      <%= f.submit "add game" %>
+    <% end %>
+  </div>
+</div>
+

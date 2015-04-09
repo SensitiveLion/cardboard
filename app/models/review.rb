@@ -8,7 +8,7 @@ class Review < ActiveRecord::Base
   validates :user, presence: true, uniqueness: {
     scope: :game, message: "may only write one review per game."
   }
-  validates :body, presence: true, length: { minimum: 250 }
+  validates :body, presence: true
   validates :game_rating, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 1,
