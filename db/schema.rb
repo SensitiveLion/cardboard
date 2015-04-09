@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406143527) do
+ActiveRecord::Schema.define(version: 20150409151731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150406143527) do
     t.integer  "user_id",                    null: false
     t.string   "photo"
     t.float    "average",      default: 0.0, null: false
+    t.string   "amazon_html"
   end
 
   add_index "games", ["average"], name: "index_games_on_average", using: :btree
