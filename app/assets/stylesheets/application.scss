@@ -15,6 +15,9 @@
  *= require_self
  *= require foundation_and_overrides
  *= require_tree ./modules
+ *= require slick
+ *= require slick-theme
+
  */
 $nexa-font: "Nexa Light", sans-serif;
 $font-color: #ffffff;
@@ -58,9 +61,9 @@ $unvisited-color: #ff3300;
   z-index: 0;
 }
 
-#featured {
+.carousel {
   position: relative;
-  top: 65px;
+  top: 10px;
 }
 
 #sidebar_img {
@@ -105,7 +108,7 @@ a:hover {
   text-align: center;
 }
 
-.orbit-caption {
+.slick {
   text-align: center;
 }
 

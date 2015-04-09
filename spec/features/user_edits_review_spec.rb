@@ -9,7 +9,11 @@ feature 'user can edit reviews' do
     sign_in_as(user)
     make_review_for_game(game)
     click_link "edit review"
-    fill_in "your review", with: "something completely different"
+    fill_in "your review", with: "Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu. something completely different"
     click_button "edit review"
     expect(page).to have_content("something completely different")
     expect(page).to have_content("you have successfully edited the review!")

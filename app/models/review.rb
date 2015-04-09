@@ -5,8 +5,10 @@ class Review < ActiveRecord::Base
   has_many :downvotes, dependent: :destroy
   has_many :upvotes, dependent: :destroy
 
-  validates :user, presence: true
-  validates :body, presence: true
+  validates :user, presence: true, uniqueness: {
+    scope: :game, message: "may only write one review per game."
+  }
+  validates :body, presence: true, length: { minimum: 250 }
   validates :game_rating, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 1,
