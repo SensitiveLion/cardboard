@@ -42,7 +42,7 @@ $unvisited-color: #ff3300;
   font-size: 75%;
 }
 
- .vote-arrows {
+.vote-arrows {
   width: 40px;
   text-align: center;
 }
@@ -97,6 +97,7 @@ a {
 
 a:link {
   color: $unvisited-color;
+
 }
 
 a:visited {
@@ -130,6 +131,32 @@ a:hover {
 
 .panel #created {
   color: $font-color;
+}
+
+.top-bar-section {
+  font-family: $nexa-font;
+}
+
+.xp {
+  padding-top: 10px;
+}
+
+.right {
+  font-family: $nexa-font;
+}
+
+.photo {
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+}
+
+.level {
+  color: $visited-color;
+}
+
+.nope {
+  text-align: center;
 }
 
 .photo {
@@ -179,4 +206,3 @@ a:hover {
   font: inherit;
   padding: 0;
 }
-
