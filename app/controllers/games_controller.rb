@@ -62,9 +62,16 @@ class GamesController < ApplicationController
   protected
 
   def game_params
-    params.require(:game).permit(
-      :name, :description, :min_players, :max_players,
-      :playing_time, :complexity, :photo, :amazon_html
-    )
+    if current_user.has_authority?
+      params.require(:game).permit(
+        :name, :description, :min_players, :max_players,
+        :playing_time, :complexity, :photo, :amazon_html
+      )
+    else
+      params.require(:game).permit(
+        :name, :description, :min_players, :max_players,
+        :playing_time, :complexity, :photo
+      )
+    end
   end
 end
