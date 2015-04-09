@@ -24,10 +24,10 @@
   <%= f.select :complexity, options_for_select(
     [['low',1],['medium',2],['high',3],['extreme',4]]
   ) %>
-
+<%if current_user.has_authority? %>
   <%= f.label :amazon_html, "amazon html" %>
   <%= f.text_area :amazon_html %>
-
+<%end%>
   <%= f.label :description, "description" %>
   <%= f.text_area :description %>
 
