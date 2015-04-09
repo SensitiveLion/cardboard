@@ -23,6 +23,7 @@ $nexa-font: "Nexa Light", sans-serif;
 $font-color: #ffffff;
 $background-color: #222222;
 $panel-color: #444444;
+$panel-border: #d8d8d8;
 $visited-color: #cc0000;
 $hover-color: #999999;
 $unvisited-color: #ff3300;
@@ -57,11 +58,13 @@ $unvisited-color: #ff3300;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  width: 100% !important;
+  width: 110%;
   z-index: 0;
+  position: relative;
+  left: -1em;
 }
 
-.carousel {
+.autoplay {
   position: relative;
   top: 10px;
 }
@@ -154,4 +157,18 @@ a:hover {
 
 .nope {
   text-align: center;
+}
+
+.field label {
+  color: $font-color;
+  font-size: 1em;
+}
+
+.tag {
+  border-color: $panel-border;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0.15rem 0.40rem;
+  text-align: inline;
 }

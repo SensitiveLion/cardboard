@@ -4,6 +4,10 @@ class DownvotesController < ApplicationController
   def create
     review = Review.find(params[:review_id])
     Downvote.vote_helper(:down, review, current_user)
-    redirect_to game_path(review.game)
+
+    respond_to do |format|
+      format.html { redirect_to game_path(review.game) }
+      format.js {}
+    end
   end
 end

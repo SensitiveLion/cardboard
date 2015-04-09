@@ -4,54 +4,57 @@
   <h1>xp: <%= @user.karma_score %></h1>
 </div>
 
-<ul class="large-block-grid-2">
-  <li>
-    <ul>
-      <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
-      <li class="larger">age: <%= @user.age %></li>
-      <li class="larger">location: <%= @user.location %></li>
-      <% if @user == current_user %>
-        <li><%= link_to "edit your profile", edit_user_registration_path %></li>
-      <% end %>
+<div class="row">
+  <div class="small-12 large-centered column">
+    <ul class="large-block-grid-2">
+      <li>
+        <ul>
+          <li class="larger">name: <%= @user.first_name %> <%= @user.last_name %></li>
+          <li class="larger">age: <%= @user.age %></li>
+          <li class="larger">location: <%= @user.location %></li>
+          <li><%= link_to "edit your profile", edit_user_registration_path %></li>
+        </ul>
+      </li>
+      <li><%= image_tag(@user.profile_photo_url) %></li>
     </ul>
-  </li>
-  <li><%= image_tag(@user.profile_photo_url) %></li>
-</ul>
-<ul class="large-block-grid-3">
-  <li>
-    <h3>Games</h3>
-    <ul>
-      <% if @user.games == [] %>
-        <p class="nope"><%= "nope nope nope" %><p>
-        <% else %>
-        <% @user.games.each do |game| %>
-          <li><%= link_to game.name, game_path(game) %></li>
-        <% end %>
-      <% end %>
+    <ul class="large-block-grid-3">
+      <li>
+        <h3>Games</h3>
+        <ul>
+        <% if @user.games == [] %>
+            <p class="nope"><%= "nope nope nope" %><p>
+          <% else %>
+            <% @user.games.each do |game| %>
+              <li><%= link_to game.name, game_path(game) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </li>
+      <li>
+        <h3>Reviews</h3>
+        <ul>
+          <% if @user.reviews == [] %>
+            <p class="nope"><%= "nope nope nope" %><p>
+          <% else %>
+            <% @user.reviews.each do |review| %>
+              <li><%= link_to "review of #{review.game.name}", game_path(review.game) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </li>
+      <li>
+        <h3>Comments</h3>
+        <ul>
+          <% if @user.comments == [] %>
+            <p class="nope"><%= "nope nope nope" %><p>
+          <% else %>
+            <% @user.comments.each do |comment| %>
+              <li><%= link_to "comment on review of #{comment.review.game.name}", game_path(comment.review.game) %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </li>
     </ul>
-  </li>
-  <li>
-    <h3>Reviews</h3>
-    <ul>
-      <% if @user.reviews == [] %>
-        <p class="nope"><%= "nope nope nope" %><p>
-      <% else %>
-        <% @user.reviews.each do |review| %>
-          <li><%= link_to "review of #{review.game.name}", game_path(review.game) %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </li>
-  <li>
-    <h3>Comments</h3>
-    <ul>
-      <% if @user.reviews == [] %>
-        <p class="nope"><%= "nope nope nope" %><p>
-      <% else %>
-        <% @user.comments.each do |comment| %>
-          <li><%= link_to "comment on review of #{comment.review.game.name}", game_path(comment.review.game) %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </li>
-</ul>
+  </div>
+</div>
+>>>>>>> 9669de76945cc36ccbbc1e2fa1ac90b5ac1b5c8c
