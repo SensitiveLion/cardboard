@@ -9,6 +9,6 @@ feature 'only admin or users can delete a game' do
     visit game_path(game)
     click_link "edit game"
     click_link "delete this game"
-    expect(page).to have_content("Game deleted.")
+    expect(page).to have_content("game deleted.")
   end
 end

@@ -42,7 +42,7 @@ $unvisited-color: #ff3300;
   font-size: 75%;
 }
 
- .vote-arrows {
+.vote-arrows {
   width: 40px;
   text-align: center;
 }
@@ -175,8 +175,10 @@ a:hover {
   background:none;
   border:none;
   color: $unvisited-color;
-  cursor: pointer;
-  font: inherit;
   padding: 0;
 }
 
+.carousel {
+    position: relative;
+    right: 13%;
+}
