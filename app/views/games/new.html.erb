@@ -7,6 +7,7 @@
 <% end %>
 
 <h1>enter the game information</h1>
+
 <div class="row">
   <div class="small-8 large-centered column">
     <%= form_for @game do |f| %>
@@ -18,9 +19,6 @@
 
       <div class="field">
         <%= f.label :min_players, "minimum players" %>
-      </div>
-
-      <div class="field">
         <%= f.number_field :min_players %>
       </div>
 
@@ -41,6 +39,13 @@
         ) %>
       </div>
 
+    <%if current_user && current_user.has_authority? %>
+      <div class="field">
+        <%= f.label :amazon_html, "amazon html" %>
+        <%= f.text_area :amazon_html %>
+      </div>
+    <%end%>
+
       <div class="field">
         <%= f.label :description, "description" %>
         <%= f.text_area :description %>
@@ -49,7 +54,10 @@
       <%= image_tag(@game.photo_url) if @game.photo? %>
       <%= f.file_field :photo %>
 
-      <%= f.submit "add game" %>
+      <div class="actions">
+        <%= f.submit "add game" %>
+      </div>
     <% end %>
   </div>
 </div>
+

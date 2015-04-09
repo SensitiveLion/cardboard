@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150409161024) do
     t.integer  "user_id",                    null: false
     t.string   "photo"
     t.float    "average",      default: 0.0, null: false
+    t.string   "amazon_html"
   end
 
   add_index "games", ["average"], name: "index_games_on_average", using: :btree
