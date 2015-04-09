@@ -38,6 +38,11 @@ class User < ActiveRecord::Base
 
   def status
     user = User.find(id)
+    if user.authority == "admin"
+      return "admin"
+    elsif user.authority == "mod"
+      return "mod"
+    end
     if user.karma_score < 25
       level = 0
       LEVEL[level]
