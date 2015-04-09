@@ -63,7 +63,7 @@ feature 'admin can delete or edit any game, review, or comment' do
     expect(page).to have_content("revoke modship")
   end
 
-    scenario 'admin can revoke modship' do
+  scenario 'admin can revoke modship' do
     sign_in_as(admin)
     visit user_path(mod)
     click_link "revoke modship"
