@@ -7,33 +7,49 @@
 <% end %>
 
 <h1>edit the game information for <%= @game.name %></h1>
-<%= form_for @game do |f| %>
-  <%= f.label :name, "name" %>
-  <%= f.text_field :name %>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <%= form_for @game do |f| %>
+      <div class="field">
+        <%= f.label :name, "name" %>
+        <%= f.text_field :name %>
+      </div>
 
-  <%= f.label :min_players, "minimum players" %>
-  <%= f.number_field :min_players %>
+      <div class="field">
+        <%= f.label :min_players, "minimum players" %>
+        <%= f.number_field :min_players %>
+      </div>
 
-  <%= f.label :max_players, "maximum players" %>
-  <%= f.number_field :max_players %>
+      <div class="field">
+        <%= f.label :max_players, "maximum players" %>
+        <%= f.number_field :max_players %>
+      </div>
 
-  <%= f.label :playing_time, "playing time (min)" %>
-  <%= f.number_field :playing_time %>
+      <div class="field">
+        <%= f.label :playing_time, "playing time (min)" %>
+        <%= f.number_field :playing_time %>
+      </div>
 
-  <%= f.label :complexity, "complexity" %>
-  <%= f.select :complexity, options_for_select(
-    [['low',1],['medium',2],['high',3],['extreme',4]]
-  ) %>
+      <div class="field">
+        <%= f.label :complexity, "complexity" %>
+        <%= f.select :complexity, options_for_select(
+          [['low',1],['medium',2],['high',3],['extreme',4]]
+        ) %>
+      </div>
 
-  <%= f.label :description, "description" %>
-  <%= f.text_area :description %>
+      <div class="field">
+        <%= f.label :description, "description" %>
+        <%= f.text_area :description %>
+      </div>
 
-  <%= image_tag(@game.photo_url) if @game.photo? %>
-  <%= f.file_field :photo %>
+      <%= image_tag(@game.photo_url) if @game.photo? %>
+      <%= f.file_field :photo %>
 
-  <%= f.submit "edit game" %>
-<% end %>
-<%= link_to "cancel ", game_path(@game) %>
-<% if current_user == @game.user || current_user.has_authority? %>
-|| <%= link_to "delete this game", {action: "destroy", id: @game.id }, method: :delete, data: { confirm: "are you sure you want to delete this game?" } %>
-<% end %>
+      <%= f.submit "edit game" %>
+    <% end %>
+    <%= link_to "cancel ", game_path(@game) %>
+    <% if current_user == @game.user || current_user.has_authority? %>
+    || <%= link_to "delete this game", {action: "destroy", id: @game.id }, method: :delete, data: { confirm: "are you sure you want to delete this game?" } %>
+    <% end %>
+  </div>
+</div>

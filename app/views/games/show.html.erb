@@ -11,23 +11,24 @@
         <% unless @game.average == 0.0 %>
           gamers rating: <%= @game.average.round(1) %>
         <% else %>
-          this game is unrated, write a review to rate it
+          no rating, add a review to rate it
         <% end%>
       </li>
       <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
       <li class="larger">playing time: <%= @game.playing_time %></li>
       <li class="larger">complexity: <%= @game.complexity_name %></li>
-      <li class="larger">
-        description: <br>
+      <li>
+        <p class="larger">description: </p>
         <%= @game.description %>
       </li>
-      <li>tags:
+      <li class="larger">tags:
+        <ul class="inline-list">
         <% @game.tags.each do |tag| %>
-          <%= tag.name %>
+          <li class="tag"><%= tag.name %></li>
         <% end %>
+        </ul>
       </li>
       <p><%= link_to "add a tag", new_game_game_tag_path(@game) %></p>
-
     </ul>
   </li>
   <li><%= image_tag(@game.photo_url) %></li>
