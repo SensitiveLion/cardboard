@@ -12,7 +12,7 @@ feature 'user adds tags to game' do
   scenario 'user submits and adds new tag to game' do
     visit game_path(game)
     click_link "add a tag"
-    click_link "click here to enter a new tag"
+    click_link "click here to create a new tag"
     fill_in 'tag', with: "strategy"
     click_button 'add tag'
     expect(page).to have_content("strategy")
@@ -22,15 +22,16 @@ feature 'user adds tags to game' do
   scenario 'user creates non-unique tag' do
     visit game_path(game)
     click_link "add a tag"
-    click_link "click here to enter a new tag"
+    click_link "click here to create a new tag"
     fill_in 'tag', with: "strategy"
     click_button 'add tag'
     expect(page).to have_content("strategy")
     expect(page).to have_content("what the gamers say")
     click_link "add a tag"
-    click_link "click here to enter a new tag"
+    click_link "click here to create a new tag"
     fill_in 'tag', with: "strategy"
     click_button 'add tag'
+    save_and_open_page
     expect(page).to have_content("tag already exists")
     expect(page).to have_content("enter a new tag")
   end

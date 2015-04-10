@@ -7,7 +7,7 @@ class GameTagsController < ApplicationController
   end
 
   def create
-    unless params[:game_tag]
+    if params[:game_tag].nil?
       flash[:alert] = "you must select or create a tag"
       @game = Game.find(params[:game_id])
       @game_tag = GameTag.new
