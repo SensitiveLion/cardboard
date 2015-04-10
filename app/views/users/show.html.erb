@@ -1,5 +1,7 @@
 <div class= "title">
   <h1><%= @user.username %></h1>
+  <h1 class="level"><%= @user.status %></h1>
+  <h1>xp: <%= @user.karma_score %></h1>
 </div>
 
 <div class="row">
@@ -29,24 +31,36 @@
       <li>
         <h3>Games</h3>
         <ul>
-          <% @user.games.each do |game| %>
-            <li><%= link_to game.name, game_path(game) %></li>
+        <% if @user.games.empty? %>
+            <p class="nope"><%= "nope nope nope" %><p>
+          <% else %>
+            <% @user.games.each do |game| %>
+              <li><%= link_to game.name, game_path(game) %></li>
+            <% end %>
           <% end %>
         </ul>
       </li>
       <li>
         <h3>Reviews</h3>
         <ul>
-          <% @user.reviews.each do |review| %>
-            <li><%= link_to "review of #{review.game.name}", game_path(review.game) %></li>
+          <% if @user.reviews.empty? %>
+            <p class="nope"><%= "nope nope nope" %><p>
+          <% else %>
+            <% @user.reviews.each do |review| %>
+              <li><%= link_to "review of #{review.game.name}", game_path(review.game) %></li>
+            <% end %>
           <% end %>
         </ul>
       </li>
       <li>
         <h3>Comments</h3>
         <ul>
-          <% @user.comments.each do |comment| %>
-            <li><%= link_to "comment on review of #{comment.review.game.name}", game_path(comment.review.game) %></li>
+          <% if @user.comments.empty? %>
+            <p class="nope"><%= "nope nope nope" %><p>
+          <% else %>
+            <% @user.comments.each do |comment| %>
+              <li><%= link_to "comment on review of #{comment.review.game.name}", game_path(comment.review.game) %></li>
+            <% end %>
           <% end %>
         </ul>
       </li>

@@ -39,6 +39,13 @@
         ) %>
       </div>
 
+    <%if current_user && current_user.has_authority? %>
+      <div class="field">
+        <%= f.label :amazon_html, "amazon html" %>
+        <%= f.text_area :amazon_html %>
+      </div>
+    <%end%>
+
       <div class="field">
         <%= f.label :description, "description" %>
         <%= f.text_area :description %>

@@ -13,17 +13,17 @@ feature 'user signs in', %Q{
     fill_in 'email', with: user.email
     fill_in 'password', with: user.password
 
-    click_button 'Log in'
+    click_button 'log in'
 
     expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content('Sign Out')
+    expect(page).to have_content('sign out')
   end
 
   scenario 'specify invalid credentials' do
     visit new_user_session_path
 
-    click_button 'Log in'
+    click_button 'log in'
     expect(page).to have_content('Invalid email or password')
-    expect(page).to_not have_content('Sign Out')
+    expect(page).to_not have_content('sign out')
   end
 end

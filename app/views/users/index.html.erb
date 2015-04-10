@@ -4,7 +4,11 @@
     <h3>list of all users</h3>
     <ol>
       <% @users.each do |user| %>
-        <li><%= link_to user.username, user_path(user) %></li>
+        <% if user == current_user %>
+            <li><%= link_to user.username, user_path(user) %>(you)</li>
+        <% else %>
+            <li><%= link_to user.username, user_path(user) %></li>
+        <% end %>
       <% end %>
     </ol>
   </div>

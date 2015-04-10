@@ -18,7 +18,7 @@ feature 'only admin or users can delete a game' do
     click_button "add game"
     click_link "edit game"
     click_link "delete this game"
-    expect(page).to have_content("Game deleted.")
+    expect(page).to have_content("game deleted.")
   end
 end
 
@@ -29,8 +29,8 @@ def sign_up
   fill_in 'confirmation', with: 'password'
   fill_in 'username', with: 'im a user'
 
-  click_button 'Sign up'
+  click_button 'sign up'
 
   expect(page).to have_content('Welcome! You have signed up successfully.')
-  expect(page).to have_content('Sign Out')
+  expect(page).to have_content('sign out')
 end

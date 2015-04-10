@@ -1,8 +1,6 @@
 class GamePhotoUploader < CarrierWave::Uploader::Base
-  if Rails.env.production?
+  if Rails.env.production?||Rails.env.development?
     storage :fog
-  elsif Rails.env.development?
-    storage :file
   else
     storage :file
   end
