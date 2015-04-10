@@ -185,8 +185,8 @@ a:hover {
   text-align: inline;
 }
 
-.nameplate {
-  font-size: 1.6em;
+#nameplate {
+  font-size: 1.7em;
 }
 
 .btn {
@@ -203,6 +203,10 @@ a:hover {
   border:none;
   color: $unvisited-color;
   padding: 0;
+}
+
+.large-4 img {
+  padding-top: 140px;
 }
 
 .carousel {
