@@ -1,0 +1,2 @@
+class NewPassword < ApplicationMailer
+end

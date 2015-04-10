@@ -31,6 +31,9 @@ gem "carrierwave"
 # gem "capistrano-rails", group: :development
 gem "rails_12factor", group: :production
 gem "fog"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem "jquery-slick-rails"
 gem 'foundation-icons-sass-rails'
 

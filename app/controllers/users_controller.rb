@@ -9,6 +9,21 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def finish_signup
+    if request.patch? && params[:user]
+      if @user.update(user_params)
+        sign_in(@user, bypass: true)
+        redirect_to @user, notice: 'Your profile was successfully updated.'
+      else
+        @show_errors = true
+      end
+    end
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.authority == "user"
@@ -18,6 +33,23 @@ class UsersController < ApplicationController
     end
     @user.save
     redirect_to user_path(@user)
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def user_params
+    accessible = [:name, :email]
+    accessible << [:password, :password_confirmation] unless params[:user][:password].blank?
+    params.require(:user).permit(accessible)
   end
 
   protected
