@@ -158,8 +158,8 @@ a:hover {
   text-align: inline;
 }
 
-.nameplate {
-  font-size: 1.6em;
+#nameplate {
+  font-size: 1.7em;
 }
 
 .btn {
@@ -180,5 +180,9 @@ a:hover {
   font: inherit;
   font-family: $nexa-font;
   padding: 0;
+}
+
+.large-4 img {
+  padding-top: 140px;
 }
 
