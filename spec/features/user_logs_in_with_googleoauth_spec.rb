@@ -1,16 +1,16 @@
 require 'spec_helper'
 require 'rails_helper'
-
-describe "user logs in facebook" do
+require 'helpers'
+describe "user logs in google" do
 
   before do
     OmniAuth.config.test_mode = true
-    OmniAuth.config.add_mock(:facebook, {
+    OmniAuth.config.add_mock(:google_oauth2, {
     uid: "1234",
-    provider: "facebook",
+    provider: "google",
     extra: {
       raw_info: {
-        id: "99999",
+        sub: "99999",
         locale: "US"
       }
     },
@@ -25,14 +25,14 @@ describe "user logs in facebook" do
   })
   end
 
-  scenario "User logs in with their facebook account" do
+  scenario "User logs in with their google acount" do
     visit '/'
     visit new_user_registration_path
-    expect(page).to have_content("Sign in with Facebook")
-    click_link "Sign in with Facebook"
+    expect(page).to have_content("Sign in with Google")
+    click_link "Sign in with Google"
     expect(page).to have_content("foobar999")
     expect(page).to have_content("Sign Out")
-    expect(page).to have_content("Successfully authenticated from Facebook account.")
+    expect(page).to have_content("Successfully authenticated from Google_oauth2 account.")
   end
 
 end
