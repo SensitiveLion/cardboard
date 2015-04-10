@@ -6,23 +6,23 @@ describe "user logs in facebook" do
   before do
     OmniAuth.config.test_mode = true
     OmniAuth.config.add_mock(:facebook, {
-    uid: "1234",
-    provider: "facebook",
-    extra: {
-      raw_info: {
-        id: "99999",
-        locale: "US"
+      uid: "1234",
+      provider: "facebook",
+      extra: {
+        raw_info: {
+          id: "99999",
+          locale: "US"
+        }
+      },
+      info: {
+        email: "foobar@example.com",
+        first_name: "foo",
+        last_name: "bar",
+        username: "foobar",
+        gender: "Male",
+        verified: "true"
       }
-    },
-    info: {
-      email: "foobar@example.com",
-      first_name: "foo",
-      last_name: "bar",
-      username: "foobar",
-      gender: "Male",
-      verified: "true"
-    }
-  })
+    })
   end
 
   scenario "User logs in with their facebook account" do
