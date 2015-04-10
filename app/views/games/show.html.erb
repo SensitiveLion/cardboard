@@ -11,11 +11,11 @@
         <% unless @game.average == 0.0 %>
           gamers rating: <%= @game.average.round(1) %>
         <% else %>
-          no rating, add a review to rate it
+          no rating, <%= link_to "add a review to rate it", new_game_review_path(@game) %>
         <% end%>
       </li>
       <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
-      <li class="larger">playing time: <%= @game.playing_time %></li>
+      <li class="larger">playing time: <%= @game.playing_time %> minutes</li>
       <li class="larger">complexity: <%= @game.complexity_name %></li>
       <%- if @game.amazon_html -%>
       <li class="larger">buy this game: <%= @game.amazon_html.html_safe %></li>

@@ -195,7 +195,6 @@ a:hover {
   color: $unvisited-color;
   cursor: pointer;
   font: inherit;
-  font-family: $nexa-font;
   padding: 0;
 }
 
@@ -203,8 +202,10 @@ a:hover {
   background:none;
   border:none;
   color: $unvisited-color;
-  cursor: pointer;
-  font: inherit;
-  font-family: $nexa-font;
   padding: 0;
+}
+
+.carousel {
+    position: relative;
+    right: 13%;
 }

@@ -55,7 +55,7 @@ class GamesController < ApplicationController
       @game = Game.find_by!(user: current_user, id: params[:id])
     end
     @game.destroy
-    flash[:notice] = 'Game deleted.'
+    flash[:notice] = 'game deleted.'
     redirect_to action: "index"
   end
 

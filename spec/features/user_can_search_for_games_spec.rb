@@ -17,6 +17,6 @@ feature 'user can search for games' do
     fill_in :query, with: "frank"
     click_button "search"
     expect(page).not_to have_content(game.name)
-    expect(page).to have_content("No games matched your search")
+    expect(page).to have_content("no games matched your search")
   end
 end
