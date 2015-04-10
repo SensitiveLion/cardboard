@@ -31,11 +31,11 @@ Add all required keys, install mandrill add-on for the emailing service.
 ![Home Page](
 https://i.imgur.com/H7bMWy2.jpg)
 
-#### When click on a game this is a example of a page
+#### Game show page
 ![Show Games](
 https://i.imgur.com/nsmdIE5.png)
 
-#### When there are reviews and their comments this will show below the game
+#### Reviews and their comments on game page
 ![Comments and Reviews](
 https://i.imgur.com/rZ4MFgu.png)
 
@@ -44,7 +44,7 @@ https://i.imgur.com/rZ4MFgu.png)
 https://i.imgur.com/aGem1vg.png)
 
 
-#### An example of a form. This one is for submiting a game.
+#### An example of a form
 ![Game Submit](
 https://i.imgur.com/gSA0bp4.png)
 
@@ -52,7 +52,7 @@ https://i.imgur.com/gSA0bp4.png)
 ![User Index](
 https://i.imgur.com/SBfCDRi.png)
 
-#### Clicking on a name of your username in the menu bar when you are signed in will bring you to a profile like this.
+#### User profile
 ![User Profile](
 https://i.imgur.com/f8Xfvo1.png)
 
