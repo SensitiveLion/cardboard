@@ -14,7 +14,6 @@ describe "user oauths in with invalid credentials" do
     click_link 'sign up'
     OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
     click_link "sign in with Facebook"
-    save_and_open_page
     expect(page).to have_content("sign in with Facebook")
     expect(page).to have_content("sign up")
     expect(page).to have_content('Could not authenticate you from Facebook because "Invalid credentials".')
@@ -25,7 +24,6 @@ describe "user oauths in with invalid credentials" do
     click_link 'sign up'
     OmniAuth.config.mock_auth[:google_oauth2] = :invalid_credentials
     click_link "sign in with Google Oauth2"
-    save_and_open_page
     expect(page).to have_content("sign in with Google Oauth2")
     expect(page).to have_content("sign up")
     expect(page).to have_content('Could not authenticate you from GoogleOauth2 because "Invalid credentials".')
