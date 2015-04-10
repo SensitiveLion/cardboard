@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  devise(:database_authenticatable, :registerable, :recoverable,
+    :rememberable, :trackable, :validatable, :omniauthable)
 
   def has_authority?
     authority == "admin" || authority == "mod"
@@ -34,8 +34,11 @@ class User < ActiveRecord::Base
     user = signed_in_resource ? signed_in_resource : identity.user
     # Create the user if needed
     if user.nil?
-      #check for email exists and verified -- facebook email ------------- google email
-      email_is_verified = auth[:info][:email] && (auth[:info][:verified] || auth[:extra][:raw_info][:email_verified])
+      # check for email exists and verified
+      email_is_verified = auth[:info][:email] &&
+        # facebook-email               google email
+        (auth[:info][:verified] || auth[:extra][:raw_info][:email_verified])
+
       email = auth[:info][:email] if email_is_verified
       user = User.where(email: email).first if email
 
@@ -54,7 +57,7 @@ class User < ActiveRecord::Base
           first_name: auth[:info][:first_name],
           last_name: auth[:info][:last_name],
           location: location,
-          #name: auth.extra.raw_info.name,
+          # name: auth.extra.raw_info.name,
           profile_photo: profile_photo,
           username: username,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",

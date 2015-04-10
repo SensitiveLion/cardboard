@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authenticate_admin!, only: [:update]
 
   def show
@@ -13,23 +12,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-
-  # def update
-  #   respond_to do |format|
-  #     @user = User.find(params[:id])
-  #     if @user.update(user_params)
-  #       sign_in(@user == current_user ? @user : current_user, bypass: true)
-  #       format.html {
-  #         redirect_to @user,
-  #         notice: 'Your profile was successfully updated.'
-  #       }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: 'edit' }
-  #       format.json { render json: @user.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   def finish_signup
     if request.patch? && params[:user]
