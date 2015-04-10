@@ -58,7 +58,7 @@ https://i.imgur.com/f8Xfvo1.png)
 
 #### User Sign Up
 ![User Sign Up](
-http://imgur.com/IjzcuXS,kY9mYSv,zrJqy7b,a5p6T76,IuoruSO,IsMEkpo,cunuAl2,xpxS3OG#6)
+http://i.imgur.com/AHbOm0S.png)
 
 
 [![Build Status](https://travis-ci.org/SensitiveLion/cardboard.svg?branch=master)](https://travis-ci.org/SensitiveLion/cardboard) [![Code Climate](
