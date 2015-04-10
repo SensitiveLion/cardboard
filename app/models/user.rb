@@ -24,7 +24,6 @@ class User < ActiveRecord::Base
 
   TEMP_EMAIL_REGEX = /\Achange@me/
   TEMP_EMAIL_PREFIX = 'change@me'
-  #validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
@@ -61,7 +60,7 @@ class User < ActiveRecord::Base
           profile_photo: profile_photo,
           username: username,
           email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-          password: Devise.friendly_token[0,20]
+          password: Devise.friendly_token[0, 20]
         )
         user.save!
       end
