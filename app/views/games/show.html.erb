@@ -48,7 +48,9 @@ submitted by: <%= link_to @game.user.username, user_path(@game.user) %>
         <%= render partial: 'votes/voter', locals: { review: review } %>
       </div>
       <div class="medium-11 columns">>
-        <h4 class="panel-text"><%= review.user.username %> says</h4>
+        <h4 class="panel-text">
+          <%= review.user.username %> gives this a <%= review.game_rating %> out of 10
+        </h4>
         <p class="panel-text"><%= review.body %></p>
         <p class="smaller" id="created">created at: <%= review.updated_at %></p>
         <p class="panel-text">
