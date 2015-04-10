@@ -8,7 +8,7 @@ class Game < ActiveRecord::Base
 
   include PgSearch
 
-  multisearchable against: :name
+  multisearchable against: [:name, :game_tags, :user]
 
   def self.search(query)
     if query.present?
