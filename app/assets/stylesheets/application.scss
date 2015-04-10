@@ -194,6 +194,7 @@ a:hover {
   border:none;
   color: $unvisited-color;
   cursor: pointer;
+  font-family: $nexa-font;
   font: inherit;
   padding: 0;
 }
@@ -202,6 +203,9 @@ a:hover {
   background:none;
   border:none;
   color: $unvisited-color;
+  cursor: pointer;
+  font-family: $nexa-font;
+  font: inherit;
   padding: 0;
 }
 
