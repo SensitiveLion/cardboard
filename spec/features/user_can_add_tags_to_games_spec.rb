@@ -31,7 +31,6 @@ feature 'user adds tags to game' do
     click_link "click here to create a new tag"
     fill_in 'tag', with: "strategy"
     click_button 'add tag'
-    save_and_open_page
     expect(page).to have_content("tag already exists")
     expect(page).to have_content("enter a new tag")
   end
