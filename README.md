@@ -57,7 +57,7 @@ https://i.imgur.com/SBfCDRi.png)
 https://i.imgur.com/f8Xfvo1.png)
 
 #### User Sign Up
-![User Sign Up])
+![User Sign Up](
 http://imgur.com/IjzcuXS,kY9mYSv,zrJqy7b,a5p6T76,IuoruSO,IsMEkpo,cunuAl2,xpxS3OG#6)
 
 
