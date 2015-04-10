@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408144609) do
+ActiveRecord::Schema.define(version: 20150409204109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150408144609) do
     t.integer  "user_id",                    null: false
     t.string   "photo"
     t.float    "average",      default: 0.0, null: false
+    t.string   "amazon_html"
   end
 
   add_index "games", ["average"], name: "index_games_on_average", using: :btree
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 20150408144609) do
     t.datetime "updated_at"
     t.string   "profile_photo"
     t.string   "authority",              default: "user", null: false
+    t.integer  "level",                  default: 0
+    t.integer  "xp",                     default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

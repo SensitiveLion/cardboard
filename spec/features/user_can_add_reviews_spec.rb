@@ -19,15 +19,3 @@ feature 'user can add new reviews' do
   end
 end
 
-feature 'reviews paginate' do
-  let(:game) { FactoryGirl.create(:game) }
-  let(:user) { FactoryGirl.create(:user) }
-
-  scenario 'reviews show on multiple pages' do
-    sign_in_as(user)
-    9.times { make_review_for_game(game) }
-    visit game_path(game)
-    click_link("Next")
-    expect(page).to have_content("something something something")
-  end
-end

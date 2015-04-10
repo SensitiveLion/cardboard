@@ -8,9 +8,9 @@ class GamesController < ApplicationController
       @pg_search_result.each do |result|
         @games << Game.find(result.searchable_id)
       end
-    else
-      @games = Game.all
     end
+    @games_rating = Game.order(average: :desc).limit(10)
+    @games_name = Game.order(:name)
   end
 
   def show
@@ -62,9 +62,16 @@ class GamesController < ApplicationController
   protected
 
   def game_params
-    params.require(:game).permit(
-      :name, :description, :min_players, :max_players,
-      :playing_time, :complexity, :photo
-    )
+    if current_user.has_authority?
+      params.require(:game).permit(
+        :name, :description, :min_players, :max_players,
+        :playing_time, :complexity, :photo, :amazon_html
+      )
+    else
+      params.require(:game).permit(
+        :name, :description, :min_players, :max_players,
+        :playing_time, :complexity, :photo
+      )
+    end
   end
 end

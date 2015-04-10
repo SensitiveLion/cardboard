@@ -1,0 +1,39 @@
+<%- if @tag.errors.present? -%>
+  <%- @tag.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>enter a new tag</h1>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <p>
+      current tags:
+      <li class="larger">tags:
+        <ul class="inline-list">
+        <% @game.tags.each do |tag| %>
+          <li class="tag"><%= tag.name %></li>
+        <% end %>
+        </ul>
+      </li>
+    </p>
+
+    <%= form_for @tag do |f| %>
+      <div class="field">
+        <%= f.label :name, "tag" %><br>
+        <%= f.text_field :name %>
+      </div>
+
+      <%= f.hidden_field(:game_id, value: @game.id) %>
+
+      <div class="actions">
+        <%= f.submit "add tag" %>
+      </div>
+
+    <% end %>
+
+    <br><br>
+    <%= link_to "click to go back", new_game_game_tag_path(@game) %>
+

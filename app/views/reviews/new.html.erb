@@ -7,14 +7,25 @@
 <% end %>
 
 <h1>enter the review information</h1>
-<%= form_for  [@game, @review] do |f| %>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <%= form_for  [@game, @review] do |f| %>
 
-  <%= f.label :body, "your review" %>
-  <%= f.text_area :body %>
+      <div class="field">
+        <%= f.label :body, "your review" %>
+        <%= f.text_area :body %>
+      </div>
 
-  <%= f.label :game_rating, "rating" %>
-  <%= f.select :game_rating, options_for_select((1..10).to_a, @review.game_rating) %>
+      <div class="field">
+        <%= f.label :game_rating, "rating" %>
+        <%= f.select :game_rating, options_for_select((1..10).to_a, @review.game_rating) %>
+      </div>
 
-  <%= f.submit "add review" %>
-<% end %>
-<%= link_to "cancel", game_path(@game) %>
+      <div class="actions">
+        <%= f.submit "add review" %>
+      </div>
+
+    <% end %>
+    <%= link_to "cancel", game_path(@game) %>
+  </div>
+</div>

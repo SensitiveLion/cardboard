@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? yield(:title) : "cardboard" %></title>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag '/favicon.ico' %>
   </head>
 
   <body>
     <nav class="top-bar">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/">cardboard</a></h1>
+          <h1 class= "nameplate"><a href="/">cardboard  <img src="http://i.imgur.com/NvlWChv.gif" class="logo"></a></h1>
         </li>
       </ul>
       <section class="top-bar-section">
         <ul class="right">
           <% if current_user %>
-            <li><%= image_tag(current_user.profile_photo_url, size:"40") %></li>
-            <li><%= link_to "#{current_user.username}" , edit_user_registration_path %></li>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              <% if current_user.profile_photo_url == nil %>
+                <li><%= image_tag "polar_bear.jpg", class: "photo" %></li>
+              <% else %>
+                <li><%= image_tag(current_user.profile_photo_url, class: "photo") %></li>
+              <% end %>
+            <li><%= link_to "#{current_user.username}" , user_path(current_user) %></li>
+            <li class="xp">xp: <%= current_user.karma_score %></li>
+            <li><%= link_to 'sign out', destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'sign up', new_user_registration_path %></li>
+            <li><%= link_to 'sign in', new_user_session_path %></li>
           <% end %>
         </ul>
       </section>
@@ -38,9 +45,10 @@
 
         <%= yield %>
 
+    <%= javascript_include_tag 'application' %>
 
-      <%= javascript_include_tag 'application' %>
-      <%= yield :extra_footer %>
+    <%= yield :extra_footer %>
+
 </body>
 <footer class="row">
   <div class="large-12 columns"><hr>
@@ -58,7 +66,15 @@
               <li><a href="https://github.com/matthewriggott">matt</a></li>
             </ul>
         </div>
-
+        <% if current_user != nil && current_user.has_authority? %>
+          <a href="http://www.hitwebcounter.com/htmltutorial.php" target="_blank">
+          <img src="http://hitwebcounter.com/counter/counter.php?page=6037512&style=0008&nbdigits=5&type=page&initCount=0" title="http://www.hitwebcounter.com/htmltutorial.php" Alt="http://www.hitwebcounter.com/htmltutorial.php"   border="0" >
+          </a><br/>
+          <!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com/internetcountercontact.php" title="Hitwebcounter com"
+          target="_blank" style="font-family: Arial, Helvetica, sans-serif;
+          font-size: 9px; color: #6A7175; text-decoration: underline ;"><strong>Hitwebcounter com</strong>
+          </a>
+          <% end %>
       </div>
   </div>
 </footer>

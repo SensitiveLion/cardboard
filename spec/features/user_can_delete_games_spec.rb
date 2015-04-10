@@ -6,7 +6,11 @@ feature 'only admin or users can delete a game' do
     sign_up
     visit new_game_path
     fill_in 'name', with: 'wowgame'
-    fill_in 'description', with: 'this game is great'
+    fill_in 'description', with: "Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu."
     fill_in 'minimum players', with: 2
     fill_in 'maximum players', with: 8
     fill_in 'playing time (min)', with: 50
@@ -25,8 +29,8 @@ def sign_up
   fill_in 'confirmation', with: 'password'
   fill_in 'username', with: 'im a user'
 
-  click_button 'Sign up'
+  click_button 'sign up'
 
   expect(page).to have_content('Welcome! You have signed up successfully.')
-  expect(page).to have_content('Sign Out')
+  expect(page).to have_content('sign out')
 end

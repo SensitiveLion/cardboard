@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_admin!, only: [:update]
 
   def show
     @user = User.find(params[:id])
@@ -9,26 +10,27 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+<<<<<<< HEAD
   def edit
     @user = User.find(params[:id])
   end
 
-  def update
-    respond_to do |format|
-      @user = User.find(params[:id])
-      if @user.update(user_params)
-        sign_in(@user == current_user ? @user : current_user, bypass: true)
-        format.html {
-          redirect_to @user,
-          notice: 'Your profile was successfully updated.'
-        }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     @user = User.find(params[:id])
+  #     if @user.update(user_params)
+  #       sign_in(@user == current_user ? @user : current_user, bypass: true)
+  #       format.html {
+  #         redirect_to @user,
+  #         notice: 'Your profile was successfully updated.'
+  #       }
+  #       format.json { head :no_content }
+  #     else
+  #       format.html { render action: 'edit' }
+  #       format.json { render json: @user.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   def finish_signup
     if request.patch? && params[:user]
@@ -39,6 +41,17 @@ class UsersController < ApplicationController
         @show_errors = true
       end
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.authority == "user"
+      @user.authority = "mod"
+    elsif @user.authority == "mod"
+      @user.authority = "user"
+    end
+    @user.save
+    redirect_to user_path(@user)
   end
 
   def destroy
@@ -56,5 +69,13 @@ class UsersController < ApplicationController
     accessible = [:name, :email]
     accessible << [:password, :password_confirmation] unless params[:user][:password].blank?
     params.require(:user).permit(accessible)
+  end
+
+  protected
+
+  def authenticate_admin!
+    if !user_signed_in? || current_user.authority != "admin"
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 end

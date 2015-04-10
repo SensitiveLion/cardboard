@@ -1,8 +1,9 @@
 class Game < ActiveRecord::Base
   has_many :reviews, dependent: :destroy,
-    :after_add => :update_average,
-    :after_remove => :update_average
+    :after_add => :update_average
   has_many :comments, through: :reviews
+  has_many :game_tags
+  has_many :tags, through: :game_tags
   belongs_to :user
 
   include PgSearch
@@ -28,7 +29,7 @@ class Game < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   validates :user, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { minimum: 64 }
   validates :min_players, presence: true, numericality: {
     less_than_or_equal_to: :max_players,
     message: "must be less than or equal to max players!",
@@ -38,7 +39,9 @@ class Game < ActiveRecord::Base
   validates :max_players, presence: true, numericality: {
     greater_than_or_equal_to: 1, only_integer: true
   }
-  validates :playing_time, presence: true
+  validates :playing_time, presence: true, numericality: {
+    greater_than_or_equal_to: 1, only_integer: true
+  }
   validates :complexity, presence: true
 
   def complexity_name

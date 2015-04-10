@@ -10,15 +10,28 @@
       <li class="larger">
         <% unless @game.average == 0.0 %>
           gamers rating: <%= @game.average.round(1) %>
+        <% else %>
+          no rating, add a review to rate it
         <% end%>
       </li>
       <li class="larger">players: <%= @game.min_players %> to <%= @game.max_players %></li>
       <li class="larger">playing time: <%= @game.playing_time %></li>
       <li class="larger">complexity: <%= @game.complexity_name %></li>
-      <li>
-        <h4>description:</h4>
+      <%- if @game.amazon_html -%>
+      <li class="larger">buy this game: <%= @game.amazon_html.html_safe %></li>
+      <% end %>
+      <li class="larger">
+        description: <br>
         <%= @game.description %>
       </li>
+      <li class="larger">tags:
+        <ul class="inline-list">
+        <% @game.tags.each do |tag| %>
+          <li class="tag"><%= tag.name %></li>
+        <% end %>
+        </ul>
+      </li>
+      <p><%= link_to "add a tag", new_game_game_tag_path(@game) %></p>
     </ul>
   </li>
   <li><%= image_tag(@game.photo_url) %></li>
@@ -30,27 +43,40 @@ submitted by: <%= link_to @game.user.username, user_path(@game.user) %>
 
 <% @reviews.each do |review| %>
   <div class="panel">
-  <%= render partial: 'votes/voter', locals: { review: review } %>
-    <h4><%= review.user.username %> says</h4><p><%= review.body %></p>
-      <p class="smaller">created at: <%= review.updated_at %></p>
-      <p>
-        <% if current_user == review.user || current_user.has_authority? %>
-          <%= link_to "edit review", edit_review_path(review) %> ||<%= link_to "add comment", new_review_comment_path(review) %>
-        <% else %>
-          <%= link_to "add comment", new_review_comment_path(review) %>
-        <% end %>
-      </p>
-    <div class="panel">
-      <h5>comments:</h5>
-      <% review.comments.each do |comment| %>
-        <p><%= comment.user.username %> says: <%= comment.body %></p>
-        <p>
-        <% if current_user == comment.user || current_user.has_authority? %>
-          <%= link_to "edit", edit_comment_path(comment) %> ||
-          <%= link_to "delete", comment, method: :delete %>
-        <% end %>
+    <div class="row">
+      <div class="medium-1 columns">
+        <%= render partial: 'votes/voter', locals: { review: review } %>
+      </div>
+      <div class="medium-11 columns">>
+        <h4 class="panel-text">
+          <%= review.user.username %> gives this a <%= review.game_rating %> out of 10
+        </h4>
+        <p class="panel-text"><%= review.body %></p>
+        <p class="smaller" id="created">created at: <%= review.updated_at %></p>
+        <p class="panel-text">
+          <% if current_user != nil %>
+            <% if current_user == review.user || current_user.has_authority? %>
+              <%= link_to "edit review", edit_review_path(review) %> || <%= link_to "add comment", new_review_comment_path(review) %>
+            <% else %>
+              <%= link_to "add comment", new_review_comment_path(review) %>
+            <% end %>
+          <% end %>
         </p>
-      <% end %>
+        <div class="panel">
+          <h5 class="panel-text">comments:</h5>
+          <% review.comments.each do |comment| %>
+            <p class="panel-text"><%= comment.user.username %> says: <%= comment.body %></p>
+            <p class="panel-text">
+              <% if current_user != nil %>
+                <% if current_user == comment.user || current_user.has_authority? %>
+                  <%= link_to "edit", edit_comment_path(comment) %> ||
+                  <%= link_to "delete", comment, method: :delete %>
+                <% end %>
+              <% end %>
+            </p>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

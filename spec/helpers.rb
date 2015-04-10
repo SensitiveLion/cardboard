@@ -4,17 +4,17 @@ def sign_up
   fill_in 'password', with: 'password'
   fill_in 'confirmation', with: 'password'
   fill_in 'username', with: 'im a user'
-  click_button 'Sign up'
+  click_button 'sign up'
 
   expect(page).to have_content('Welcome! You have signed up successfully.')
-  expect(page).to have_content('Sign Out')
+  expect(page).to have_content('sign out')
 end
 
 def sign_in_as(user)
   visit new_user_session_path
   fill_in 'email', with: user.email
   fill_in 'password', with: user.password
-  click_button "Log in"
+  click_button "log in"
 end
 
 def create_game(user)
@@ -24,7 +24,11 @@ end
 def make_review_for_game(game)
   visit game_path(game)
   click_link "review this game"
-  fill_in "your review", with: "something something something"
+  fill_in "your review", with: "Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu."
   select 5, from: "rating"
   click_button "add review"
 end
@@ -32,7 +36,11 @@ end
 def make_review_for_game1(game)
   visit game_path(game)
   click_link "review this game"
-  fill_in "your review", with: "something something something"
+  fill_in "your review", with: "Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu."
   select 10, from: "rating"
   click_button "add review"
 end
@@ -45,7 +53,11 @@ end
 
 def add_review
   click_link "review this game"
-  fill_in "your review", with: "something something something"
+  fill_in "your review", with: "Butcher McSweeney's High Life, PBR&B +1
+      single-origin coffee 8-bit stumptown distillery messenger bag XOXO
+      Vice meditation tilde. Chia fashion axe flannel pickled biodiesel
+      retro four dollar toast tote bag art party, keffiyeh mustache artisan
+      mumblecore tofu. something something something"
   click_button "add review"
 end
 
@@ -56,7 +68,7 @@ def game_user
   fill_in 'confirmation', with: 'password'
   fill_in 'username', with: 'im as user'
 
-  click_button 'Sign up'
+  click_button 'sign up'
 end
 
 def mock_fb

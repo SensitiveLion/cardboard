@@ -1,0 +1,30 @@
+<%- if @game_tag.errors.present? -%>
+  <%- @game_tag.errors.full_messages.each do |error| -%>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<h1>select or add a new tag</h1>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <p>current tags:
+    <% @game.tags.each do |tag| %>
+      <%= tag.name %>
+    <% end %></p>
+
+    <%= form_for [@game, @game_tag] do |f| %>
+      <div class="field">
+        <%= f.label :tags, "Tag" %><br>
+        <%= f.collection_select :tag_id, Tag.all, :id, :name %>
+      </div>
+      <%= f.submit "add a tag" %>
+
+    <% end %>
+    <br>
+    <br>
+    <div class="link-to"><%= link_to "click to go back", game_path(@game) %></div>
+    <div class="link-to"><%= link_to "click here to enter a new tag", new_tag_path(game: params[:game_id])%></div>
+  </div>
+</div>

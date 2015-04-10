@@ -1,69 +1,58 @@
-<ul id="data-orbit">
-  <div id="wrapper">
-    <div class="row">
-      <div class="large-12 hide-for-small">
-        <div id="featured" data-orbit>
-          <li>
-            <img src="http://i.imgur.com/pmXMshh.jpg">
-            <div class="orbit-caption">
-              elite game reviews by elite gamers
-            </div>
-          </li>
-          <li>
-            <img src="http://i.imgur.com/9dZY7Wi.jpg">
-            <div class="orbit-caption">
-            </div>
-          </li>
-          <img src="http://i.imgur.com/qJcIiuh.jpg">
-          <img src="http://i.imgur.com/qsgU9F3.jpg">
-          <img src="http://i.imgur.com/aXcLSwL.jpg">
-        </div>
-      </div>
-    </div>
-  </div>
-</ul>
 <div class="row" id="title">
   <div class="small-8 large-centered column" >
     <h1>cardboard<h1>
     <h3>for all your corrugated needs</h3>
+
   </div>
 </div>
-<div class="row">
-  <div class="large-12 columns">
-    <div class="row">
-      <div class="large-4 small-6 columns">
-          <h4>up and coming games</h4><hr>
+<div class="large-12 columns">
+  <div class="row">
+    <div class="large-4 small-6 columns">
+      <div class="panel">
+        <h4 class="panel-text">search games</h4><hr>
+        <h5>
+          <%= form_tag games_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "search-box" %>
+            <%= submit_tag "search", name: nil, class: "btn btn-search" %>
+          <% end %>
+        </h5><hr>
+        <% if params[:query] != nil %>
           <% if @games.empty? %>
             No games matched your search
           <% else %>
             <% @games.each do |game| %>
               <div class="row">
-              <div class="large-12 small-centered columns">
-                <h5><%= link_to game.name, game_path(game) %></h5>
-              </div>
-            </div><hr>
+                <div class="large-12 small-centered columns">
+                  <h5><%= link_to game.name, game_path(game) %></h5>
+                </div>
+              </div><hr>
+            <% end %>
           <% end %>
         <% end %>
       </div>
-      <div class="large-4 small-6 columns">
-        <img src="http://i.imgur.com/ZsQgaZF.jpg">
+    </div>
+    <div class="large-4 small-6 columns">
+      <div class="panel">
+        <h4 class="panel-text">all the games</h4><hr>
+        <% @games_name.each do |game| %>
+          <div class="row">
+            <div class="large-12 small-centered columns">
+              <h5><%= link_to game.name, game_path(game) %></h5>
+            </div>
+          </div><hr>
+        <% end %>
       </div>
-      <div class="large-4 small-12 columns">
-        <h4>more options</h4><hr>
-        <div class="panel hide-for-small">
-          <h5>
-              <%= form_tag games_path, method: :get do %>
-              <%= text_field_tag :query, params[:query], class: "search-box" %>
-              <%= submit_tag "search", name: nil, class: "btn btn-search" %>
-          <% end %>
-        </h5>
-        </div>
-        <div class="panel">
-          <h5><%= link_to "add a new game", new_game_path %></h5>
-        </div>
-        <div class="panel hide-for-small">
-          <h5><%= link_to "check out other gamers", users_path %></h5>
-        </div>
+    </div>
+    <div class="large-4 small-12 columns">
+      <div class="panel">
+        <h4 class="panel-text">highest rated games</h4><hr>
+        <% @games_rating.each do |game| %>
+          <div class="row">
+            <div class="large-12 small-centered columns">
+              <h5><%= link_to game.name, game_path(game) %></h5>
+            </div>
+          </div><hr>
+        <% end %>
       </div>
     </div>
   </div>

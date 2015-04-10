@@ -6,12 +6,22 @@
   <% end %>
 <% end %>
 
+
 <h1>enter the comment information</h1>
-<%= form_for [@review, @comment] do |f| %>
+<div class="row">
+  <div class="small-8 large-centered column">
+    <%= form_for [@review, @comment] do |f| %>
 
-  <%= f.label :body, "your comment" %>
-  <%= f.text_area :body %>
+      <div class="field">
+        <%= f.label :body, "your comment" %>
+        <%= f.text_area :body %>
+      </div>
 
-  <%= f.submit "add comment" %>
-<% end %>
-<%= link_to "cancel", game_path(@review.game) %>
+      <div class="actions">
+        <%= f.submit "add comment" %>
+      </div>
+
+    <% end %>
+    <%= link_to "cancel", game_path(@review.game) %>
+  </div>
+</div>
