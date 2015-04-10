@@ -27,11 +27,10 @@ describe "user logs in facebook" do
 
   scenario "User logs in with their facebook account" do
     visit '/'
-    visit new_user_registration_path
-    expect(page).to have_content("Sign in with Facebook")
-    click_link "Sign in with Facebook"
+    click_link 'sign up'
+    click_link "sign in with Facebook"
     expect(page).to have_content("foobar999")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("sign out")
     expect(page).to have_content("Successfully authenticated from Facebook account.")
   end
 

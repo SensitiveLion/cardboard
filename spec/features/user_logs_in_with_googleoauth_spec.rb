@@ -27,11 +27,10 @@ describe "user logs in google" do
 
   scenario "User logs in with their google acount" do
     visit '/'
-    visit new_user_registration_path
-    expect(page).to have_content("Sign in with Google")
-    click_link "Sign in with Google"
+    click_link 'sign up'
+    click_link "sign in with Google Oauth2"
     expect(page).to have_content("foobar999")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content("sign out")
     expect(page).to have_content("Successfully authenticated from Google_oauth2 account.")
   end
 
