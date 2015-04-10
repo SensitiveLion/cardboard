@@ -1,5 +1,10 @@
 <h2>sign up</h2>
-<h5>* fields are required</h5>
+
+<div class="oauth"><%= render "devise/shared/links" %></div>
+
+<div class="oauth"> || OR || </div>
+
+<div class="oauth"> create your own account </div>
 
 <div class="row">
   <div class="small-8 large-centered column">
@@ -58,6 +63,5 @@
         <%= f.submit "sign up" %>
       </div>
     <% end %>
-    <%= render "devise/shared/links" %>
   </div>
 </div>

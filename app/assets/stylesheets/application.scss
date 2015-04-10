@@ -199,13 +199,20 @@ a:hover {
 }
 
 .actions input {
+  font-family: $nexa-font;
   background:none;
   border:none;
   color: $unvisited-color;
-  padding: 0;
+  padding-bottom: 20px;
+  font-size: 150%;
 }
 
 .carousel {
     position: relative;
     right: 13%;
+}
+
+.oauth {
+  font-family: $nexa-font;
+  text-align: center;
 }

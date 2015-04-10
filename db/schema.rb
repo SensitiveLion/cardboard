@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150410134628) do
+ActiveRecord::Schema.define(version: 20150410183503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20150410134628) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20150410134628) do
     t.string "name", null: false
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "upvotes", force: :cascade do |t|
     t.integer  "user_id",                    null: false
