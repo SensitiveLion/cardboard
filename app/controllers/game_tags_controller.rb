@@ -7,15 +7,22 @@ class GameTagsController < ApplicationController
   end
 
   def create
-    @game_tag = GameTag.new(tag_params)
-    @game = Game.find(params[:game_id])
-    @game_tag.game = @game
-    if @game_tag.save
-      flash[:notice] = "game tagged"
-      redirect_to game_path(params[:game_id])
+    unless params[:game_tag]
+      flash[:alert] = "you must select or create a tag"
+      @game = Game.find(params[:game_id])
+      @game_tag = GameTag.new
+      redirect_to new_game_game_tag_path(@game)
     else
-      flash[:notice] = "tag not saved"
-      render :new
+      @game_tag = GameTag.new(tag_params)
+      @game = Game.find(params[:game_id])
+      @game_tag.game = @game
+      if @game_tag.save
+        flash[:notice] = "game tagged"
+        redirect_to game_path(params[:game_id])
+      else
+        flash[:notice] = "tag not saved"
+        render :new
+      end
     end
   end
 
