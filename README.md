@@ -1,5 +1,7 @@
 README
 
+![boxxy](http://i.imgur.com/9n0cmic.gif "boxxy")
+
 * Ruby version
 Used version ruby 2.1.5p273
 
