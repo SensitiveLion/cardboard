@@ -33,7 +33,7 @@ https://i.imgur.com/H7bMWy2.jpg)
 
 #### Game show page
 ![Show Games](
-https://i.imgur.com/nsmdIE5.png)
+http://i.imgur.com/kY9mYSv.png)
 
 #### Reviews and their comments on game page
 ![Comments and Reviews](
@@ -41,7 +41,7 @@ https://i.imgur.com/rZ4MFgu.png)
 
 #### The index of all pages and search function
 ![Game Index Search](
-https://i.imgur.com/aGem1vg.png)
+http://i.imgur.com/zrJqy7b.png)
 
 
 #### An example of a form
@@ -55,6 +55,10 @@ https://i.imgur.com/SBfCDRi.png)
 #### User profile
 ![User Profile](
 https://i.imgur.com/f8Xfvo1.png)
+
+#### User Sign Up
+![User Sign Up])
+http://imgur.com/IjzcuXS,kY9mYSv,zrJqy7b,a5p6T76,IuoruSO,IsMEkpo,cunuAl2,xpxS3OG#6)
 
 
 [![Build Status](https://travis-ci.org/SensitiveLion/cardboard.svg?branch=master)](https://travis-ci.org/SensitiveLion/cardboard) [![Code Climate](
